@@ -1,0 +1,79 @@
+/*
++----------------------------------------------------------------------+
+| Copyright (c) VAIV.  co. Ltd
++----------------------------------------------------------------------+
+| 요즘 뜨는
++----------------------------------------------------------------------+
+*/
+@charset "utf-8";
+
+$these-days-top-topic-img-width: 520px; // 탑 콘텐츠 이미지 사이즈
+$these-days-top-topic-img-height: 250px; // 탑 콘텐츠 이미지 사이즈
+$these-days-writer-thum-size: 34px; // 탑 콘텐츠 저자 프로필 이미지
+$these-days-writer-thum-size-small: 26px; // 리스트 저자 프로필 이미지
+$these-days-list-thum-width: 380px; // 리스트 이미지 사이즈
+$these-days-list-thum-height: 182px; // 리스트 이미지 사이즈
+
+.main-sect-these-days {margin-top: 0;}
+
+#recent-content-wrap {margin-top: 35px;}
+
+.these-days-top-topic-link {display: block;position: relative;padding-left: $these-days-top-topic-img-width + 45;min-height: $these-days-top-topic-img-height;}
+.these-days-top-topic-link-col:first-child {position: absolute;top: 0;left: 0;}
+.these-days-top-topic-link-col:last-child {width: 100%;}
+.these-days-top-topic-link-thum {position: relative;width: $these-days-top-topic-img-width;height: $these-days-top-topic-img-height;overflow: hidden;}
+.these-days-top-topic-link-thum .new-flag {position: absolute;top: 10px;right: 10px;z-index: 10;}
+.these-days-top-topic-link-thum img {width: 100%;height: 100%;transition-duration: .5s;}
+.these-days-top-topic-link-thum:hover img {transform: scale(1.1);}
+
+.these-days-top-topic-link-titlebox {height: 204px;}
+.these-days-top-topic-link-title {position: relative;}
+
+.these-days-top-topic-link-title-header {position: relative;display: flex;justify-content: space-between;margin: 0 0 25px;}
+.these-days-top-topic-link-title-small {display: block;padding-right: 15px;font-size: $font-middle;font-weight: $font-regular;color: $black-alpha70;@include text-cut;}
+.these-days-top-topic-link-date {font-size: $font-middle;font-weight: normal;color: $black-alpha70;text-align: right;}
+
+.these-days-top-topic-link-title-big {font-size: $h5;font-weight: $font-bold;color: $black-light;line-height: 1.5;@include text-cut-multiline(3em, 2);word-wrap: break-word; word-break: keep-all;}
+
+.these-days-top-topic-link-desc {margin: 20px 0 10px;font-size: $font-middle;color: $black-alpha70;line-height: 1.5;}
+.these-days-top-topic-link-desc .text {@include text-cut-multiline(3em, 2);}
+.these-days-top-topic-link-etc {display: flex;justify-content: space-between;padding-top: 8px;border-top: 1px solid $grey-light4;}
+.these-days-top-topic-link-etc-button {display: inline-flex;justify-content: flex-end; width: 100px;flex: 0 0 100px;align-items: center;font-size: $font-base;text-align: right;color: $black-light;}
+.these-days-top-topic-link-etc-button i {position: relative;margin-left: 8px;}
+.these-days-top-topic-link-writer-info {
+    @include contents-writer-thumbnail($these-days-writer-thum-size);
+}
+
+.these-days-top-topic.youtube .these-days-top-topic-link-thum::after {content: '';position: absolute;left: 50%;top: 50%;@include pos-center();display: block;width :50px;height: 50px;background: url('/renewal_resources/images/icon_play.png') no-repeat 50%;z-index: 1}
+
+.these-days-list-row {margin: 90px 0 0;}
+.these-days-list {display: grid;grid-template-columns: repeat(3, 1fr);grid-gap: 60px 30px;}
+.these-days-list-item {position: relative;-webkit-backface-visibility: hidden;backface-visibility: hidden;overflow: hidden;}
+.these-days-list-item .new-flag {position: absolute;top: 10px;right: 10px;z-index: 20;}
+.these-days-list-item-thum {position: relative;}
+.these-days-list-item-thum-img {display: block;width: 100%;height: $these-days-list-thum-height;margin: 0 0 25px;overflow: hidden;}
+.these-days-list-item-thum-img img {width: 100%;height: 100%;transform: scale(1);transition-duration: .5s;}
+.these-days-list-item:hover img {transform: scale(1.1);}
+
+.these-days-list-item-titlebox {height: 145px;}
+.these-days-list-item-title {position: relative;margin: 0 0 15px;}
+
+.these-days-list-item-title-sub-header {position: relative;display: flex;justify-content: space-between;margin: 0 0 20px;}
+
+.these-days-list-item-title-small {display: block;padding-right: 15px;font-size: $font-base;font-weight: $font-regular;color: $black-alpha70;@include text-cut;}
+.these-days-list-item-title-date {display: inline-flex;justify-content: flex-end;flex: 95px;width: 95px;font-size: $font-base;font-weight: normal;color: $black-alpha70;}
+
+.these-days-list-item-title-big {display: block;font-size: $font-middle;font-weight: $font-bold;color: $black-light;line-height: 1.5;@include text-cut-multiline(3em, 2);}
+
+.these-days-list-item-desc {font-size: $font-base;font-weight: normal;color: $black-alpha70;line-height: 1.6;@include text-cut-multiline(3em, 2);}
+
+.these-days-list-item-etc {display: flex;justify-content: space-between;padding-bottom: 20px;margin: 20px 0 0;border-bottom: 1px solid $grey-light4;}
+.these-days-list-item-etc-button {display: inline-flex;align-items: center;justify-content: flex-end;flex: 0 0 30%;font-size: $font-small;font-weight: $black-light;}
+.these-days-list-item-etc-button i {position: relative;margin-left: 8px;}
+.these-days-list-item-etc-writer-info {
+    flex: 0 0 70%;justify-content: flex-start;
+    @include contents-writer-thumbnail($these-days-writer-thum-size-small);
+}
+.these-days-list-item.youtube .these-days-list-item-thum::after {content: '';position: absolute;left: 50%;top: 50%;@include pos-center();display: block;width :50px;height: 50px;background: url('/renewal_resources/images/icon_play.png') no-repeat 50%;z-index: 1}
+
+#insight-content-pagination {margin-top: 60px;}

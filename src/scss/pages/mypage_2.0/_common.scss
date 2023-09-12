@@ -1,0 +1,16 @@
+.align-items-start {align-items: flex-start !important;}
+.align-items-center {align-items: center !important;}
+
+// 마이페이지 타이틀
+.contents-title-row {
+    & {display: flex;align-items: center;justify-content: space-between;margin-bottom: 20px;}
+    
+    .contents-title {
+        & {display: inline-flex;align-items: center;gap: 5px;font-size: $font-size-lg;font-weight: $font-weight-600;color: $base-black;}
+
+        .count {font-size: $font-size-lg;font-weight: $font-weight-500;color: $primary-500;}
+    }
+}
+
+// 마이페이지 내비
+#mypage-nav {margin-top: 36px;}

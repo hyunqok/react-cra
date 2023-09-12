@@ -1,0 +1,202 @@
+@charset "utf-8";
+
+/*
++----------------------------------------------------------------------+
+| Copyright (c) VAIV.  co. Ltd
++----------------------------------------------------------------------+
+| 콘텐츠 상세 레이아웃
++----------------------------------------------------------------------+
+*/
+
+.main-visual .insight-detail-visual {margin-top: 0;}
+
+// 히어로
+.layout-detail-hero {position: relative;height: 320px;margin-top: 40px;}
+.layout-detail-hero-bg {position: absolute;top: 0;left: 50%;@include pos-center('x');width: 100%;height: 100%;overflow: hidden;display: none;}
+.layout-detail-hero-bg img {position: relative;top: -20px;left: -20px;width: calc(100% + 40px);height: calc(100% + 40px);object-fit: cover;filter: blur(20px);}
+.layout-detail-hero-content {position: relative;max-width: 700px;height: 100%;margin: 0 auto;padding: 30px;}
+.layout-detail-hero-content-bg {position: absolute;top: 0;left: 0;width: 100%;height: 100%;overflow: hidden;}
+.layout-detail-hero-content-bg::after {content: '';display: block;position: absolute;top: 0;left: 0;width: 100%;height: 100%;background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.8) 100%); }
+.layout-detail-hero-content-bg img {width: 100%;}
+.layout-detail-hero-inner {position: relative;width: 100%;height: 100%;}
+.layout-detail-hero-txt {position: absolute;bottom: 0;left: 0;width: 100%;padding-right: 150px;word-break: keep-all;}
+.layout-detail-hero-tit {margin-bottom: 60px;color: $white;}
+.layout-detail-hero-tit h4 {font-size: $h4;font-weight: $font-bold;line-height: 1.5;}
+.layout-detail-hero-tit h4 span,
+.layout-detail-hero-tit h6 {display: block;font-size: $h6;font-weight: $font-medium;line-height: 1.68;}
+.layout-detail-hero-tit h5 {display: block;font-size: $h6;font-weight: $font-medium;line-height: 1.68;}
+.layout-detail-hero-maker {display: flex;align-items: center;color: $white;font-size: $font-base;}
+.layout-detail-hero-maker figure {overflow: hidden;width: 30px;height: 30px;margin-right: 8px;border-radius: 50%;}
+.layout-detail-hero-maker figure img {width: 100%;}
+.layout-detail-hero-maker small {margin-right: 4px;font-size: $font-base;}
+.layout-detail-hero-share {display: flex;align-items: center;position: absolute;bottom: 0;right: 0;}
+.layout-detail-hero-share button {width: 30px;height: 30px;border-radius: 50%;margin-right: 10px;background: center/auto no-repeat;transition: transform 0.2s;}
+.layout-detail-hero-share button:hover {transform: translateY(4px);}
+.layout-detail-hero-share button:last-child {margin-right: 0;}
+.layout-detail-hero-share button span {@include hidden;}
+.layout-detail-hero-share .btn-fb {background-color: #1976D2;background-image: url('https://static.some.co.kr/sometrend/images/content/detail_share_fb_pc.svg');}
+.layout-detail-hero-share .btn-twit {background-color: #1DA1F2;background-image: url('https://static.some.co.kr/sometrend/images/content/detail_share_twit_pc.svg');}
+.layout-detail-hero-share .btn-kko {background-color: #FFE600;background-image: url('https://static.some.co.kr/sometrend/images/content/detail_share_kko_pc.svg');}
+.layout-detail-hero-share .btn-link {background-color: $white;background-image: url('https://static.some.co.kr/sometrend/images/content/detail_share_link_pc.svg');}
+
+// 내용
+.layout-detail-body {max-width: 700px;margin: 0 auto;padding-bottom: 65px;
+    #content {padding-top: 30px;}
+    * {font-family: $base-font !important;}
+}
+
+.layout-detail-content {padding: 0 0 60px;color: $black-light;line-height: 1.7;word-break: keep-all;}
+.layout-detail-content img {width: auto;max-width: 100%;}
+// 코너 상세 페이지, 내용 상단 여백 제거
+.layout-detail.corner .layout-detail-content {padding-top: 0;}
+.layout-detail-content h3 {font-size: 21px;font-weight: $font-bold;line-height: 1.5;}
+.layout-detail-content h5 {font-size: 19px;font-weight: $font-bold;line-height: 1.68;}
+.layout-detail-content p {font-size: 15px;}
+.layout-detail-content p {
+    em {font-weight: $font-bold;}
+}
+.layout-detail-content .source-text{font-size: 0.5rem;opacity: 0.7;} //출처 ex) 파우더룸
+.layout-detail-content .text-color{color: $primary}
+.layout-detail-content small {display: block;font-size: 15px;color: $black-alpha70;}
+.layout-detail-content strong {font-size: 21px;}
+.layout-detail-content mark {font-weight: bold;}
+.layout-detail-content .hash-list {font-size: 15px;font-weight: normal;}
+
+.layout-detail-content-row {margin-bottom: 60px;}
+.layout-detail-content-row:last-child {margin-bottom: 0;}
+.layout-detail-content-tit {margin-bottom: 30px;}
+.layout-detail-content-tit:last-child {margin-bottom: 0;}
+.layout-detail-content-tit h6 {font-size: $font-base;}
+.layout-detail-content-figure-group {margin: 50px 0;}
+.layout-detail-content-figure {margin: 50px 0;text-align: center;}
+.layout-detail-content-figure:first-child {margin-top: 0;}
+.layout-detail-content-figure:last-child {margin-bottom: 0;}
+// .layout-detail-content-tit + .layout-detail-content-figure {margin-top: 0;}
+.layout-detail-content-figure img {max-width: 100%;}
+.layout-detail-content-figure figcaption {margin-top: 20px;color: $black-alpha50;text-align: center;font-size: 12px;line-height: 1.44;}
+.layout-detail-content-figure figcaption:first-child {margin-top: 0;}
+.layout-detail-content-zoom {position: relative;min-height: 60px;}
+.layout-detail-content .controlHolder {
+    .zoomIn, .zoomOut {display: none;}
+}
+.layout-detail-content-youtube {position: relative;width: 100%;height: auto;padding-bottom: 56.25%;}
+.layout-detail-content-youtube iframe {position: absolute;top: 0;left: 0;width: 100%;height: 100%;}
+.layout-detail-content-mov {position: relative;width: 100%;height: auto;padding-bottom: 100%;}
+.layout-detail-content-mov iframe {position: absolute;top: 0;left: 0;width: 100%;height: 100%;}
+.layout-detail-content-btn {min-width: 400px;text-align: center;font-weight: $font-bold;
+    &:hover {color: #fff !important;}
+}
+.layout-detail-content-btn i {position: relative;top: -1px;margin-left: 4px;font-size: 16px;font-weight: $font-regular;line-height: 11px;}
+.layout-detail-content-btn-row {margin-top: 30px;text-align: center;
+    &.item-2 .vbtn {margin: 5px 0;}
+}
+.layout-detail-content-btn-row:first-child {margin-top: 0;}
+.layout-detail-content-keyword {background: $primary-alpha20;background: linear-gradient(rgba(0, 0, 0, 0) 45%, $primary-alpha20 0);color: $primary;font-weight: $font-bold;}
+.layout-detail-content-link {color: $blue;text-decoration: underline;}
+.layout-detail-content-link:link,
+.layout-detail-content-link:visited,
+.layout-detail-content-link:active {text-decoration: underline;}
+.layout-detail-content-underline {font-weight: $font-bold;text-decoration: underline;color: $black-light;}
+.layout-detail-content-blockquote {padding: 1px 0 0 12px;border-left: 2px solid #acacac;line-height: 160%;text-align: left;color: $black-alpha70;}
+
+.layout-detail-body .content-disclaimer {margin-bottom: 60px;line-height: 1.7;font-size: $font-base;word-break: keep-all;word-wrap: break-word;color: $grey-dark2;}
+
+// 정보
+.layout-detail-info {margin-bottom: 40px;padding-top: 30px;border-top: 1px solid $grey-light4;}
+.layout-detail-info-tag {display: inline-flex;flex-wrap: wrap;align-items: center;padding-right: 70px; display:none} // tag영역 display:none 처리 (개발 보류)
+.layout-detail-info-tag li {flex-shrink: 0;margin: 2.5px;}
+.layout-detail-info-tag li:last-child {margin-right: 0;}
+.layout-detail-info-tag li a {display: block;padding: 8px 12px;border-radius: 30px;background: $grey-light;color: $grey-dark2;font-size: $font-small;font-weight: $font-bold;transition: background 0.3s;}
+.layout-detail-info-tag li a:hover {background: darken($grey-light, 5%);}
+.layout-detail-info-date {text-align: right;margin-bottom: -38px;}
+.layout-detail-info-date p {color: $black-alpha70;font-size: $font-middle;line-height: 144%;}
+.layout-detail-info-author {margin-top: 10px;}
+.layout-detail-info-author .author-belong {display: flex;align-items: center;color: $black;}
+.layout-detail-info-author .author-belong figure {position: relative;flex-shrink: 0;width: 36px;height: 36px;margin-right: 10px;}
+.layout-detail-info-author .author-belong figure img {width: 100%;border-radius: 50%;border: 1px solid $grey-light2;overflow: hidden;}
+.layout-detail-info-author .author-belong p {font-size: $font-base;font-weight: $font-bold;}
+.layout-detail-info-author .author-desc {margin-top: 15px;line-height: 144%;font-size: $font-small;color: $black-alpha70;}
+
+// 목록
+.layout-detail-go {padding-bottom: 45px;}
+.layout-detail-go .vbtn {width: 100%;text-align: center;@include card-shadow;font-size: $h6;font-weight: $font-bold;}
+.layout-detail-go .vbtn i {position: relative;top: -2px;margin-left: 5px;font-size: 20px;font-weight: $font-regular;line-height: $h6;}
+
+// 썸네일 배경 처리
+.thum-bg-white {background-color: #fff;}
+
+// bullet 스타일
+.layout-detail-content-bullet1 {margin: 10px 0 0;}
+.layout-detail-content-bullet1-item {display: block;position: relative;padding-left: 10px;color: $black-alpha70;}
+.layout-detail-content-bullet1-item::before {content: "";display: block;position: absolute;top: 9px;left: 0;width: 4px;height: 4px;border-radius: 50%;background-color: $black-alpha70;}
+
+/* 요즘 뜨는 코너의 상세가 추가 됨
+    스마트 에디터로 등록하는 콘텐츠의 경우만 이렇게 하는 것인지
+    요즘 뜨는 코너의 상세만 이렇게 가는것인지 정해지지 않았음
+*/
+.layout-detail-corner-header {padding: 40px 0 0;}
+.layout-detail-corner-header-title {margin: 0 0 30px;font-size: $h4;font-weight: $font-bold;color: $black-light;}
+.layout-detail-corner-header-subject {font-size: $h5;font-weight: $font-bold;color: $black-light;line-height: 1.4;word-wrap: break-word; word-break: keep-all;}
+.layout-detail-corner-header-subject h4 {font-weight: $font-bold;}
+.layout-detail-corner-header-subject h4 span {display: block;margin: -50px 0 40px;font-size: $font-base;color: $black-alpha70;font-weight: $font-bold;text-align: right;}
+.layout-detail-corner-writer-profile {
+    @include contents-writer-thumbnail(30px);
+}
+
+.layout-detail-corner-header-writer-info {display: flex;align-items: center;justify-content: space-between;padding: 30px 0;}
+.layout-detail-corner-header-writer-info .col-share {display: flex;justify-content: flex-end;}
+
+// 공유하기 타입2
+.layout-detail-hero-share.detail-corner {position: relative;top: auto;left: auto;}
+.layout-detail-hero-share.detail-corner .btn-link {background-color: $grey-light4;}
+
+// admin > editor로 입력한 상세
+.type-smart-editor {margin-top: 30px;}
+
+
+// 추천 콘텐츠
+.recommend-contents-list-title {margin-bottom: 20px;font-size: $font-small;font-weight: $font-bold;color: $primary;}
+.recommend-contents-list {display: grid;grid-template-columns: repeat(3, 1fr);grid-gap: 0 20px;}
+.recommend-contents-item {position: relative;overflow: hidden;}
+
+.recommend-contents-item-thum {position: relative;overflow: hidden;height: 108px;margin-bottom: 15px;}
+.recommend-contents-item-thum img {width: 100%;height: 100%;transition-duration: .3s;}
+.recommend-contents-item:hover .recommend-contents-item-thum img {transform: scale(1.1);}
+
+.recommend-contents-item-desc {height: 65px;}
+.recommend-contents-item-title {margin-bottom: 10px;font-size: $font-base;font-weight: $font-bold;color: $black-light;@include text-cut;}
+.recommend-contents-item-text {font-size: $font-small;color: $black-alpha70;@include text-cut-multiline(3em, 2);line-height: 1.5;}
+
+.recommend-contents-item-foot {margin-top: 25px;}
+.recommend-contents-item-foot .btn-detail {display: inline-flex;align-items: center;font-size: $font-small;color: $black-light;}
+.recommend-contents-item-foot .btn-detail i {margin-left: 6px;}
+
+.recommend-contents-item.youtube {
+    .recommend-contents-item-thum::after {content: '';position: absolute;left: 50%;top: 50%;@include pos-center();display: block;width :50px;height: 50px;background: url('/renewal_resources/images/icon_play.png') no-repeat 50%;z-index: 1}
+}
+
+.recommend-contents-item .new-flag {position: absolute;top: 10px;right: 10px;z-index: 20;}
+
+// 비즈 콘텐츠 - 상세 230519 : s107 관련 내용
+.biz-intro-page-section {
+    .biz-intro-heading-box {margin-bottom: 30px;padding-bottom: 30px;border-bottom: 1px solid $grey-light4}
+    .biz-intro-page-title {font-size: $h4;color: $primary;line-height: 150%;}
+    .biz-intro-page-desc {margin-top: 10px;}
+    .biz-intro-page-desc em{
+        font-size: $font-middle;line-height: 160%;color: $primary;font-weight: $font-medium;background-repeat: no-repeat;background-image: linear-gradient(180deg, $primary-alpha10, $primary-alpha10);background-position-y: 10px;}
+
+    .biz-intro-page-text {margin-top: 20px;font-size: $font-base;color: $black-light;line-height: 160%;}
+
+    .biz-intro-page-subj {font-size: $font-middle;color: $black-light;line-height: 160%;}
+    .biz-intro-page-list-wrap {margin-top: 15px;padding: 20px;border-radius: 5px;border: 1px solid $grey-light3;background-color: $grey-light}
+
+    .biz-intro-page-list + .biz-intro-page-list {margin-top: 20px;}
+    .biz-intro-page-list dt {color: $black-light;font-size: $font-base;line-height: 160%;font-weight: $font-medium}
+    .biz-intro-page-list dd {margin-top: 10px;font-size: $font-base;line-height: 160%;font-weight: $font-light;color: $black-alpha70;}
+
+    .biz-intro-page-list-text {margin-top: 45px;font-size: $font-base;line-height: 160%;font-weight: $font-light;color: $black-alpha70;}
+    .biz-intro-page-buttons {display: flex;flex-direction: column;align-items: center;margin: 60px auto 40px;text-align: center;}
+    .biz-intro-page-buttons .vbtn {width: 320px;}
+    .biz-intro-page-buttons .vbtn i {font-size: 24px;}
+    .biz-intro-page-buttons .vbtn + .vbtn {margin-top: 10px;}
+}

@@ -1,0 +1,39 @@
+@charset "utf-8";
+/*
++----------------------------------------------------------------------+
+| Copyright (c) VAIV.  co. Ltd
++----------------------------------------------------------------------+
+| 썸레터 소개
++----------------------------------------------------------------------+
+*/
+
+.some-letter-visual {position: relative;min-height: 795px;}
+.some-letter-info {
+    & {position: absolute;top: 170px;left: 50%;z-index: 100;transform: translateX(-50%);width: 100%;max-width: 1200px;line-height: 1.3;}
+    & > * {opacity: 0;transform: translateY(40px);}
+
+    .copy1 {font-size: $font-base;font-weight: $font-bold;color: $primary;margin-bottom: 15px;}
+    .copy1 span {display: inline-flex;padding: 10px 30px;background-color: $primary-alpha10;border-radius: 30em;}
+    .copy2 {font-size: $h2-small;font-weight: $font-bold;color: $black;line-height: 1.3;}
+    .copy3 {font-size: $font-middle;color: $black-alpha70;line-height: 1.6;margin: 15px 0 25px 0;}
+    .copy4 {font-size: $h4;font-weight: $font-bold;color: $black-light;}
+}
+.some-letter-btn-row {margin-top: 40px;}
+.btn-some-letter-list {padding: 0 !important;width: 270px;height: 54px;display: inline-flex;align-items: center;justify-content: center;}
+.btn-some-letter-list i {font-size: 24px;margin-left: 10px !important;}
+
+.some-letter-mockup {position: relative;text-align: right;overflow: hidden;}
+.some-letter-mockup-img {transform: scale(0.9) translate(40px, 40px);opacity: 0;}
+
+.some-letter-subscription-wrap {position: relative;background-color: $data-primary-light;}
+.some-letter-subscription-row {
+    & {display: flex; align-items: center;justify-content: space-between; width: 100%;min-height: 558px;max-width: 1200px;margin: 0 auto;}
+    .copy {font-size: $h4;font-weight: $font-bold;color: $white;line-height: 1.4;}
+
+    .some-letter-subscription-btn-row {margin-top: 30px;}
+    .btn-goto-mypage {display: inline-flex;justify-content: center;padding-inline: 0;min-width: 270px;height: 54px;text-align: center;}
+    .btn-goto-mypage i {font-size: 24px;}
+
+    .some-letter-subscription-col-copy {padding-left: 90px;}
+    .some-letter-subscription-col-obj {padding-top: 42px;}
+}

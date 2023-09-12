@@ -1,0 +1,73 @@
+
+// tab
+.tab {-webkit-transition: opacity 0.4s, color 0.4s, border 0.2s, background-color 0.5s;  transition: opacity 0.4s, color 0.4s,border 0.2s background-color 0.5s;}
+.tab li { text-align:center; box-sizing:border-box; }
+.tab li { display:inline-block; cursor:pointer; }
+.tab li a{display: block;}
+.tab_con .tabView {display:none;}
+.tab_con .tabViewOn{display: block;}
+
+/* tab-type1  */
+.tab-type1 li{display:inline-block;vertical-align: middle; margin-right: 10px;}
+.tab-type1 li a{font-size: $font-middle;line-height: 150%; color: $grey-dark; font-weight: $font-bold; position: relative;}
+.tab-type1 li a:before{content:''; position: absolute; left:0; right: 0; bottom: -10px; height: 3px;background-color: $clear}
+.tab-type1 li.on a{color: $black-light}
+.tab-type1 li.on a:before{background-color: $black-light}
+.tab-type1 .more-tooltip-box .tooltip-icon i{font-size: $h5}
+
+/* tab-type2  */
+.tab-type2 li{display:inline-block;vertical-align: middle}
+.tab-type2 li a{font-size: $h5;line-height: 150%; color: $grey-dark; position: relative;}
+.tab-type2 li a:before{content:''; position: absolute; left:0; right: 0; bottom: -6px; height: 1px;background-color: $clear}
+.tab-type2 li.on a{color: $black-light; font-weight: $font-bold; }
+.tab-type2 li.on a:before{background-color: $black-light}
+
+/* tab-type3  */
+.tab-type3 li{display:inline-block;vertical-align: top}
+.tab-type3 li.shadow a{@include box-shadow3; background-color: $white}
+.tab-type3 li a{display: inline-block; color: $grey-dark2; border-radius: 50em; padding: 16px 19px;line-height: 1;font-weight: $font-bold;font-size: $font-middle;}
+.tab-type3.grey li a{background:$grey-light4}
+.tab-type3 li.on a{font-weight: $font-bold;background-color: $primary;color: $white;opacity: 1;@include box-shadow3;}
+.tab-type3 li.shadow.on a {@include box-shadow2($primary);}
+
+/* tab-type4  */
+.tab-type4 li{margin-right: 30px;}
+.tab-type4 li .tab-icon,
+.tab-type4 li .tab-name{display: inline-block; vertical-align: middle}
+.tab-type4 li .tab-icon{display: none; margin-right: 12px;}
+.tab-type4 li .tab-icon img{width: 37px;}
+.tab-type4 li .tab-name{letter-spacing: -0.05em;color: $black;opacity: 0.7; line-height: 1;font-size:$h6;font-weight: $font-bold;}
+
+.tab-type4 li.on .tab-icon{display: inline-block; }
+.tab-type4 li.on .tab-name{opacity: 1;}
+.tab-type4 .rt-status{position: relative;top: 2px;color:$grey-dark;}
+
+/* 모달 - 원문더보기 */
+.tab-type4.small li.on{position: relative;}
+.tab-type4.small li.on:after{position: absolute;bottom: -15px;left:0;height:3px;width:100%;background:$primary;content:'';}
+
+/* tab-type5 */
+.tab-type5{margin: 0 -3px}
+.tab-type5 li{padding: 0 3px;}
+.tab-type5 li a{border-radius: 5px; border: 1px solid $primary;}
+.tab-type5 li .tab-name{display: inline-block; padding: 6px; max-width: 100%;vertical-align: middle; font-size: $font-base; font-weight: $font-bold; color: $primary; line-height: 1.5; @include text-cut();}
+.tab-type5 li.on a, .tab-type5 li:hover a{background-color: $primary}
+.tab-type5 li.on .tab-name, .tab-type5 li:not(.disabled):hover .tab-name{color: $white}
+.tab-type5 li.disabled a{background-color: $grey-light3; border-color: $grey-light3;cursor: default;}
+.tab-type5 li.disabled .tab-name{color: $grey-dark2; font-weight: $font-regular}
+
+/* tab-type6  */
+.tab-type6 {position: relative;display: flex;}
+.tab-type6::after {content: "";display: block;z-index: 1;position: absolute;bottom: 0;left: 0;width: 100%;height: 1px;background-color: $black-light;}
+.tab-type6 li {position: relative;z-index: 10;}
+.tab-type6 li > a {display: block;z-index: 2;position: relative;padding: 10px 25px;font-size: $font-base;color: $black-alpha70;border-radius: 5px 5px 0 0;}
+.tab-type6 li.on > a,
+.tab-type6 li:hover > a {color: $black-light;border: 1px solid $black-light;border-bottom: 2px solid $white;font-weight: $font-bold;}
+.tab-type6 li.on .tab-name,
+.tab-type6 li:hover .tab-name {font-weight: $font-bold;}
+.tab-type6 li > a.disabled{color:$grey-dark;border: 0;}
+.tab-type6 li:hover > a.disabled{border: 0;font-weight: $font-regular;color:$grey-dark;}
+.tab-type6 li:hover > a.disabled .tab-name{font-weight: $font-regular;color:$grey-dark;}
+.tab-type6 li.on > a.disabled,
+.tab-type6 li.on:hover > a.disabled {color: $black-light;border: 1px solid $black-light;border-bottom: 2px solid $white;}
+.tab-type6 li.on:hover > a.disabled .tab-name {color: $black-light;font-weight: $font-bold;}

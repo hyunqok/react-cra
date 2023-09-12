@@ -1,0 +1,210 @@
+@charset "utf-8";
+
+// 언급량 데이터 섹션
+.section-compare-mention-data .layout-card {height: 510px;}
+
+// 언급량 데이터 섹션
+.section-associated-compare-data .layout-card {height: 540px;}
+.section-associated-compare-data .btn-chart-modify{margin-right:0;}
+
+/* 언급량 비교 분석 */
+// 상단 분석 요약 카드
+.analysis-desc-keyword-compare .comepare-keyword1{color: $primary}
+.analysis-desc-keyword-compare .comepare-keyword2{color: $pink}
+.analysis-desc-keyword-compare .comepare-keyword3{color: $orange}
+
+.analysis-desc-keyword-compare .comepare-positive{color: $positive}
+.analysis-desc-keyword-compare .comepare-negative{color: $negative}
+.analysis-desc-keyword-compare .comepare-second{opacity:0.8}
+.analysis-desc-keyword-compare .comepare-last{opacity:0.5}
+.analysis-desc-keyword-compare i {color: $grey-light5;}
+.analysis-desc-keyword-compare .icon-same{padding: 0 3px;transform: rotate(90deg);} //값이 같을 경우 icon
+.analysis-desc-keyword-compare .text-keyword{display: inline-block;max-width: 130px;@include text-cut();}
+.analysis-desc-keyword-compare .text-perc{font-size: $font-middle;position: relative;top: -2px;}
+
+// 비교 연관어 원문 리스트
+.original-data-list[data-id="original-data-list-compare-association"] {height: 356px;}
+
+/* 연관어 비교 분석 */
+// 상단 분석 요약 카드
+.analysis-desc-card-association {padding-left: 20px;padding-right: 20px;}
+.analysis-desc-card-association .association-box{width: 100%;display: flex;flex-direction: column;justify-content: center;}
+.analysis-desc-card-association .association-card-title{display: flex;@include flex-center();margin-bottom: 12px;}
+.analysis-desc-card-association .association-card-title i{font-size: 24px;}
+.analysis-desc-card-association .association-card-title em{font-size: $font-base;margin-left: 5px;}
+.analysis-desc-card-association .association-card-title .icon-poll{color: $primary}
+.analysis-desc-card-association .association-card-title .icon-trophy{color: $yellow}
+
+.analysis-desc-card-association .association-card-lists {min-width: 320px;margin-top: 0;}
+.analysis-desc-card-association .association-card-lists dl{@include flex-display-between();width: 100%;justify-content: center;}
+.analysis-desc-card-association .association-card-lists dt {width: 30%;flex: 0 0 30%;padding-right: 5px;font-size: $font-base;color: $black-light}
+.analysis-desc-card-association .association-card-lists dd {font-size: $font-small;color: $grey-dark2;}
+.analysis-desc-card-association .association-card-lists dt .association-card-keyword{display: inline-block;max-width: 100%;padding-right: 2px;line-height: normal;@include text-cut();}
+.analysis-desc-card-association .association-card-lists dd .association-card-depth{display: inline-block;min-width: 92px;padding: 5px 8px;border-radius: 50em;@include text-cut();text-align: center;background-color: $grey-light3;color: $black-light;}
+.analysis-desc-card-association .association-card-lists dd .association-card-depth.depth1{background-color: $primary-alpha10;color: $primary;}
+.analysis-desc-card-association .association-card-lists dd .association-card-depth.depth2{background-color: $orange-alpha10;color: $orange;}
+.analysis-desc-card-association .association-card-lists dd .association-card-depth.depth3{background-color: $pink-alpha10;color: $pink;}
+.analysis-desc-card-association .association-card-lists dd .association-card-depth.positive{background-color: $primary-alpha10;color: $positive;}
+.analysis-desc-card-association .association-card-lists dd .association-card-depth.negative{background-color: $red-alpha10;color: $negative;}
+.analysis-desc-card-association .association-card-lists dd .association-card-depth.neutrality{background-color: $orange-alpha10;color: $orange;}
+.analysis-desc-card-association .association-card-lists dd .analysis-desc-count {font-size: $font-small;}
+
+.analysis-desc-card-association .association-card-lists dd .ranking-text{width: 92px; text-align: center;}
+.analysis-desc-card-association .association-card-lists dd .text-gt{display: inline-block;padding: 0 3px;}
+.analysis-desc-card-association .association-card-lists dl + dl{margin-top: 4px;}
+
+#topPositiveDate.exception-case,
+#topNegativeDate.exception-case {font-size: $h6;}
+
+// 비교분석 연관어 카테고리
+.comp-category-select-box .scroll-content-category-select.select-compare {height: 410px;}
+
+//비교분석 연관어 헤더
+.comepare-origin-tabs{display: table;table-layout: fixed;width: 100%;}
+.comepare-origin-tabs li{display: table-cell}
+
+.layout-card-header-compare{padding-right: 5px;justify-content: flex-end;margin:10px 0;}
+.comepare-origin-tabs + .layout-card-header-compare .original-list-associated-keyword{margin-top: 0;}
+
+
+//비교분석 언급량 추이 차트
+.section-compare-mention-data .compare-mention-data-chart {height: 400px;}
+#compare-mentionChart {height: 373px;}
+
+
+//비교분석 연관어 차트
+#compareAssociationWordCloud {height: 500px;margin-top: -55px;}
+
+// 비교분석 분석 연관어 - 카테고리 선택
+.comp-category-select-box .scroll-content-category-select.compare-select-property {height: 280px;}
+
+// 비교분석 연관어 원문
+.associated-original-list-compare-association {max-height: calc(330px - 26px);}
+
+// 비교분석 단어별 연관어 순위
+.associated-ranking-lists{@include flex-display-between();margin: 0 -25px;}
+.associated-ranking-lists li{width: 33.3333%;margin: 0 25px;min-height: 600px;}
+.associated-ranking-lists table.table-associated-ranking col.col-count,
+.associated-ranking-lists table.table-associated-ranking.table-fixed-header col.col-count {width: 30%;}
+
+.associated-ranking-lists li:nth-child(2) .table-associated-ranking-header .title{color: $orange}
+.associated-ranking-lists li:nth-child(2) table.table-associated-ranking tr:hover td,
+.associated-ranking-lists li:nth-child(2) table.table-associated-ranking tr.on td {background-color: $yellow-alpha10;}
+
+.associated-ranking-lists li:nth-child(2) table.table-associated-ranking tr:hover td.keyword,
+.associated-ranking-lists li:nth-child(2) table.table-associated-ranking tr:hover td.count,
+.associated-ranking-lists li:nth-child(2) table.table-associated-ranking tr.on td.keyword,
+.associated-ranking-lists li:nth-child(2) table.table-associated-ranking tr.on td.count {color: $orange;}
+
+
+.associated-ranking-lists li:nth-child(3) .table-associated-ranking-header .title{color: $pink}
+.associated-ranking-lists li:nth-child(3) table.table-associated-ranking tr:hover td,
+.associated-ranking-lists li:nth-child(3) table.table-associated-ranking tr.on td {background-color: $pink-alpha10;}
+
+.associated-ranking-lists li:nth-child(3) table.table-associated-ranking tr:hover td.keyword,
+.associated-ranking-lists li:nth-child(3) table.table-associated-ranking tr:hover td.count,
+.associated-ranking-lists li:nth-child(3) table.table-associated-ranking tr.on td.keyword,
+.associated-ranking-lists li:nth-child(3) table.table-associated-ranking tr.on td.count {color: $pink;}
+
+// 비교분석 단어별 연관어 순위 추가
+// .associated-ranking-list-add > a{display: table;height: inherit;width: 100%;}
+.associated-ranking-list-add{height: inherit;width: 100%;padding: 15px;cursor: pointer;}
+.associated-ranking-list-add > a {display: flex;align-items: center;justify-self: center;width: 100%;height: 100%;}
+.add-associated-compare-box{display: flex;align-items: center;justify-content: center;flex-direction: column;width: 100%;height: 100%;border: 1px solid $grey-light4;border-radius:  10px;text-align: center;vertical-align: middle;@include transition;}
+.add-associated-compare-box .add-icon{display: inline-block;width: 45px;height: 45px;line-height: 45px;border-radius: 50%;text-align: center;font-size: $h5;background-color: $grey-light3;transition: all 0.5s;}
+.add-associated-compare-box .add-desc{padding: 0 5px;margin-top: 20px;font-size: $font-base;line-height: 1.5;color:$grey-dark2;word-break: keep-all;}
+.add-associated-compare-box .add-plan-link{ min-width: 139px; margin-top: 25px;}
+
+.associated-ranking-list-add:hover .add-associated-compare-box{border: 2px dashed $grey-light3;background:$grey-light;}
+.associated-ranking-list-add:hover .add-icon{background-color: $navy;color: $white}
+.associated-ranking-list-add:hover .add-desc{color: $black-light}
+
+
+// 비교분석 공통 연관어 순위
+// .layout-associated-compare{padding: 30px 18px}
+.add-associated-compare-box-type2{min-height: 560px;}
+
+
+// 긍부정 원문보기가 있는 섹션
+.section-compare-reputation-origin-data > .row {min-height: 517px;}
+
+//비교분석 긍,부정 속성 선택
+.layout-card-reputaion-compare{padding: 0;}
+.reputaion-compare-list{display: flex;}
+.reputaion-compare-list .list-dt{position: relative;width: 35%;flex: 0 0 35%;padding-right: 1px;}
+.reputaion-compare-list .list-dt:after{content:'';z-index: 10;position:absolute;right:0;top:0;bottom:0;width:1px;background-color:$grey-light4}
+.reputaion-compare-list .list-dt .layout-card-header{padding-right:0;}
+.reputaion-compare-list .list-dd {width: 65%;flex: 0 0 65%;}
+.reputaion-compare-list .layout-card-header{padding-left: 15px;padding-right: 22px;}
+.reputaion-compare-list .comp-category-select-box{padding-bottom: 46px;}
+.reputaion-compare-list .layout-card-header-buttons{@include flex-display-between();}
+.reputaion-compare-list .layout-card-header-buttons .btn-chart-modify{margin-right:0}
+
+.reputaion-compare-list .scroll-content-category-select.select-property {height: 245px;}
+
+//비교분석 긍,부정 속성 선택 - 워드클라우드
+.wordcloud-chart-wrap {clear: both;padding: 30px 15px 0;}
+.wordcloud-figure-box{width: 100%;}
+.wordcloud-figure-box .word-cloud-chart{height: 270px;}
+.reputation-word-cloud-chart-wrap {margin-top: 40px;}
+.compare-wordcloud-chart-buttons {z-index: 10;position: absolute;top: 40px;right: 0;}
+.compare-wordcloud-chart-buttons .btn-chart-modify {margin-right: 0;}
+
+//워드클라우드 데이터가 없을 경우 (비교)
+.word-cloud-nodata-box-compare{height: 270px;}
+
+//비교분석 긍,부정 속성 선택 - 표
+.reputation-data-compare.reputation-word-cloud-table-wrap {padding-top: 40px;}
+.reputation-word-cloud-table-wrap .table-scroll-box.table-scroll-box-compare {height: 320px;}
+.wordcloud-figure-box .modal-table-filter-compare{left: 0;}
+
+table.table-reputation-list col.col-reputation-compare,
+table.table-reputation-list.table-fixed-header col.col-reputation-compare {width: 34%;}
+
+table.table-reputation-list.table-narrow col.col-count,
+table.table-reputation-list.table-narrow.table-fixed-header col.col-count {width: 30%;}
+table.table-reputation-list.table-narrow.table-fixed-header th:last-child {padding-right: 20px;text-align: right;}
+
+//  비교>긍,부정 비교 삭제버튼 
+table.table-reputation-list.table-narrow td.keyword {position: relative; padding-right: 19px;}
+table.table-reputation-list.table-narrow .btn-delete-icon {position: absolute; top: 50%; right: 0; transform: translateY(-50%); margin-left: 0;}
+
+//비교분석 긍,부정 속성 선택 - 추가하기
+.layout-card-reputaion-compare .associated-ranking-list-add{height: inherit} //2개일 때 추가입력
+.layout-card-reputaion-compare .add-associated-compare-box{border:0}
+//비교분석 - 긍,부정 추이비교
+#compare-reputationTrendChart, .compare-reputation-trend-chart {height: 370px;}
+
+// 긍,부정 원문
+.associated-original-list-compare-reputation {max-height: 308px;}
+
+@include notebook() {
+
+	//비교분석 연관어
+	.comp-category-select-box .scroll-content-category-select.select-compare {height: 420px}
+	#compareAssociationWordCloud{height: 496px;}
+
+	//비교분석 연관어 원문 보기 리스트
+	.associated-original-list-compare-association{max-height: 326px;}
+
+	// 비교 연관어 원문 리스트
+	.original-data-list[data-id="original-data-list-compare-association"] {height: 370px;}
+
+	// 긍부정 원문보기가 있는 섹션
+	.section-compare-reputation-origin-data > .row {min-height: 489px;}
+
+	// 긍,부정 원문
+	.associated-original-list-compare-reputation {height: 293px;}
+
+	// 연관어 분석 요약 카드
+	.analysis-desc-card-association .association-card-lists {min-width: 280px;}
+
+	// 요약카드 비교 	
+	.analysis-desc-card-item-compare.exception-case {padding: 30px 10px;}
+	.analysis-desc-card-compare .analysis-desc-text {font-size: $font-small;}
+
+	// 비교분석 단어별 연관어 순위 추가
+	.associated-ranking-list-add {padding: 0;}
+
+	
+}

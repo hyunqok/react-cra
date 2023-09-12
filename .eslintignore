@@ -1,0 +1,16 @@
+// .eslintignore
+build/*
+public/*
+src/react-app-env.d.ts
+src/reportWebVitals.ts
+src/service-worker.ts
+src/serviceWorkerRegistration.ts
+src/setupTests.ts
+
+// custom
+tempDB/*
+config-overrides.js
+src/setupProxy.js
+src/assets/icons/*
+src/utils/chart/*
+webpack.config.js

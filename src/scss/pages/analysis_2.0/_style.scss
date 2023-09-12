@@ -1,0 +1,638 @@
+// design_2.0_common 에서 공통으로 임포드 했는데 인식이 안돼서 또 삽입함
+@import "../../design_2.0/mixins";
+
+.text-cut {
+    @include text-cut();
+}
+
+.text-multi-cut-line2 {
+    @include text-cut-multiline(3em, 2);
+}
+
+// 스크롤 공통
+.ps-scrollbar {
+    overflow: hidden auto;
+}
+
+// 스와이퍼 커스텀 스타일
+.swiper-button-type1 {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: $grey-quatinary;
+
+    .icon {
+        font-size: 20px;
+        color: #fff;
+    }
+
+    &::after {
+        display: none;
+    }
+}
+
+.swiper-scrollbar-type1 {
+    $scrollbar-width: 92%;
+    $scrollbar-height: 10px;
+    $scrollbar-radius: 3px;
+
+    & {
+        position: absolute;
+        bottom: 7px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: $scrollbar-width;
+    }
+
+    .swiper-scrollbar {
+        height: $scrollbar-height;
+        background-color: $base-background;
+        border-radius: $scrollbar-radius;
+    }
+
+    .swiper-scrollbar-drag {
+        background-color: $borders-default;
+        height: $scrollbar-height;
+        border-radius: $scrollbar-radius;
+    }
+}
+
+// 아바타
+.user-avatar {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+
+    .user-avatar-thumb {
+        $size: 55px;
+        position: relative;
+        display: flex;
+        flex: 0 0 $size;
+        width: $size;
+        height: $size;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+
+    .user-avatar-thumb-inner {
+        position: relative;
+        z-index: 10;
+        width: 100%;
+        height: 100%;
+
+        &>img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    .user-avatar-info {
+        flex: auto;
+        padding-left: 16px;
+    }
+
+    .user-avatar-text1 {
+        font-size: $font-size-base;
+        font-weight: $font-weight-600;
+        color: $base-black;
+    }
+
+    .user-avatar-text2 {
+        font-size: $font-size-sm;
+        font-weight: $font-weight-500;
+        color: $grey-tertiary;
+    }
+}
+
+.user-info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-block: 24px;
+}
+
+.user-utils {
+    display: flex;
+    column-gap: 10px;
+
+    .vbtn {
+        font-size: 24px;
+        color: $grey-secondary;
+    }
+}
+
+.text-field-label {
+    margin-top: 10%;
+    margin-bottom: 10px;
+}
+
+// 검색 옵션
+.search-options-row {
+    & {
+        padding-block: 40px;
+    }
+
+    .label-lg {
+        font-size: $font-size-lg;
+        font-weight: $font-weight-700;
+        color: $base-black;
+    }
+
+    .label-base {
+        font-size: $font-size-base;
+        font-weight: $font-weight-600;
+        color: $grey-primary;
+    }
+
+    .label-sx {
+        font-size: $font-size-xs;
+        font-weight: $font-weight-500;
+        color: $grey-tertiary;
+    }
+
+    .label-brief {
+        font-size: $font-size-sm;
+        font-weight: $font-weight-400;
+        color: $grey-tertiary;
+    }
+}
+
+
+// 비교 키워드 추가 버튼
+.add-keyword-field-row {
+    width: 100%;
+    margin-top: 12px;
+
+    .vbtn {
+        width: 100%;
+        height: 42px;
+        gap: 10px;
+        line-height: 0;
+
+        [class^="mgc_"] {
+            font-size: 20px;
+            position: relative;
+            top: -1px;
+        }
+    }
+}
+
+.search-keyword-fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.period-stack {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    border-radius: 3px;
+    background-color: $base-background;
+    border: 1px solid $borders-default;
+
+    .col {
+        padding: 0;
+        position: relative;
+
+        &::before {
+            content: '';
+            display: block;
+            width: 1px;
+            height: 75%;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            background-color: $borders-default;
+        }
+
+        &:first-of-type::before {
+            display: none;
+        }
+    }
+
+    .btn-period {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        font-size: $font-size-sm;
+        font-weight: $font-weight-500;
+        color: $grey-secondary;
+    }
+
+    .vcheckbox {
+        width: 100%;
+        height: calc(100% - 2px);
+
+        .vbtn-label {
+            width: 100%;
+            font-size: $font-size-sm;
+            font-weight: $font-weight-500;
+            color: $grey-secondary;
+        }
+
+        & input:checked+.vbtn-label {
+            background-color: $base-white;
+        }
+    }
+}
+
+.button-stack {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -6px;
+
+    .col {
+        padding: 6px;
+        display: flex;
+        align-items: center;
+    }
+
+    .vbtn,
+    .vbtn-label,
+    .vcheckbox {
+        width: 100%;
+    }
+}
+
+.btn-text {
+    display: inline-flex;
+    align-items: center;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-500;
+    color: $grey-tertiary;
+    line-height: 1;
+
+    [class^="mgc_"] {
+        font-size: 20px;
+        position: relative;
+        top: -1px;
+    }
+}
+
+// 더보기 버튼 
+.btn-more-search-option {
+    width: 100%;
+    gap: 10px;
+
+    .icon {
+        font-size: 18px;
+    }
+}
+
+.notice-block {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: $primary-50;
+    border-radius: 3px;
+    padding: 22px;
+
+    .notice-title {
+        font-size: $font-size-base;
+        font-weight: $font-weight-600;
+        color: $primary-500;
+    }
+
+    .notice-contents {
+        font-size: $font-size-sm;
+        font-weight: $font-weight-400;
+        color: $grey-primary;
+    }
+}
+
+.summary-card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.summary-card-header-title {
+    font-size: $font-size-sm;
+    color: $grey-secondary;
+}
+
+.summary-card-contents {
+    display: flex;
+    align-items: center;
+    column-gap: 14px;
+    margin: 8px 0 0;
+}
+
+.summary-card-contents-value {
+    font-size: 2.25rem;
+    font-weight: $font-weight-600;
+    color: $base-black;
+    line-height: 1;
+}
+
+.summary-card-contents-date {
+    position: relative;
+    top: 6px;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-500;
+    color: $grey-tertiary;
+}
+
+.card {
+    & {
+        background-color: $base-white;
+        border: 1px solid $borders-default;
+        border-radius: 3px;
+        padding: 22px;
+    }
+
+    .card-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        font-size: $font-size-lg;
+        font-weight: $font-weight-600;
+        color: $base-black;
+    }
+}
+
+// 채널 구성별 수치
+.channel-composition {
+    display: flex;
+    flex-direction: column;
+}
+
+.channel-composition-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 32px;
+    padding: 20px 0;
+    padding-left: 46px;
+    font-size: $font-size-base;
+    color: $base-black;
+    border-bottom: 1px solid $borders-default;
+
+    & .icon {
+        position: absolute;
+        top: 15px;
+        left: 0;
+        width: 32px;
+        height: 32px;
+        border-radius: 3px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $grey-secondary;
+    }
+
+    & .icon span {
+        font-size: 22px;
+        color: $base-white;
+    }
+
+    &.insta .icon {
+        background-color: $insta;
+    }
+
+    &.community .icon {
+        background-color: $community;
+    }
+
+    &.blog .icon {
+        background-color: $blog;
+    }
+
+    &.news .icon {
+        background-color: $news;
+    }
+
+    &.youtube .icon {
+        background-color: $youtube;
+    }
+
+    &.twitter .icon {
+        background-color: $twitter;
+    }
+}
+
+// 지표 테이블
+.indicator-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+    font-size: $font-size-base;
+    font-weight: $font-weight-600;
+    color: $grey-primary;
+    background-color: $base-background;
+    border-radius: 3px;
+
+    .indicator-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: $font-size-sm;
+
+        & .label {
+            display: flex;
+            align-items: center;
+            column-gap: 6px;
+        }
+
+        & .icon {
+            font-size: 24px;
+        }
+    }
+
+    .indicator-item-header {
+        font-size: $font-size-base;
+        border-bottom: 1px solid $borders-default;
+        padding-bottom: 15px;
+    }
+}
+
+.field-group {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.search-keyword-detail-form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    display: none;
+}
+
+#search-keyword-form {
+    .text-field-label:nth-of-type(1)~.text-field-label {
+        margin-top: 9.4%;
+    }
+}
+
+// 버튼 텍스트가 넘쳐서 추가함
+.anlaysis-left-row {
+    .button-stack .vbtn {
+        padding-inline: 10px;
+    }
+}
+
+// 카드 헤더 날짜
+.card-header-date {
+    font-size: $font-size-base;
+    font-weight: $font-weight-500;
+    color: $grey-secondary;
+}
+
+// 원문 
+.origin-document {
+    min-height: 400px;
+    max-height: 476px;
+    overflow: hidden auto;
+    margin-top: 10px;
+}
+
+// 랭킹 테이블 col
+.table-cell {
+    &.col-index {
+        flex: 0 0 70px;
+    }
+
+    &.col-keyword {
+        flex: auto;
+        overflow: hidden;
+    }
+
+    &.col-count {
+        flex: 0 0 75px;
+        padding-right: 20px;
+    }
+
+    .ranking-keyword {
+        @include text-cut();
+    }
+}
+
+// 랭킹 슬라이더 상단 기간별 버튼
+.asso-ranking-slider-periods {
+    display: flex;
+    justify-content: flex-end;
+    margin-left: auto;
+    max-width: 580px;
+    width: auto;
+    column-gap: 20px;
+
+    .asso-ranking-slider-periods-date {
+        font-size: $font-size-lg;
+        color: $grey-primary;
+        font-weight: $font-weight-500;
+        display: flex;
+        align-items: center;
+        column-gap: 5px;
+
+        .icon {
+            font-size: 24px;
+            color: $primary-500;
+        }
+    }
+}
+
+// 라인
+.border-default {
+    display: block;
+    margin-inline: -22px;
+    padding-inline: 22px;
+    border-bottom: 1px solid $borders-default;
+}
+
+
+// 순위 슬라이더
+.asso-ranking-slider {
+    position: relative;
+    overflow: hidden;
+    padding-top: 24px;
+    padding-bottom: 40px;
+
+    .slider-item-date {
+        font-size: $font-size-base;
+        font-weight: $font-weight-600;
+        color: $primary-500;
+        margin-bottom: 12px;
+    }
+
+    .ps-scrollbar {
+        overflow: hidden auto;
+        height: 428px;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        top: auto;
+        bottom: 0;
+    }
+}
+
+// 연관어 비교 테이블
+.compare-asso-keywords-table {
+    $color-index1: $primary-500;
+    $color-index2: $chart-8;
+
+    .compare-asso-keywords-table-item {
+        .main-keyword {
+            font-size: $font-size-base;
+            font-weight: $font-weight-600;
+            margin-bottom: 12px;
+        }
+
+        &:nth-of-type(1) .main-keyword {
+            color: $color-index1;
+        }
+
+        &:nth-of-type(2) .main-keyword {
+            color: $color-index2;
+        }
+
+        .ps-scrollbar {
+            height: 640px;
+        }
+
+        &:nth-of-type(1) .table-body .table-row:hover {
+            background-color: $primary-100;
+            color: $base-black;
+
+            * {
+                color: $base-black;
+            }
+        }
+
+        &:nth-of-type(2) .table-body .table-row:hover {
+            background-color: $blue-100;
+            color: $base-black;
+
+            * {
+                color: $base-black;
+            }
+        }
+    }
+}
+
+// 연관어 분류 트리 아이템
+.asso-category-tree {
+    &.type1 {
+        .table-body {
+            &>.table-cell {
+                padding: 0 !important;
+            }
+
+            & table th,
+            & table td {
+                vertical-align: top;
+                text-align: left;
+            }
+        }
+    }
+}

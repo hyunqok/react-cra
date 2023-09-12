@@ -1,0 +1,56 @@
+@mixin upload-icon-hidden () {
+    opacity: 0;visibility: hidden;transform: translateY(30%);
+}
+
+// 아바타
+.user-avatar {
+    $borderSize: 3px;
+    display: inline-flex;flex-direction: column;justify-content: center;
+
+    .user-avatar-thumb {
+        position: relative;display: flex;width: 106px;height: 106px;margin: 0 auto;justify-content: center;align-items: center;border-radius: 50%;overflow: hidden;background: $gradation-01;padding: $borderSize;
+    }
+    .user-avatar-thumb-inner {
+        position: relative;z-index: 10;width: 100%;height: 100%;
+        & > img {position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);}
+    }
+
+    // 업로드
+    .avatar-upload {
+        & {
+            display: flex;width: calc(100% - $borderSize);height: calc(100% - $borderSize);flex-direction: column;justify-content: center;align-items: center;border-radius: 50%;
+            position: absolute;top: 50%;left: 50%;z-index: 20;
+            background: rgba(124, 136, 155, 0.68);
+            color: #fff;
+            overflow: hidden;
+            transform: translate(-50%, -50%);transition: all 0.1s;
+            opacity: 0;visibility: hidden;
+            cursor: pointer;
+        }
+
+        .avatar-upload-icon {font-size: 24px;margin-bottom: 6px;@include upload-icon-hidden();}
+        .avatar-upload-icon::before {color: #fff;}
+
+        .avatar-upload-text {font-size: $font-size-xs;@include upload-icon-hidden();}
+        
+        .avatar-upload-file {opacity: 0;visibility: hidden;width: 0;height: 0;}
+    }
+
+    .user-avatar-text1 {font-size: $font-size-lg;font-weight: $font-weight-600;color: $base-black;text-align: center;margin-top: 18px;}
+    .user-avatar-text2 {font-size: $font-size-base;font-weight: $font-weight-500;color: $grey-tertiary;text-align: center;}
+
+    .user-avatar-thumb:hover {
+        .avatar-upload {
+            opacity: 1;visibility: visible;
+
+            .avatar-upload-icon {animation: slideUp 0.1s ease-in forwards;}
+            .avatar-upload-text {animation: slideUp 0.1s 0.1s ease-in forwards;}
+        }
+    }
+
+    @keyframes slideUp {
+        100% {
+            opacity: 1;visibility: visible;transform: translateY(0);
+        }
+    }
+}

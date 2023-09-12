@@ -1,0 +1,305 @@
+@charset "utf-8";
+/*
++----------------------------------------------------------------------+
+| Copyright (c) Vaiv.  co. Ltd
++----------------------------------------------------------------------+
+| payment renewal CSS
++----------------------------------------------------------------------+
+*/
+
+/*결제하기*/
+.payment-info-row {display: flex;justify-content: space-between;padding: 25px 0 0;}
+
+.payment-info-col.position-left {width: 660px;}
+.payment-info-col.position-right {position: relative;width: 414px;border-radius: 30px;background-color: $grey-light;border: 1px solid $grey-light5; overflow: hidden;}
+
+.payment-info-col.position-right {position: relative;padding: 4px;transition-duration: .2s;}
+.payment-info-col.position-right::after {content: "";display: block;position: absolute;top: 0;left: 0;width: 100%;height: 100%;transform: scale(0);background-color: $primary;transition-duration: .2s;}
+.payment-info-col.position-right.active {box-shadow: 0 0 30px rgba($primary, 0.2);}
+.payment-info-col.position-right.active::after {animation: border-rotate ease-in-out 0.6s;animation-fill-mode: forwards;}
+
+@keyframes border-rotate {
+	0% {
+		transform: rotate(0) scale(0);    
+	}
+	100% {
+		transform: rotate(180deg) scale(5);
+	}
+}
+
+.payment-wrap .hr01 {display: block;border: 0;width: 100%;height: 1px;padding: 0;margin: 35px 0;background-color: $grey-light4;}
+
+// 페이지 타이틀
+.payment-info-col.position-left .page-navi-box {padding-bottom: 45px;margin-bottom: 30px;border-bottom: 2px solid $grey-light5;}
+
+.payment-info-title {margin: 35px 0 25px;font-size: $h6;font-weight: $font-bold;color: $black-light;}
+
+// 플랜 정보 타이틀
+.payment-info-title:nth-of-type(1) {margin-top: 0;}
+
+// 결제 정보
+.payment-info-item {display: flex;align-items: center;margin: 25px 0;}
+
+// 결제 정보 타이틀, 첫번째 col
+.payment-info-item-title,
+.payment-info-item .vcol:nth-of-type(1) {width: 100%;max-width: 150px;color: $grey-dark2;}
+
+.payment-info-item-text {color: $black-light;}
+.payment-info-item-text em {font-weight: $font-bold;}
+.payment-info-item-text .text-vat {font-size: $font-x-small;color: $grey-dark2;}
+
+// 플랜 가격
+// 연간 결제 할인 텍스트
+//.payment-info-item-plan-price {display: none;}
+
+// 월 정기 디폴트 노출
+//.payment-info-item-plan-price[data-id="typeMonthly"] {display: block;}
+.text-type-annual-dc {font-size: $font-small;font-weight: $font-bold;color: $pink;} 
+
+// 결제 타입 연간, 월 정기
+.payment-type-select .vcol:nth-of-type(1) {width: 100%;max-width: 150px;}
+.payment-type-select .radio-type1 {display: inline-flex;align-items: center;}
+.payment-type-select .radio-type1 label {font-weight: $font-bold;color: $grey-dark2;}
+.payment-type-select .radio-type1 input:checked + label {color: $black !important;}
+.payment-type-select .icon-sale {display: inline-flex;align-items: center;justify-content: center;width: 60px;height: 22px;margin-left: 5px;font-size: $font-x-small;font-weight: $font-bold;color: $pink;background-color: $pink-alpha10;border-radius: 50px;}
+
+// 유의사항 
+.payment-caution-box {padding: 15px 20px;background-color: $grey-light2;border-radius: 16px;}
+
+.payment-caution-box > li {position: relative;padding-left: 22px;margin-top: 8px;font-size: $font-small;font-weight: $font-bold;color: $grey-dark2;line-height: 1.3;}
+.payment-caution-box > li:first-child {margin-top: 0;}
+.payment-caution-box > li::before {font-family: $icon;content: "\ee59";position: absolute;top: -2px;left: 0;font-size: 16px;color: $grey-dark2;font-weight: normal;}
+
+// 가격정보
+.payment-price-info {position: relative;z-index: 10;padding: 55px 45px;background-color: $grey-light;border-radius: 25px;}
+.payment-price-info-title {display: flex;align-items: center;margin-bottom: 40px;}
+.payment-price-info-title .badge {display: inline-flex;align-items: center;justify-content: center;height: 25px;padding: 0 8px;margin-left: 5px;font-size: $font-small;font-weight: $font-bold;color: $primary;background-color: $primary-alpha10;border: 1px solid $primary-alpha20;border-radius: 50px;display: none;}
+
+.payment-price-info-item {display: flex;align-items: center;justify-content: space-between;margin-top: 20px;}
+// 연결제 할인 금액
+.payment-price-info-item-annual {display: none;}
+.payment-price-info-item:first-child {margin-top: 0;}
+.payment-price-info-item input.input-type1 {width: 220px;height: 36px;padding: 0 10px;border: 1px solid $grey-light4;border-radius: 8px;}
+.payment-price-info-item .btn-coupon-apply {height: 36px;}
+.payment-price-info-item-title {color: $grey-dark2;font-size: $font-base;}
+.payment-price-info-item-text {color: $black-light;}
+.payment-price-info-item-text em {font-weight: $font-bold;}
+
+// 동적 추가 쿠폰
+.payment-price-info-item.added-coupon-item {position: relative;padding: 3px 0 0 30px;}
+.payment-price-info-item .text-coupon {display: block;margin-top: 4px;font-size: $font-small;font-weight: normal;}
+
+// 쿠폰 적용 삭제 버튼
+.btn-delete-coupon {display: inline-flex;align-items: center;justify-self: center;padding: 0 !important;width: 22px;height: 22px;position: absolute;top: 0;left: 0;z-index: 1;font-size: 14px;color: $pink;overflow: hidden;}
+.btn-delete-coupon i {margin: 0 auto;}
+
+// 합계 가격
+.total-price {margin: 30px 0 40px;padding-top: 35px;border-top: 1px dashed $grey-light5;}
+.total-price .payment-price-info-item {align-items: flex-start;}
+.total-price .annual-payment,
+.total-price .first-month,
+.total-price .every-month {display: flex;align-items: center;justify-content: flex-end;text-align: right;}
+
+// 우측 가격 정보 합계 금액
+.payment-price-info-total {display: none;}
+
+// 우측 가격 정보 합계 금액 월정기 디폴트 노출
+.payment-price-info-total[data-id="typeMonthly"] {display: block;}
+
+// 첫달
+.total-price .first-month {margin-bottom: 10px;display: none;}
+.total-price .first-month .badge {display: inline-flex;align-items: center;justify-content: center;height: 22px;padding: 0 8px;margin-right: 5px;font-size: $font-x-small;font-weight: $font-bold;color: $primary;background-color: $primary-alpha10;border: 1px solid $primary-alpha20;border-radius: 50px;}
+.total-price .first-month .price {font-size: $h5;font-weight: $font-bold;color: $primary;}
+.total-price .first-month .price span.text-won {font-size: $font-base;}
+
+// 매월, 매년 합계 가격
+.total-price .every-month .price,
+.total-price .annual-payment .price {font-size: $h5;font-weight: $font-bold;color: $primary;}
+.total-price .every-month .price span.text-won,
+.total-price .annual-payment .price span.text-won {font-size: $font-base;}
+.total-price .every-month .price .text-monthly {font-size: $font-base;font-weight: normal;color: $grey-dark2;}
+
+// 매월 type2
+.total-price .every-month.type2 .price {font-size: $font-base;font-weight: $font-bold;color: $grey-dark2;}
+.total-price .every-month.type2 .price span {font-weight: normal;}
+
+// 동의
+.payment-agreement .payment-agree-item {margin-top: 12px;}
+.payment-agreement .payment-agree-item:first-child {margin-top: 0;}
+.payment-agreement .payment-agree-item-check-all {margin-bottom: 15px;padding-bottom: 5px;border-bottom: 1px solid $grey-light4;}
+.payment-agreement .check-type {width: 100%;}
+.payment-agreement .check-type label {display: inline-flex;width: 100%;min-height: 24px;color: $grey-dark2;}
+.payment-agreement .check-type input:checked + label {color: $black-light;}
+.payment-agreement .check-all label {font-weight: $font-bold;color: $black-light;}
+
+// 카드 셀렉트박스
+.payment-card-select {margin-top: 30px;}
+.payment-card-select .nice-select {color: $grey-dark2;}
+
+// 결제 등록
+.payment-apply-buttons {margin-top: 20px;}
+.payment-apply-buttons .row {margin: 0 -5px;}
+.payment-apply-buttons .col {padding: 0 5px;}
+.payment-apply-buttons .vbtn {padding: 0;width: 100%;height: 63px;}
+.payment-apply-buttons .vbtn i {font-size: 24px;}
+.payment-apply-buttons .btn-registration:hover {background-color: $primary-alpha20 !important;}
+
+// 결제 완료
+.wrap-payment-success {min-height: 100vh;background-color: $grey-light2;}
+.subpage-wrap-payment-success {padding: 0;margin: 0;}
+.payment-success-wrap {display: flex;align-items: center;justify-content: center;min-height: 100vh;}
+.payment-success-wrap > .inner {width: 100%;max-width: 580px;padding: 50px 68px;background-color: $white;border-radius: 25px;@include card-shadow();}
+
+.payment-success-title {margin-bottom: 40px;font-size: $font-middle;font-weight: $font-bold;text-align: center;}
+.payment-success-title-text {font-weight: $font-bold;}
+.payment-success-title-icon {position: relative;display: flex;align-items: center;justify-content: center;width: 60px;height: 60px;margin: 0 auto 20px;font-size: 30px;font-weight: $font-bold;color: $primary;border-radius: 50%;/*background-color: $primary-alpha5;*/}
+.payment-success-title-icon i {font-weight: $font-bold;}
+
+.payment-success-info {border-top: 2px solid $grey-light3;border-bottom: 2px solid $grey-light3;}
+.payment-success-info .cut-line {border-bottom: 2px dashed $grey-light3;}
+.payment-success-info .coupon-name {font-size: $font-small;}
+.payment-success-info-item {display: flex;align-items: center;justify-content: space-between;margin: 25px 0;line-height: 1.3;}
+.payment-success-info-item-title {color: $grey-dark2;font-size: $font-base;}
+.payment-success-info-item-text {color: $black-light;}
+.payment-success-info-item-text em {font-weight: $font-bold;}
+.payment-success-info-item-text em.price {color: $grey-dark2;}
+.payment-success-info-item-total dt,
+.payment-success-info-item-total dd,
+.payment-success-info-item-total em.price {font-weight: $font-bold;color: $black-light;} 
+
+.payment-success-info-item.two-depth {margin: -8px 0 15px;font-size: $font-small;}
+.payment-success-info-item.two-depth .payment-success-info-item-title {position: relative;padding-left: 16px;font-size: $font-small;}
+.payment-success-info-item.two-depth .payment-success-info-item-title::before {content: "ㄴ";position: absolute;top: -1px;left: 0;z-index: 1;display: inline-block;vertical-align: middle;margin-right: 3px;}
+
+.payment-success-wrap .confirm-buttons {margin: 40px 0 0;text-align: center;}
+.payment-success-wrap .confirm-buttons .vbtn {padding: 0 25px;display: inline-flex;align-items: center;justify-content: center;height: 48px;margin: 0 10px;}
+.payment-success-wrap .confirm-buttons .btn-go-analysis i {font-size: 23px;}
+
+.payment-success-title-icon span.icon-check {position: relative;width: 100%;height: 100%;display: block;}
+.payment-success-title-icon span.box1 {
+	position: absolute;
+	top: 33px;
+	left: 28px;
+	z-index: 5;
+	width: 20px;
+	height: 5px;
+
+	/* primary */
+	background-color: $primary;
+	transform: rotate(-45deg);
+
+	animation: 0.8s linear 0s 1 normal forwards animation-icon-check-box1;
+	animation-play-state: paused;
+	transform-box: fill-box;
+	transform-origin: left bottom;
+}
+
+.payment-success-title-icon span.box2 {
+	position: absolute;
+	top: 26px;
+	left: 16px;
+	width: 5px;
+	height: 15px;
+	z-index: 10;
+
+	/* primary */
+	background-color: $primary;
+	transform: rotate(-45deg);
+
+	animation: 0.8s linear 0s 1 normal forwards animation-icon-check-box2;
+	animation-play-state: paused;
+	transform-box: fill-box;
+	transform-origin: 50% 0%;
+}
+
+.payment-success-title-icon span.bg_circle {
+	border-radius: 50%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 1px;
+	height: 1px;
+	background: #F6F5FF;
+
+	animation: 0.8s linear 0s 1 normal forwards animation-icon-check-bg;
+	animation-play-state: paused;
+	transform-box: fill-box;
+	transform-origin: 50% 50%;
+}
+
+body.loaded .payment-success-title-icon span.box1 {
+	animation-play-state: running;
+}
+body.loaded .payment-success-title-icon span.box2 {
+	animation-play-state: running;
+}
+body.loaded .payment-success-title-icon span.bg_circle {
+	animation-play-state: running;
+}
+
+@keyframes animation-icon-check-bg {
+	0% {
+		width: 1px;
+		height: 1px;
+	}
+	25% {
+		width: 60px;
+		height: 60px;
+	}
+	75% {
+		width: 70px;
+		height: 70px;
+	}
+	100% {
+		width: 60px;
+		height: 60px;
+	}
+	62.5% {
+		width: 60px;
+		height: 60px;
+	}
+}
+
+@keyframes animation-icon-check-box1 {
+	0% {
+		opacity: 0;
+		width: 1px;
+	}
+	12.5% {
+		width: 1px;
+	}
+	37.5% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+	70% {
+		width: 20px;
+	}
+	80% {
+		width: 17px;
+	}
+	100% {
+		width: 20px;
+	}
+}
+
+@keyframes animation-icon-check-box2 {
+	0% {
+		opacity: 0;
+		height: 1px;
+	}
+	12.5% {
+		opacity: 1;
+	}
+	37.5% {
+		height: 15px;
+	}
+}
+
+// 결제 완료 페이지 유의사항
+.payment-success-caution-list {margin-top: 20px;}
+.payment-success-caution-item {position: relative;padding-left: 15px;margin: 4px 0;font-size: $font-small;color: $pink;line-height: 1.3;}
+.payment-success-caution-item::before {content: "※";position: absolute;top: 0;left: 0;}

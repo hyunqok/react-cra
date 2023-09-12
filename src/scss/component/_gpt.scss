@@ -1,0 +1,104 @@
+.gpt-output-row {
+    .fr-top {border: none;background-color: $grey-light3;border-radius: 0;}
+    .fr-box.fr-basic .fr-wrapper {border: none;}
+    .fr-second-toolbar {border: none;}
+}
+
+.lnb-item-gpt {
+    .icon-beta {margin-left: 3px;position: relative;top: 1px;}
+    .icon-beta path {fill: $grey-dark2;}
+    .icon-ai {margin-left: 10px;}
+
+    &:hover .icon-beta path,
+    &.on .icon-beta path {fill: $pink-alpha85;}
+}
+
+.btn-gpt-execute {
+    & {display: inline-flex;align-items: center;justify-content: center;width: auto;height: 44px;padding: 0 10px 0 20px !important;font-size: $font-base;}
+    &:focus {box-shadow: none !important;}
+
+    .gpt-count {
+        & {display: inline-flex;padding: 5px 10px;margin-left: 10px;background-color: #fff;color: $black-alpha70;font-size: $font-x-small;font-weight: $font-bold;border-radius: 4em;}
+        .total {color: $pink-alpha85;}
+    }
+}
+
+.tooltip-gpt-button {
+    & {position: relative;display: inline-flex;}
+
+    .tooltip-gpt-caution {position: absolute;top: 0;left: 0;transform: translateX(-106%);z-index: 1000;box-shadow: 5px 20px 20px rgba(195, 201, 217, 0.1); display: block;}
+
+    .vtooltip-content {min-width: 280px;padding: 15px 36px;font-size: $font-small;color: $white;font-weight: 100;}
+    .vtooltip-content em {font-weight: $font-bold;}
+    .btn-tooltip-close {position: absolute;top: 12px;right: 6px;z-index: 10;font-size: 20px;color: $white;font-weight: 100;}
+}
+
+.gpt-keyword-helper {
+    & {position: absolute;top: 55px;left: auto;right: auto;width: 100%;z-index: 1000;border-radius: 8px;overflow: hidden;text-align: left;display: none;}
+    
+    .btn-helper-item {position: relative;width: 100%;display: flex;align-items: center;text-align: left;line-height: 1.5;padding: 13px 15px;padding-right: 34px;background-color: $pink-alpha75;font-size: $font-small;font-weight: $font-bold;color: $white;border-bottom: 1px solid rgba($white, 0.08);word-wrap: break-word; word-break: keep-all;}
+    .btn-helper-item::after {font-family: $icon;content: "\ea54";position: absolute;top: 5px;right: 8px;z-index: 10;font-size: 24px;}
+
+    .btn-helper-item:hover {background-color: $pink-alpha85;}
+
+    .helper-item:last-of-type {
+        .btn-helper-item {border: none;}
+    }
+}
+
+// GPT 게시판
+.layout-container-gpt-board {padding-top: 65px;}
+.gpt-board-search-row {
+    & {display: flex;align-items: center;background-color: #fff;border-radius: 15px;padding: 20px;}
+    .label {flex: 0 0 75px;font-size: $font-middle;font-weight: $font-bold;color: $primary;}
+    .input {flex: auto;}
+    .button {flex: 0 0 120px;text-align: right;}
+
+    #gpt-report-search-button {font-size: $font-middle; height: 48px;padding-block: 5px;letter-spacing: initial;font-weight: normal;}
+    #gpt-report-search-button i {font-size: 20px;color: $white;margin-left: 10px;}
+}
+
+#gpt-board-list {margin-top: 30px;
+    .no-data {
+        & {display: flex; flex-direction: column; align-items: center;justify-content: center;min-height: 400px;text-align: center;font-size: $font-base;color: $grey-dark2;font-weight: 100;}
+        .icon {font-size: 24px;color: $grey-dark;line-height: 0;}
+        .msg {margin: 12px 0 15px 0;}
+        em {color: $primary;}
+    }
+}
+
+.gpt-report-detailt-wrap {
+    & {background-color: $grey-light;border-radius: 20px;padding-bottom: 38px;margin-top: 30px;box-shadow: 5px 20px 20px rgba(195, 201, 217, 0.1);}
+
+    .gpt-report-defailt-title {
+        & {display: flex;flex-direction: row;align-items: center;font-size: $font-middle;font-weight: $font-bold;color: $primary;margin-bottom: 30px;background-color: #fff;border-radius: 16px 16px 0 0;letter-spacing: normal;word-spacing: normal;}
+        .item {
+            & {flex: 0 0 25%;display: flex;align-items: stretch;padding-left: 36px;padding-right: 15px;border-left: 1px solid $grey-light4;}
+
+            .textbox {width: 100%;height: 100%;height: 80px;padding-left: 56px; display: flex;flex-direction: column;justify-content: center;background-repeat: no-repeat;background-position: 0 center;}
+
+            em {margin-top: 8px;font-size: $font-base;color: $black-light;font-weight: $font-bold;word-wrap: break-word; word-break: keep-all;line-height: 1.2;}
+            em .d {display: inline-block;}
+
+            &:nth-child(1) {border-left: none;}
+            &:nth-child(1) .textbox {background-image: url('../images/icon_menu.png');}
+            &:nth-child(2) .textbox {background-image: url('../images/icon_t.png');}
+            &:nth-child(3) .textbox {background-image: url('../images/icon_doc.png');}
+            &:nth-child(4) .textbox {background-image: url('../images/icon_time.png');}
+        }
+    }
+}
+
+#report-div {min-height: 400px;padding-inline: 36px;line-height: 1.5;color: $grey-dark2;font-size: $font-small;
+    em {font-style: italic !important;}
+}
+
+.gpt-report-detail-buttons {display: flex;align-items: center;justify-content: center;margin-top: 25px;}
+.gpt-report-detail-buttons .vbtn {margin: 0 10px;}
+.gpt-report-detail-buttons .vbtn i {font-size: 21px;font-weight: 100;}
+
+.gpt-report-rating-row {
+    & {clear: both;position: relative;margin-top: 30px;background-color: $grey-light;padding: 30px 20px;box-shadow: 5px 20px 20px rgba(195, 201, 217, 0.1);border-radius: 20px;}
+
+    .rating-form .startRadio-boxs:after {background-image: url("../images/icon_startRate_grey_light.png");}
+}

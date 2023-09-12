@@ -1,0 +1,212 @@
+@charset "utf-8";
+
+/*
++----------------------------------------------------------------------+
+| Copyright (c) Vaiv.  co. Ltd
++----------------------------------------------------------------------+
+| 파일설명 : mixin
++----------------------------------------------------------------------+
+*/
+
+@mixin base-fontfamily {font-family: $base-font, "돋움", Dotum, "굴림", Gulim, 'AppleSDGothicNeo-Light', AppleGothic, Helvetica, Arial, 'HelveticaNeue-Light', 'sans-serif-light', sans-serif, "Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";line-height: 1;font-size: $font-base;color: $black;font-weight: 400;-webkit-text-size-adjust: none; -ms-text-size-adjust: none;}
+
+@mixin flex-center {justify-content: center;align-content: center;align-items: center;vertical-align: middle;}
+@mixin flex-display-between {display: flex;  align-items: center; -webkit-justify-content: space-between; -moz-justify-content: space-between; -ms-justify-content: space-between; justify-content: space-between;}
+
+@mixin inline-middle{display: inline-block; vertical-align: middle}
+@mixin inline-top{display: inline-block; vertical-align: top}
+
+@mixin box-shadow($color: $grey-light5, $alpha: 0.5) {
+	box-shadow: 5px 15px 40px 0px rgba($color, $alpha);
+}
+@mixin box-shadow2($color: $grey-light5, $alpha: 0.4) {
+	box-shadow: 0px 8px 20px 0px rgba($color, $alpha);
+}
+@mixin box-shadow3($color: $grey, $alpha: 0.3) {
+	box-shadow: 5px 10px 30px rgba($color, $alpha);
+}
+@mixin card-shadow($alpha: 0.5) {
+	box-shadow: 0px 2px 2px rgba($card-shadow, $alpha);
+}
+@mixin pos-center($axis: "") {
+	@if $axis == "x" {
+		transform: translateX(-50%);
+	}@else if $axis == "y" {
+		transform: translateY(-50%);
+	}@else {
+		transform: translate(-50%, -50%);
+	}
+}
+
+@mixin pos-x($axis: "") {
+	-webkit-transform: translateX($axis);
+	-moz-transform: translateX($axis);
+	-ms-transformn: translateX($axis);
+	-o-transform: translateX($axis);
+	transform: translateX($axis);
+}
+
+@mixin fixed-center($position:""){
+	top: 50%; left: 50%; @include pos-center();
+	@if $position == "absolute" {
+		position: absolute;
+	}@else if($position == "relative"){
+		position: relative;
+	}@else {
+		position: fixed;
+	}
+}
+@mixin pos-full($position:absolute){
+	@if $position == "fixed" {
+		position: fixed;
+	}
+	position: $position; top: 0px;left: 0;right: 0;bottom: 0;
+}
+
+// Placeholder text
+@mixin placeholder-color($color: $grey-dark2) {
+	// Firefox
+	&::-moz-placeholder {
+		color: $color;
+		opacity: 1; // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526
+	}
+	&:-ms-input-placeholder { color: $color; } // Internet Explorer 10+
+	&::-webkit-input-placeholder  { color: $color; } // Safari and Chrome
+}
+
+@mixin duration($num: 0.3s) {
+	-webkit-transition-duration: $num;
+	-moz-transition-duration: $num;
+	-ms-transition-duration: $num;
+	-o-transition-duration: $num;
+	transition-duration: $num;
+}
+
+@mixin clearfix{
+	content: "";display:block; clear:both;visibility:hidden; height:0;
+}
+
+@mixin icon-font {
+	font-family: 'remixicon'; font-style: normal; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin slideup-init($y: 30px) {
+	transform: translateY($y);opacity: 0;
+}
+
+@mixin text-cut {
+	white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+
+@mixin text-cut-multiline($height: 3em, $line: 2) {
+	display: -webkit-box;max-height: $height;overflow: hidden;text-overflow: ellipsis;white-space: normal;word-wrap: break-word;-webkit-line-clamp: $line;-webkit-box-orient: vertical;
+}
+
+@mixin box-shadow-dark($color: #CED0D6, $alpha: 0.7) {
+	box-shadow: 5px 15px 40px 0px rgba($color, $alpha);
+}
+@mixin triangle{
+	content:"";display: block;border-width: 0 4px 7px 4px;border-style: solid;border-color: transparent transparent #dde7f3 transparent;
+}
+
+//추가
+@mixin hover() {
+	&:hover { @content; }
+}
+@mixin hover-focus-active() {
+	&:not([disabled]):hover,
+	&:not([disabled]):focus,
+	&:not([disabled]):active {
+	  @content;
+	}
+}
+
+@mixin hidden {
+	overflow: hidden;position: absolute;width: 1px;height: 1px;margin: 0;padding: 0;border: 0;clip: rect(1px, 1px, 1px, 1px);clip-path: inset(0px 0px 99.9% 99.9%);
+}
+
+@mixin text-hidden {
+	text-indent: -99999px; font-size: 0;
+}
+
+@mixin transition {
+	transition: all 0.3s;transition-property: opacity,transform;
+}
+@mixin hover-move($size: 5px) {
+	transform: translateY($size);
+}
+@mixin arrow-up{
+	-webkit-animation: arrow-up 0.6s infinite alternate ease-in-out;
+}
+@mixin arrow-down{
+  -webkit-animation: arrow-down 0.6s infinite alternate ease-in-out;
+}
+@mixin arrow-right{
+	-webkit-animation: arrow-right 0.8s infinite alternate ease-in-out;
+  }
+
+//active
+@mixin active-input($border-widtht: 1px, $color : $primary){
+	outline: none;box-shadow: 0 0 0 $border-widtht $color;
+	@include duration(0.2s);
+}
+@mixin active-input-font{
+	color: $black-light;font-weight: $font-bold;
+}
+
+@mixin input-size-variant($height-size:48px, $line-height:48px, $font-size:$font-base) {
+    height: $height-size;
+    line-height: $line-height;
+    font-size: $font-size;
+}
+
+/* form -switch */
+@mixin toggle-swich-slider($width-size:"", $height-size:"", $bg-color:$grey-light4) {
+    width: $width-size;
+    height: $height-size;
+    background-color: $bg-color;
+}
+@mixin toggle-swich-before($width-size:"", $height-size:"", $pos-left:"", $pos-top:"") {
+    width: $width-size;
+    height: $height-size;
+    left: $pos-left;
+    top: $pos-top;
+}
+@mixin toggle-swich-text($font-size: "",$line-Height:"", $color:"", $padding-left:""){
+    font-size: $font-size;
+    line-height: $line-Height;
+    color: $color;
+    padding-left: $padding-left;
+}
+
+/*
+	위치가 여기가 적절할지 고민..
+*/
+// 콘텐츠 프로필 썸네일
+@mixin contents-writer-thumbnail($profile-img-size: 34px) {
+	& {display: inline-flex;align-items: center;}
+    & .writer-img {display: inline-flex;flex: 0 0 $profile-img-size;width: $profile-img-size;height: $profile-img-size;margin-right: 10px;overflow: hidden;border-radius: 50%;}
+    & .writer-img img {width: 100%;height: 100%;object-fit: cover;}
+    & .writer-name {font-size: $font-small;color: $black-alpha70;}
+}
+
+// 1600 아래
+@mixin notebook($width: $breakpoint-notebook - 1px) {
+	@media all and (max-width: $width) {
+		@content;
+	}
+}
+
+// 워터마크 이미지 추가
+@mixin addWatermark {
+	content:'';display: block;width: 90px;height: 35px;background: url("../images/img_watermark.svg") no-repeat;position:absolute;right: 5px;z-index: 1;
+
+	@include notebook() {right: 15px;}
+}
+
+// 브랜드 로고 [메인, 브랜드 랭킹 리스트]
+@mixin brand-logo($size: 80px) {
+	width: $size;height: $size;border-radius: 100%;border: 1px solid $grey-light3;overflow: hidden;
+	& {position: relative;display: inline-flex;align-items: center;justify-content: center;}
+	& img {width: auto;max-width: 100%;height: auto;max-height: 100%;}
+}

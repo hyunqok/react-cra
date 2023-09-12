@@ -1,0 +1,85 @@
+@charset "utf-8";
+
+/*
++----------------------------------------------------------------------+
+| Copyright (c) Vaiv.  co. Ltd
++----------------------------------------------------------------------+
+| 파일설명 : reset style CSS
++----------------------------------------------------------------------+
+*/
+
+/*==================================================================
+// reset
+//=================================================================*/
+* {-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}
+html, body{margin:0;padding:0;  @include base-fontfamily; font-size: 15px;word-spacing: -0.1rem;-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: auto; }
+//var.scss수정후 변경됨
+body{min-width: 1440px;
+	// iOS에서 간헐적 텍스트 개행되는 문제로 추가
+	word-break: unset;direction: ltr;
+}  
+div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,article,aside,canvas,details,embed,figure,figcaption,footer,header,main,hgroup,menu,nav,output,section,summary,time,mark,audio,video,input,button,textarea,table {margin:0;padding:0;font-family: inherit;} 
+table {border-spacing:0; border-collapse:collapse;width: 100%;}
+th, td {word-break:break-all;}
+table span{vertical-align: middle;}
+form,fieldset {display:block;}
+form,fieldset,img {border:none;} 
+address,caption,cite,code,dfn,em,th,var {font-style: normal; font-weight: normal;} 
+ol,ul,li {list-style:none;} 
+// h1,h2,h3,h4,h5,h6 {font-size:100%; font-weight:normal;}
+abbr,acronym {border:none;} 
+hr {display:none;}
+a {text-decoration:none;color: inherit;}
+a:link,a:visited {text-decoration:none;}
+a:hover,a:active,a:focus {text-decoration:none;}
+textarea {overflow:auto; resize: none; box-shadow: none;-webkit-appearance: none; appearance: none; } 
+html:first-child select {min-height:20px;} /* opera 9 & below fix */ 
+select{font-family: inherit;}
+option {padding-right:6px;} /* firefox fix */
+legend {position:absolute; top:0; left:0; width:0; height:0; overflow:hidden; visibility:hidden; font-size:0; line-height:0;} /* for screen reader */ 
+caption {display:none;}
+label, button{cursor:pointer;border: 0;}
+img{vertical-align: top;}
+
+input{font-size:$font-base;}
+input[type=range] ,select{
+    -webkit-appearance: none;
+	appearance: none;
+}
+select::-ms-expand {
+    display: none;
+}
+input::-ms-clear, input::-ms-reveal {
+    display: none;
+}
+input::placeholder, textarea::placeholder {@include placeholder-color;}
+input:active, input:focus,
+teaxrea:active, teaxrea:focus{outline-color:$primary ; border-width: 1px}
+
+// Input 태그 자동완성 후 생기는 백그라운드 색상 제거
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active
+{
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+
+/*//Chrome, Safari용 스크롤 바*/
+::-webkit-scrollbar {width: 5px;height: 5px;}
+::-webkit-scrollbar-track {background-color: rgba(#eee, 0);}
+::-webkit-scrollbar-thumb {background: #E2E2E2;border-radius: 10px;border: 1px $white solid;opacity: .5;}
+::-webkit-scrollbar-thumb:hover {background: #E2E2E2;opacity: 1;}
+::-webkit-scrollbar-track-piece {background-color: rgba(255, 255, 255, 0);}
+
+
+
+/*==================================================================
+// title
+//=================================================================*/
+h1{letter-spacing: -0.05rem; word-spacing: -0.05rem;}
+h2{letter-spacing: -0.05rem; word-spacing: -0.05rem;}
+h3{letter-spacing: -0.05rem; word-spacing: -0.05rem;}
+
+// 영문 폰트 자간 설정
+[lang="en"] {letter-spacing: 0;}

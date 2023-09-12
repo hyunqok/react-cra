@@ -1,0 +1,10 @@
+
+// IE접속시 엣지 브라우저 전환 상단 띠배너 
+.ie-change-edge-banner {position: fixed;top: 0;left: 0;width: 100%;z-index: 5000;color: #fff;background: #2B65F0 url('../images/bg_change_edge.svg') no-repeat right 0;background-size: contain;display: none;}
+.ie-change-edge-banner.for-legacy {position: relative;} // 웹팩 이전 페이지들 상단 띠배너
+.ie-change-edge-banner > .inner {max-width: 975px;height: 100px;margin: 0 auto;display: flex;align-items: center;justify-self: space-between;}
+.ie-change-edge-banner .copy {font-size: $font-middle;font-weight: normal;line-height: 1.4;}
+.ie-change-edge-banner .copy strong {font-weight: normal;}
+.ie-change-edge-banner .copy em {font-weight: $font-bold;}
+.ie-change-edge-banner .copy span:nth-child(1) {font-size: $h6;}
+.ie-change-edge-banner .obj {margin: 0 7% 0 8%;}

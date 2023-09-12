@@ -1,0 +1,257 @@
+@charset "utf-8";
+
+/*
++----------------------------------------------------------------------+
+| Copyright (c) Vaiv.  co. Ltd
++----------------------------------------------------------------------+
+| 파일설명 : 썸트렌드 변수 설정
++----------------------------------------------------------------------+
+*/
+
+
+/*==================================================================
+// color
+//=================================================================*/
+
+$primary: #5845EA !default;
+
+$primary-alpha5: #F6F5FF !default;
+$primary-alpha10: #EFEDFF !default;
+$primary-alpha20: #DEDAFE !default;
+$primary-alpha70: #AEA4FD !default;
+
+
+$primary-bg-text: #5A45FB !default; //메인에서 또는 어두운 배경일때만 사용
+$white: #fff !default;
+$clear : transparent !default;
+
+
+$sky: #00B6DE !default;
+$sky-light: #6DCFFB !default;
+
+
+$blue: #2B65F0 !default;
+$blue-alpha10: #EAF0FE !default;
+$data-detail-blue: #85A5F2 !default;
+
+$navy: #25375A !default;
+$navy-alpha70 : #515F7B !default;
+$green: #26B470 !default;
+$green-light: #0BBB9B !default;
+
+
+$yellow: #FBC400 !default;
+$yellow-alpha10: #FFFAE6 !default;
+
+$orange: #F7941D !default;
+$orange-alpha10: #fff7e6 !default;
+
+
+$black: #050505 !default;
+$black-alpha70: #6F747B !default;
+$black-alpha50: #8B8D91 !default;
+$black-light: #313842 !default;
+$black-bg: #161B23 !default;
+$bg-dark: #222 !default;
+
+
+$grey: #CED0D6 !default;
+$grey-light: #F9F9F9 !default;
+$grey-light2: #F5F6F8 !default;
+$grey-light3: #F1F2F4 !default;
+$grey-light4: #ECEDEE !default;
+$grey-light5: #CDD0D7 !default;
+
+$grey-dark: #C7C8CB !default;
+$grey-dark2: #909398 !default;
+
+$pink: #FF4A6F !default;
+$pink-alpha10: #FFEBEF !default;
+$pink-alpha70: #FBACBC !default;
+$pink-alpha75: #FF7793 !default;
+$pink-alpha85: #FF6584 !default;
+
+$red: #F53933 !default;
+$red-alpha10: #FFECEB !default;
+
+// data color
+$data-pink: #FF4A6F !default;
+$data-pink-light: #FF637F !default;
+$data-orange: #FF9A3C !default;
+$data-yellow: #FFC75A !default;
+$data-yellow-deep: #F0C055 !default;
+$data-olive: #A3BF52 !default;
+$data-green: #62C796 !default;
+$data-sky: #7DD0E2 !default;
+$data-blue: #85A5F2 !default;
+$data-navy: #95B3E1 !default;
+$data-navy-alpha70 : #515F7B !default;
+$data-red: #FF7B76 !default;
+$data-black-light: #8C9DB6 !default;
+$data-primary-light: #6E5BFF !default;
+
+$positive: $primary;
+$negative: $red;
+$neutrality: $yellow;
+
+// biz color 
+// 22.08.02 플랜 소개 페이지 비즈 내용이 추가 되면서 
+// 비즈 가이드 컬러가 들어오게 됨..
+$primary-biz: #18A0FB !default;
+$primary-alpha5-biz: #F3FAFF !default;
+$primary-alpha10-biz: #E8F6FF !default;
+$primary-alpha20-biz: #D1ECFE !default;
+$primary-alpha70-biz: #5EBDFD !default;
+
+$colors: (
+	"primary": $primary,
+	"primary-alpha5": $primary-alpha5,
+	"primary-alpha10": $primary-alpha10,
+	"primary-alpha20": $primary-alpha20,
+	"primary-alpha70": $primary-alpha70,
+	"sky": $sky,
+	"sky-light": $sky-light,
+	"blue": $blue,
+	"blue-alpha10": $blue-alpha10,
+	"navy": $navy,
+	"navy-alpha70": $navy-alpha70,
+	"green": $green,
+	"green-light": $green-light,
+	"yellow": $yellow,
+	"orange": $orange,
+	"black": $black,
+	"white": $white,
+	"black-alpha70": $black-alpha70,
+	"black-alpha50": $black-alpha50,
+	"black-light": $black-light,
+	"black-bg": $black-bg,
+	"grey": $grey,
+	"grey-light": $grey-light,
+	"greylight": $grey-light,
+	"grey-light2": $grey-light2,
+	"grey-light3": $grey-light3,
+	"grey-light4": $grey-light4,
+	"grey-light5": $grey-light5,
+	"grey-dark": $grey-dark,
+	"grey-dark2": $grey-dark2,
+	"pink": $pink,
+	"pink-alpha10": $pink-alpha10,
+	"red": $red,
+	"data-pink": $data-pink,
+	"data-orange": $data-orange,
+	"data-yellow": $data-yellow,
+	"data-yellow-deep": $data-yellow-deep,
+	"data-olive": $data-olive,
+	"data-green": $data-green,
+	"data-sky": $data-sky,
+	"data-blue": $data-blue,
+	"data-navy": $data-navy,
+	"data-red": $data-red,
+	"data-black-light": $data-black-light,
+	"data-primary-light": $data-primary-light,
+	"clear": $clear,
+	"positive": $positive,
+	"negative": $negative,
+	"neutrality": $neutrality,
+	"primary-biz": $primary-biz,
+);
+
+// 버튼 generator 용, 실사용 하는 컬러만 추가
+$button-colors: (
+	"clear": $clear,
+	"primary": $primary,
+	"grey": $grey,
+	"greylight": $grey-light,
+	"grey-light": $grey-light,
+	"grey-light4": $grey-light4,
+	"grey-light5": $grey-light5,
+	"primary-alpha5": $primary-alpha5,
+	"primary-alpha20": $primary-alpha20,
+	"primary-biz": $primary-biz,
+	"green-light": $green-light,
+	"white": $white,
+	"blue": $blue,
+	"sky": $sky,
+	"black": $black,
+	"black-light": $black-light,
+	"black-alpha70": $black-alpha70,
+	"grey-dark": $grey-dark,
+	"grey-dark2": $grey-dark2,
+	"navy": $navy,
+	"pink-alpha85": $pink-alpha85,
+	"data-primary-light": $data-primary-light
+);
+
+// sns color
+$community: $primary;
+$twitter: #34A7FF;
+$blog: $green-light;
+$insta: $pink;
+$youtube: $red;
+$news: #FBC400; 
+
+// magazine & gallery category color
+$category_product: #d4de17 !default;
+$category_beauty:  $pink !default; 
+$category_trip:  $green-light !default; 
+$category_movie: #b05cba !default;
+$category_food: $yellow !default; 
+$category_etc: $primary !default;
+
+// 회원 타입별 배지 컬러
+$member-colors: (
+	"normal": $sky,
+	"charge": $primary,
+	"all": $pink,
+);
+
+/*==================================================================
+// font
+//=================================================================*/
+
+/*========= font-family  =========*/
+$base-font: "gyeonggi", "맑은고딕", "Malgun Gothic", malgun, 'NotoR', 'Apple Gothic';
+//$en-font: 'Montserrat';
+$num-font: 'Malgun Gothic', 'Apple Gothic', sans-serif;
+$icon: 'remixicon';
+
+/*========= font-size =========*/
+// base px 변경시, rem 다시 계산해서 수정
+$h1: 4.4rem !default; // 66px
+$h2: 3.4rem !default; // 51px
+$h2-small: 2.733rem !default; // 41px
+$h3: 2.467rem !default; // 37px
+$h4: 1.8rem !default; // 27px
+$h5: 1.467rem !default; // 22px
+$h6: 1.267rem !default; // 19px
+
+$font-middle: 1.133rem !default; // 17px
+$font-base: 1rem !default; // 15px
+$font-small: 0.867rem !default; // 13px
+$font-x-small: 0.733rem !default; // 11px
+
+/*========= font-weight =========*/
+$font-thin: 100;
+$font-light: 300;
+$font-regular: 400;
+$font-medium: 400;
+$font-bold: 500;
+
+$layout-min-width: 1460px; // 레이아웃 최소 사이즈
+$left-size: 260px; // 대시보드 레이아웃 좌측 여백
+$left-size-small: 225px; // 대시보드 레이아웃 좌측 여백
+$contentsPadding: 40px; // 대시보드 레이아웃 콘텐츠 좌측 여백
+
+$breakpoint-notebook: 1600px;
+
+
+// card 
+$card-shadow: #D3D7DD !default;
+
+// 모달 오버레이
+$dim-opacity: 0.5;
+
+// z-index 설정
+$z-level1: 9999999; // [.confirmPop, .watingPop, .popup_banner_container, .inquiry-loading(1:1문의하기 등록시)]
+$z-level2: 9999989; // [.layerMaskBackground, .modal_outer(dim 자체 딤처리 모달)]
+$z-level3: 9999979; // [.right_floating_temporary, .left floating]

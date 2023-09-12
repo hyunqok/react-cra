@@ -1,0 +1,325 @@
+@charset "utf-8";
+/*
++----------------------------------------------------------------------+
+| Copyright (c) VAIV. co. Ltd
++----------------------------------------------------------------------+
+| 생활변화관측소
++----------------------------------------------------------------------+
+*/
+
+/* 공통 */
+// lnb
+.life-lnb {background: $white;}
+.life-lnb-content {position: relative;height: 70px;display: flex;justify-content: space-between;align-items: center;}
+.life-lnb-logo {}
+.life-lnb-list {display: flex;}
+.life-lnb-list li {margin-right: 40px;}
+.life-lnb-list li:last-child {margin-right: 0;}
+.life-lnb-list li a {display: inline-block;position: relative;padding-bottom: 7px;color: $grey-dark2;line-height: 1.5;letter-spacing: -0.02em;}
+.life-lnb-list li a::after {content: '';display: none;position: absolute;left: 0;bottom: 0;width: 100%;height: 2px;background: $primary;}
+.life-lnb-list li.on a {color: $primary;}
+.life-lnb-list li.on a::after {display: block;}
+.life-lnb-list li.new a::before {content: "New";text-indent: -9999px;position: absolute;top: -6px;right: -20px;z-index: 1;display: block;width: 15px;height: 15px;margin-top: 5px;background: url("/renewal_resources/images/icon_new_v3.svg") no-repeat 0 0;background-size: 15px 15px;}
+
+// visual
+//230404 브린 메뉴 적용하면서 key-visual 영역 숨김처리 (s98)
+/*.life-visual {height: 277px;background: url('../images/life/visual_bg.png') center/cover no-repeat;}
+.life-visual.type2 {background-image: url('../images/life/visual_bg2.png');}
+.life-visual.type3 {background-image: url('../images/life/visual_bg3.png');}*/
+.life-visual .contentInner {position: relative;height: 100%;}
+.life-visual-tit {position: absolute;left: 0;top: 50%;@include pos-center('y');width: 100%;text-align: center;}
+.life-visual-tit h5 {color: $white;font-weight: $font-bold;font-size: $h5;line-height: 1.5;letter-spacing: -0.02em;}
+.life-visual-tit p {color: $white;font-weight: $font-light;font-size: $font-middle;line-height: 1.5;}
+.life-visual-tit h5 + p {margin-top: 30px;}
+
+// body
+.life-body {padding: 30px 0 100px;}
+.life-body .contentInner {padding: 0 30px;}
+
+// tit
+.life-tit {margin-bottom: 64px;text-align: center;line-height: 1.5;letter-spacing: -0.02em;}
+.life-tit h5 {margin-bottom: 24px;color: $black-light;font-size: $h5;font-weight: $font-regular}
+//.life-tit h5::before {content: '';display: block;width: 20px;height: 3px;margin: 0 auto 10px;background: $grey-dark2;}
+.life-tit h5 em {color: $primary;font-weight: $font-regular;}
+.life-tit p {color: $black-alpha70;}
+.life-tit small {margin-top: 14px;color: $black-alpha50;font-size: $font-x-small;line-height: 1.44;font-weight: $font-light}
+//.life-tit.type2 h5::before {display: none;}
+
+
+/* 관측소소개 */
+// 관측소소개
+.life-intro {margin-bottom: 106px;}
+.life-intro-list {display: flex;justify-content: center;width: 1110px;margin: 0 auto;padding-top: 10px;}
+.life-intro-list li {width: 33.3333%;text-align: center;line-height: 1.5;letter-spacing: -0.02em;}
+.life-intro-list li i {display: flex;justify-content: center;align-items: center;width: 160px;height: 160px;margin: 0 auto 30px;border-radius: 50%;background: $primary-alpha5;}
+.life-intro-list li h6 {margin-bottom: 17px;color: $black-light;font-size: $font-base;font-weight: $font-bold;}
+.life-intro-list li p {color: $grey-dark2;}
+
+// 활동소개
+.life-activity {margin-bottom: 100px;}
+.life-activity-content {display: flex;justify-content: space-between;}
+.life-activity-item {width: 548px;}
+.life-activity-tit {display: flex;justify-content: center;align-items: center;overflow: hidden;height: 290px;margin-bottom: 30px;border-radius: 10px;text-align: center;background: center/cover no-repeat;}
+.life-activity-tit img {margin-bottom: 14px;}
+.life-activity-tit h6 {color: $white;font-size: $h6;line-height: 1.68;letter-spacing: -0.02em;}
+.life-activity-txt {text-align: center;}
+.life-activity-txt p {color: $black-alpha70;line-height: 1.5;letter-spacing: -0.02em;}
+.life-activity-item1 .life-activity-tit {background-image: url('../images/life/activity_bg.png');}
+.life-activity-item2 .life-activity-tit {background-image: url('../images/life/activity_bg2.png');}
+
+// 배너
+.life-banner {display: flex;justify-content: space-between;margin-bottom: 130px;}
+.life-banner-item {overflow: hidden;width: 548px;height: 193px;padding: 33px;border-radius: 10px;color: $white;line-height: 1.5;letter-spacing: -0.02em;background: center/cover no-repeat;}
+.life-banner-item h5 {margin-bottom: 10px;font-size: $h5;}
+.life-banner-item h6 {margin-bottom: 32px;font-size: $h6;line-height: 1.11;}
+.life-banner-item .vbtn {font-weight: $font-regular;letter-spacing: -0.05em;}
+.life-banner-item .vbtn.x-small {padding: 5px 15px 5px 20px;}
+.life-banner-item .vbtn:hover {color: $black-light;}
+.life-banner-item .vbtn i {margin-left: 5px;font-size: 20px;}
+.life-banner-item1 {background-image: url('../images/life/banner_bg.png');}
+.life-banner-item2 {background-image: url('../images/life/banner_bg2.png');}
+
+// 책
+.life-book-content {display: flex;justify-content: space-between;width: 918px;margin: 0 auto;}
+.life-book-desc-tit {margin-bottom: 30px;color: $black-light;line-height: 1.5;letter-spacing: -0.02em;}
+.life-book-desc-tit h5 {margin-bottom: 30px;font-size: $h5;}
+.life-book-desc-tit h6 {font-size: $h6;}
+.life-book-desc-tit h6.type2 {color: $grey-dark2;font-size: $font-middle;}
+.life-book-desc-txt p {color: $black-alpha70;line-height: 1.5;letter-spacing: -0.02em;}
+.life-book-desc-btn {margin-top: 80px;}
+.life-book-desc-btn .vbtn {font-weight: $font-regular;}
+.life-book-desc-btn .vbtn.small {padding: 10px 18px 10px 22px}
+.life-book-desc-btn .vbtn i {margin-left: 5px;font-size: 23px;}
+
+/* 주간관측소 */
+// 콘텐츠 카테고리 필터 스와이핑
+.insight-cont-filters {position: relative;display: grid;grid-template-columns: 1fr 38px;grid-gap: 10px;margin-bottom: 22px;}
+.insight-cont-filters .swiper-wrapper {min-height:38px;}
+.insight-cont-filters .swiper-container {position: relative;display: flex;align-items: center;width: 100%;overflow: hidden;}
+.insight-cont-filters .swiper-container:before, .insight-cont-filters .swiper-container:after {content:'';display: block;position: absolute;top: 50%;z-index: 10;width: 92px;height: 100%;transform: translateY(-50%);background: $white;background: linear-gradient(90deg, rgba($white, 0) -8.75%, rgba($white, 1) 63.44%);@include duration;}
+.insight-cont-filters .swiper-container:before {left: 0;background: linear-gradient(-90deg, rgba($white, 0) -8.75%, rgba($white, 1) 63.44%)}
+.insight-cont-filters .swiper-container:after {right: 0;}
+.insight-cont-filters .swiper-container.started:before {display: none;opacity: 0;visibility: hidden;}
+.insight-cont-filters .swiper-container.ended:after {display: none;opacity: 0;visibility: hidden;}
+.insight-cont-filters .swiper-slide {width: auto;border-radius: 7px;overflow: hidden;}
+.insight-cont-filters .swiper-button-prev, .insight-cont-filters .swiper-button-next {display: inline-block;flex: 0 0 38px;width: 38px;height: 38px;line-height: 38px;background-size: 12px;background-color:$white;border: 1px solid $grey-light4;color: $grey-dark2;z-index: 100;text-align: center;vertical-align: middle;border-radius: 50%;}
+.insight-cont-filters .swiper-button-prev, .insight-cont-filters .swiper-container-rtl .swiper-button-next{left: 0;}
+.insight-cont-filters .swiper-button-next, .insight-cont-filters .swiper-container-rtl .swiper-button-prev{right: 0;}
+.insight-cont-filters .swiper-button-prev.swiper-button-disabled, .insight-cont-filters .swiper-button-next.swiper-button-disabled {display: none;}
+.insight-cont-filters .swiper-button-prev:after, .insight-cont-filters .swiper-button-next:after{font-size: $font-base;font-weight: $font-bold;vertical-align: middle;background-position: center center;text-align: center;color: $grey-dark2;}
+
+// 카테고리 필터 스타일
+.insight-cont-filters .tab-type3 li {margin: 0 8px 8px 0;}
+.insight-cont-filters .tab-type3 li:last-child {margin: 0 0 8px 0;}
+.insight-cont-filters .tab-type3 li a {display: inline-flex;justify-content: center;align-items: center;padding: 12px 20px;font-size: $font-small;font-weight: $font-regular;background-color: $primary-alpha5;border: 1px solid $primary-alpha5;color: $black-alpha70;cursor: pointer;box-sizing: border-box;white-space: nowrap;}
+.insight-cont-filters .tab-type3 li.on a {background-color: $white;border: 1px solid $primary-alpha70;box-shadow: none;}
+
+// 카테고리 전체보기 버튼
+.insight-cont-filters-more {width: 38px;height: 38px;font-size: $h5;border-radius: 10px;border:1px solid $grey-light4;color: $grey-dark2;@include hover-focus-active{background:$primary-alpha70;border-color: $primary-alpha70;color:$white;}}
+.insight-cont-filters-more:focus {box-shadow: 0 0 10px rgba($primary-alpha70, .8);}
+
+// 카테고리 전체
+.insight-cont-filters-all {position: absolute;left: 0; top: 53px;z-index: 100;width: 100%;padding: 25px 20px 25px 20px;background: $white;box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);border-radius: 10px;display: none;}
+.insight-cont-filters-all.show{display: block;}
+
+// 생변소 주간 콘텐츠
+.insight-cont-life-weekly {
+    .insight-cont-item {height: 404px;}
+    .insight-cont-footer {height: 204px;}
+    .insight-cont-footer .ct-desc .ct-title .subject{@include text-cut-multiline(4.5em, 3);}
+}
+
+/* 월간관측소 */
+.insight-cont-life-monthly {width: 750px;margin: 0 auto;}
+.insight-cont-life-monthly{
+    .insight-cont-list {display: block;}
+    .insight-cont-item {height: 275px;text-align: center;margin-top: 20px;}
+    .insight-cont-header {height: 275px;padding-bottom: 0;}
+    .ct-image {position: relative;display: block;height: 275px;}
+    .ct-image::after {content: '';display: block;position: absolute;top: 0;left: 0;z-index: 10;width: 100%;height: 100%;background-color: rgba(0,0,0, 0.4);}
+    .insight-cont-header-foot {display: none;}
+
+    .insight-cont-footer {position: absolute;top:50%;z-index: 20;transform: translateY(-50%);width: 100%;height: auto;border: 0;color: $white;}
+    .insight-cont-footer .ct-month {display: inline-block;padding: 4px 10px;margin-bottom: 14px;line-height: 144%;background: rgba($white, .4);border-radius: 50em;font-size: $font-small;text-align: center;color: $white;font-weight: $font-light;}
+    .insight-cont-footer .ct-desc .ct-title .subject {font-size: $h6;color: $white;}
+    .insight-cont-footer .ct-desc .ct-text {display: none;}
+    .insight-cont-footer .ct-info {display: none;}
+    .insight-cont-footer .ct-tag {position: static;margin-top: 16px;}
+    .insight-cont-footer .ct-author {margin-top: 75px;font-size: $font-small;line-height: 1.44;letter-spacing: -0.02em;color: $white;font-weight: $font-light}
+}
+
+/*  브랜드 관측소 */
+.life-brand-article {
+
+    //
+    .select-boxes {position: relative;display: flex;@include flex-center();gap: 20px;z-index: 3}
+    .select-boxes .vselect {width: 156px;padding-inline: 15px;border-color: $grey-dark;border-radius: 8px;color: $black-alpha70;font-size: $font-small;font-weight: $font-light}
+    .select-boxes .vselect:after {height: 8px;width: 8px;border-color: $grey-dark}
+
+    // 페이지 상단 랭킹 슬라이더
+    .brand-ranking-slider-wrap {clear: both;position: relative;width: 1200px;margin: 0 auto;;}
+
+    .brand-ranking-slider {position: relative;padding: 57px 0;}
+    .brand-ranking-slider .swiper-container{padding-inline: 30px;}
+    .brand-ranking-slider .swiper-wrapper {justify-content: center;gap: 50px;min-height: 145px} //
+
+
+    // 브랜드 랭킹 슬라이드 버튼
+    .brand-ranking-slider .brand-ranking-slider-buttons{top: 55%}
+    .is-ie .brand-ranking-slider .brand-ranking-slider-buttons {top: 50%}
+    .brand-ranking-slider .brand-ranking-slider-prev,
+    .brand-ranking-slider .brand-ranking-slider-next{width: 38px;height: 38px;border: 1px solid $grey-dark2;font-size: 18px;color: $grey-dark2;border-radius: 50%;background: $white}
+    .brand-ranking-slider .brand-ranking-slider-prev:hover,
+    .brand-ranking-slider .brand-ranking-slider-next:hover {background-color: $primary;border-color: $primary;color: $white;}
+
+    .brand-ranking-slider-prev {right: auto;left: -40px;}
+    .brand-ranking-slider-next {left: auto;right: -40px;}
+
+    .brand-ranking-slider-prev::after,
+    .brand-ranking-slider-next::after {display: none;}
+
+
+    // 랭킹 카드
+    .brand-ranking-card {display: flex;flex-direction: column;justify-content: center;height: 100%;width: 100%;font-weight: $font-medium;color: $primary;text-align: center;border-radius: 10px}
+    .brand-ranking-card-in{position: relative;top:-4px;}
+    .brand-ranking-card-date span {display: inline-block;padding: 10px 10px;font-size: $font-small;border: 1px solid $primary;}
+    .brand-ranking-card-name {margin-top: 10px;font-size: $h5;font-weight: $font-bold;}
+    .brand-ranking-card-keyword {font-size: $font-middle;line-height: 1.5;font-weight: $font-light;}
+
+
+    .brand-ranking-slider .swiper-slide {
+        & {width: 157px;height: 143px;background-color: $primary-alpha20;;@include duration(0.2s);border-radius: 10px;border: 1px solid $primary-alpha20;box-shadow: 0px 12px 24px -4px rgba(145, 158, 171, 0.12);}
+        &:hover {border-color: $primary;@include duration(0.4s);transition-property: border;}
+    }
+
+    .brand-ranking-slider .swiper-slide.swiper-slide-prev,
+    .brand-ranking-slider .swiper-slide.swiper-slide-next{
+        & {background-color: $primary-alpha20;}
+        .brand-ranking-card-date span {border-color: $primary;color: $primary;}
+        .brand-ranking-card-name , .brand-ranking-card-keyword {color: $primary;}
+
+    }
+    .brand-ranking-slider .swiper-slide.swiper-slide-active{
+        & {opacity: 1;background-color: $primary;color: $white;transform: scale(1);}
+    }
+
+
+
+
+    // 이번주 탑랭킹
+    .vbrite-top-ranking {margin: 40px auto 40px;}
+    .small-desc-vbrite-ranking {margin-top: 8px;color: $black-light;line-height: 1.44;font-size: $font-x-small;text-align: right;}
+
+    .vbrite-top-ranking-list {display: flex;justify-content: space-between;text-align: center;align-items: flex-end;}
+    .vbrite-top-ranking-item {position: relative;width: 240px;padding: 10px;background-color: $white;border-radius: 8px;border: 2px solid;display: flex;justify-content: center;align-items: flex-end;}
+    .vbrite-top-ranking-item .trophy {width: 74px;text-align: center;position: absolute;top: -38px;right: -28px;z-index: 10;}
+    .vbrite-top-ranking-item .trophy img {width: 100%;}
+    .vbrite-top-ranking-item .brand-info {width: 100%}
+    .vbrite-top-ranking-item .brand-logo {@include brand-logo(80px);}
+    .vbrite-top-ranking-item .brand-name {margin-top: 11px;font-size: $h6;font-weight: $font-bold;color: $black-light;line-height: 168%;word-wrap: break-word;word-break: keep-all;}
+    .vbrite-top-ranking-item .brand-keyword {margin-top: 2px;font-size: $font-base;font-weight: $font-light;color: $grey-dark2;}
+    .vbrite-top-ranking-item .brand-channel {width: 100%;margin-top: 42px}
+    .vbrite-top-ranking-item .brand-channel a {position: relative;display: flex;@include flex-center();gap: 6px;padding: 6px 10px;width: 100%;border-radius: 6px;line-height: 1;background-color: $primary-alpha10;transition: background-color 0.3s}
+
+    .vbrite-top-ranking-item .brand-channel > span {display: inline-block;}
+    .vbrite-top-ranking-item .brand-channel .label {margin-right: 8px;font-size: $font-base;font-weight: $font-medium;color: $black-light;}
+    .vbrite-top-ranking-item .brand-channel .score {font-size: $font-base;font-weight: $font-medium;color: $primary;line-height: 1;}
+    .vbrite-top-ranking-item .brand-channel i[class^=ri-] {font-size: 24px;color: $primary;}
+
+    .vbrite-top-ranking-item .brand-channel a:hover {background-color: $primary;color: $white;}
+    .vbrite-top-ranking-item .brand-channel a:hover * {color: $white;}
+
+
+    .vbrite-top-ranking-item.ranking1 {height: 285px;border-color: $primary;}
+    .vbrite-top-ranking-item.ranking2 {height: 270px;border-color: $primary-alpha70;}
+    .vbrite-top-ranking-item.ranking3 {height: 242px;border-color: $primary-alpha20;}
+    .vbrite-top-ranking-item.ranking3 .brand-channel {margin-top: 22px;}
+
+
+    .vbrite-ranking-list-item.on .vbrite-ranking-list-detail {display: block}
+
+    // 이번주 랭킹 리스트
+    .brand-ranking-wrap {clear: both;margin: 40px 0 60px 0;}
+    .brand-ranking-wrap .contentInner {padding: 0;max-width: 845px;}
+    .brand-ranking-section-title {text-align: center;font-size: $h5;color: $black-light;line-height: 150%;font-weight: $font-bold;}
+    .brand-ranking-section-title em {color: $primary;font-weight: inherit;}
+
+    // sns리스트 (_layout_detail.scss 와 중복되는 부분)
+    .layout-detail-hero-share {position: relative;justify-content: center;margin-top: 16px;}
+    .layout-detail-hero-share .btn-link {border: 1px solid $grey-dark}
+
+
+    .vbrite-ranking-list-wrap {background: $white;box-shadow: 0px 12px 24px -4px rgba(145, 158, 171, 0.12);border-radius: 20px;overflow: hidden;}
+    .vbrite-ranking-list-wrap .col-num {width: 68px;}
+    .vbrite-ranking-list-wrap .col-brand {width: 250px;text-align: left !important;}
+    .vbrite-ranking-list-wrap .col-keyword {width: 165px;text-align: left !important;}
+    .vbrite-ranking-list-wrap .col-channel {width: 120px;}
+    .vbrite-ranking-list-wrap .col-score {width: 100px;}
+    .vbrite-ranking-list-wrap .col-score {width: 85px;}
+
+    .vbrite-ranking-list-header {padding-right: 70px;background-color: $grey-light2;}
+    .vbrite-ranking-list-header .row {display: table;width: 100%;table-layout: fixed;margin-inline: 0;}
+    .vbrite-ranking-list-header .col {display: table-cell;padding: 16px 16px;font-size: $font-base;font-weight: $font-light;color: $black-alpha70;text-align: center;vertical-align: middle;}
+
+    .vbrite-ranking-list-item {position: relative;@include duration(0.5s);}
+    .vbrite-ranking-list-item.animated {opacity: 1;visibility: visible;transform: translateY(0) scale(1);}
+
+    .vbrite-ranking-list-item-info {position: relative;display: table;width: 100%;table-layout: fixed;background-color: $white;}
+
+    .vbrite-ranking-list-item-info .col {display: table-cell;padding: 16px 16px;text-align: center;vertical-align: middle;font-weight: $font-light;}
+    .vbrite-ranking-list-item-info .col-num {font-size: $font-base;color: $black-bg;}
+    .vbrite-ranking-list-item-info .col-brand {text-align: left;font-size: $font-base;color: $black-bg;}
+    .vbrite-ranking-list-item-info .col-keyword {font-family: $base-font; font-size: $font-base;color: $grey-dark2;} // '웻'과 같은 문자형태로 노토만 적용
+    .vbrite-ranking-list-item-info .col-channel a {display: inline-flex;align-items: center;justify-content: center;gap: 10px;transition: background-color 0.3s}
+    .vbrite-ranking-list-item-info .col-channel i {width: 16px;height: 16px;border-radius: 50%;color: $white;background-color: $primary-alpha70;}
+
+    .vbrite-ranking-list-item-info .col-channel a:hover i {background-color: $primary}
+    .vbrite-ranking-list-item-info .col-score {font-size: $font-base;color: $black-light;}
+    .vbrite-ranking-list-item-info .col-item {font-size: $font-base;color: $black-light;}
+    .vbrite-ranking-list-item-info .brand-logo {@include brand-logo(55px);vertical-align: middle;margin-right: 15px;}
+
+
+    .vbrite-ranking-list-item-info .col-arrow {font-size: 24px;color: $grey-dark;}
+    .vbrite-ranking-list-item-info .col-arrow i {display: block;transform-origin: center center;@include duration(0.2s);cursor: pointer}
+    .vbrite-ranking-list-item.on .col-arrow i{transform: rotate(180deg);}
+
+    .vbrite-ranking-list-detail {clear: both;position: relative;padding: 16px;font-size: $font-small;font-weight: $font-light;color: $grey-dark2;line-height: 1.5 ;background-color: $grey-light;display: none}
+
+
+}
+
+
+
+
+/* 생활변화관측담  */
+.life-change-box {
+    & {position: relative;margin-block: 40px;border-radius: 10px;overflow: hidden;}
+    dt {display: flex;@include flex-center();@include pos-full();flex-direction: column;text-align: center;color: $white;}
+    .life-change-title ,.life-change-desc {font-weight: $font-light;line-height: 1.5;}
+    .life-change-title {margin-bottom: 25px;font-size: $h5;}
+    .life-change-desc {font-size: $font-base;line-height: 1.5;}
+    .life-change-desc + .life-change-desc {margin-top: 30px;}
+    .life-change-btn-box {margin-top: 40px;}
+    .life-change-btn-box .vbtn {padding-left: 20px;}
+    .life-change-btn-box .vbtn i {font-size: 21px;}
+    .life-change-btn-box .vbtn:hover {color: $black}
+
+    dd img{max-width: 100%;}
+}
+
+//생활변화 관측소 (공통)
+.btn-observ-report {padding: 9px 15px 6px 20px;font-weight: $font-bold;font-size: $font-x-small;color: $white;line-height: 1.1;letter-spacing: normal;background-color: $primary;@include card-shadow();margin-left: -132px;}
+.btn-observ-report::after {
+    content: "";
+    display: inline-block;
+    position: relative;
+    top: 3px;
+    width: 28px;
+    height: 14px;
+    margin-left: 10px;
+    background-image: url("/renewal_resources/images/icon_pointFinger-870cbb033784a97c200a1997d383fcde.png");
+    background-size: 100% auto;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+}
+.btn-observ-report em {color: $primary;font-weight: inherit;}

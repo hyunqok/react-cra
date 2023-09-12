@@ -1,0 +1,17 @@
+@charset "utf-8";
+
+@import "design_2.0/vars";
+@import "design_2.0/mixins/font_size";
+@import "design_2.0/fonts";
+@import "design_2.0/reset";
+@import "design_2.0/grid.min";
+
+// third party
+@import "component/mingcute-icon";
+
+// components
+@import "design_2.0/component/buttons";
+@import "design_2.0/component/label";
+@import "design_2.0/form";
+
+@import "pages/analysis_2.0/style";

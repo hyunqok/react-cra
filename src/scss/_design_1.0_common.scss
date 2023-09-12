@@ -1,0 +1,17 @@
+@import "common/vars";
+@import "common/mixin";
+@import "common/fonts";
+@import "common/icon";
+@import "component/modals";
+
+// IE로 접근시 크롬 브라우저 업데이트 권유 상단 띠배너 
+@import "component/ie_change_edge_banner";
+
+// layout header, footer
+@import "common/layout";
+
+// 챗봇
+@import "component/chatbot"; 
+
+// 상단 바로가기 버튼
+@import "component/top_btn"; 

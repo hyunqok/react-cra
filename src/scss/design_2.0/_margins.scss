@@ -1,0 +1,22 @@
+.m0 {margin: 0 !important;}
+.p0 {padding: 0 !important;}
+
+@for $i from 0 through 6 {
+	.mt#{$i*5} {margin-top: $i * 5px !important}
+	.mr#{$i*5} {margin-right: $i * 5px !important}
+	.mb#{$i*5} {margin-bottom: $i * 5px !important}
+	.ml#{$i*5} {margin-left: $i * 5px !important}
+
+	.pt#{$i*5} {padding-top: $i * 5px !important}
+	.pr#{$i*5} {padding-right: $i * 5px !important}
+	.pb#{$i*5} {padding-bottom: $i * 5px !important}
+	.pl#{$i*5} {padding-left: $i * 5px !important}
+}
+
+/* 가변형 여백 */
+@for $i from 1 through 10 {
+	.mt-#{$i}per {margin-top: $i * 1% !important}
+	.mr-#{$i}per {margin-right: $i * 1% !important}
+	.mb-#{$i}per {margin-bottom: $i * 1% !important}
+	.ml-#{$i}per {margin-left: $i * 1% !important}
+}

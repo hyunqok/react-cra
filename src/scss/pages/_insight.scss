@@ -1,0 +1,67 @@
+/*
++----------------------------------------------------------------------+
+| Copyright (c) VAIV.  co. Ltd
++----------------------------------------------------------------------+
+| 인사이트리스트 개편
++----------------------------------------------------------------------+
+*/
+@charset "utf-8";
+
+//인사이트 리스트 상단 (임시) : 향후 디자인 변경 예정
+.main-visual.insight-main-visual{padding-top: 45px;}
+.main-visual.insight-detail-visual{padding-top: 45px;margin-top: 0;}
+.insight-main-visual .visual-search .main-seach-box,
+.insight-detail-visual .visual-search .main-seach-box{margin-top: 0}
+
+.insight-list-wrap .main-sect-inner{padding: 0 30px;}
+
+
+//상단 sort
+.main-sect-header-buttons .sort-label-lists{justify-content: flex-end;}
+.main-sect-header-buttons .sort-label-lists li{margin-left: 8px;}
+
+// 에디터 픽
+.insight-cont-list {display: grid;grid-template-columns: repeat(4, 270px);grid-gap: 20px;}
+.insight-cont-item{position: relative;height: 341px;-webkit-backface-visibility: hidden;backface-visibility: hidden;border-radius: 10px;overflow: hidden;}
+
+.insight-cont-header {position: relative;height: 200px;padding-bottom: 45px;}
+.insight-cont-header .ct-img-inner {-webkit-backface-visibility: hidden;backface-visibility: hidden;}
+.insight-cont-header .ct-image {position: relative;display: inline-block;width: 100%;height: 200px;vertical-align: top;-webkit-backface-visibility: hidden;backface-visibility: hidden;cursor: pointer;overflow: hidden;}
+.insight-cont-header .ct-image img {position: absolute;top: 0;left: 0;display: block;width: 100%;height: 100%;-o-object-position: center;object-position: center;-webkit-backface-visibility: hidden;
+backface-visibility: hidden;-o-object-fit: cover;object-fit: cover;}
+.insight-cont-header .ct-badge {position: absolute;top:10px;right: 10px;padding: 0 7px;line-height:21px;border-radius: 50em;font-size: .643rem;color: $white;text-transform: uppercase;pointer-events: none;display:none;}
+.insight-cont-header .ct-badge.new { background-color: #FF514C;z-index: 11;}
+.insight-cont-header .ct-time {position: absolute;top: 0;width: 100%;padding: 10px;pointer-events: none;}
+.insight-cont-header .ct-time .time{display: inline-flex;align-items: center;padding: 1px 5px 3px 5px;line-height: 160%;font-size: $font-small;font-weight: $font-bold;background: rgba(5, 5, 5, 0.5);color: $white;border-radius: 5px;vertical-align: middle;}
+.insight-cont-header .ct-time .time img{width: 9px;margin-left: 6px;}
+.insight-cont-header-foot {position: absolute;left: 0;bottom: 0;width: 100%;height: 45px;box-sizing: content-box;background: rgba($black, 0.4);backdrop-filter: blur(10px);-webkit-backdrop-filter: blur(10px);}
+.insight-cont-header-foot .ct-info {position: absolute;left: 15px;top: 50%;transform: translateY(-50%);display: flex;align-items: center;}
+.insight-cont-header-foot .ct-info .ct-channel {display: inline-block;width: 26px;height: 26px;flex-shrink: 0;margin-top: -0.5px;}
+.insight-cont-header-foot .ct-info .ct-channel img {width: 100%;height: 100%;border-radius: 50%;overflow: hidden;}
+.insight-cont-header-foot .ct-info .ct-author {padding-left: 8px;padding-right: 43px;line-height: 160%;font-size: $font-small;color: $white;@include text-cut-multiline(1.6em, 1);}
+.insight-cont-header-foot .ct-info .ct-author em {display: inline-block;margin-right: 4px;font-size: 10px;}
+
+.insight-cont-header-foot .ct-option {display: inline-block;position: absolute;right:0;height: 45px;cursor: pointer;}
+// 좋아요 개발 안함 임시 숨김 220325
+.insight-cont-header-foot .ct-option .ct-like {display: inline-block;width: 43px;height: 45px;line-height: 45px;text-align: center;display: none;}
+.insight-cont-header-foot .ct-option .ct-like input {display: none;}
+.insight-cont-header-foot .ct-option .ct-like label {display: inline-block;width: 100%;height: 100%;cursor: pointer;}
+.insight-cont-header-foot .ct-option svg {width: 15px;height: 14px;vertical-align: middle;}
+.insight-cont-header-foot .ct-option .ct-like input + label path {fill: $white;transition: all .15s;}
+.insight-cont-header-foot .ct-option .ct-like input:checked + label path {fill: $yellow;transform-origin: center;}
+
+.insight-cont-footer {padding: 15px 18px;height: 141px;border: 1px solid $grey-light4;border-radius: 0 0 10px 10px;}
+.insight-cont-footer .ct-desc .ct-category {font-size: $font-base;line-height: 150%;color: $black-light;}
+.insight-cont-footer .ct-desc .ct-title {margin-top: 3px;color: $black-light;}
+.insight-cont-footer .ct-desc .ct-title .category{display: block;font-size: $font-base;font-weight: $font-regular;}
+.insight-cont-footer .ct-desc .ct-title .subject{font-size: $font-middle;font-weight: $font-bold;line-height: 150%;@include text-cut-multiline(3em, 2);}
+.insight-cont-footer .ct-desc .ct-text{margin-top: 3px;line-height: 144%;font-size: $font-small;color: $black-alpha70;@include text-cut-multiline(3em, 2);}
+// 카테고리 태그 추가 (생변소 콘텐츠 추가하면서 작업)
+.insight-cont-footer .ct-tag {position: absolute;display:inline-flex;bottom: 20px;}
+.insight-cont-footer .ct-tag-item {display: block;padding: 6px 12px;margin-right: 6px;line-height: 1.44;font-size: $font-small;font-weight: 400;background-color: $grey-light2;color: $grey-dark2;border-radius: 50em;white-space: normal;}
+
+// youtube 콘텐츠
+.insight-cont-item.youtube .insight-cont-header .ct-img-inner:before{content: '';position: absolute;left: 50%;top: 50%;@include pos-center();display: block;width :50px;height: 50px;background: url('/renewal_resources/images/icon_play.png') no-repeat 50%;z-index: 1}
+
+// new 콘텐츠
+.insight-cont-item.new .insight-cont-header .ct-badge {display: block;}

@@ -1,0 +1,12 @@
+
+// 키 컬러
+@each $key, $color in $key-colors {
+	.color-#{$key} {color: $color;}
+	.bgcolor-#{$key} {background-color: $color;}
+}
+
+// 채널 컬러
+@each $key, $color in $channel-colors {
+	.color-#{$key} {color: $color;}
+	.bgcolor-#{$key} {background-color: $color;}
+}

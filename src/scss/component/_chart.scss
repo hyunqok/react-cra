@@ -1,0 +1,85 @@
+
+// 차트 툴팁 스타일 공통 [분석 언급량, ]
+.chart-data-tooltip {min-width: 180px;padding: 15px 12px 10px 12px;font-size: $font-small;font-weight: $font-medium;text-align: left;background-color: $white;}
+.chart-data-tooltip::after {content:"";}
+.chart-data-tooltip .value-date {margin-bottom: 10px;text-align: left;font-weight: $font-bold;color: $grey-dark2;}
+.chart-data-tooltip .data-title {display: flex;align-items: center;margin: 5px 0;line-height: 1.3}
+.chart-data-tooltip .data-title span{display: inline-block;}
+.chart-data-tooltip .data-title span.title {color: $grey-dark2; margin-right: 5px;}
+.chart-data-tooltip .data-title span.num,
+.chart-data-tooltip .data-title span.percent {font-weight: $font-bold;color: $black-light !important;}
+.chart-data-tooltip .data-title::before {content: "";display: block;width: 8px;height: 8px;margin-right: 7px;border-radius: 50%;}
+
+.chart-data-tooltip .data-title.color-primary::before {background-color: $primary;}
+.chart-data-tooltip .data-title.color-black-light::before {background-color: $black-light;}
+.chart-data-tooltip .data-title.color-pink::before {background-color: $pink;}
+.chart-data-tooltip .data-title.color-green-light::before {background-color: $green-light;}
+.chart-data-tooltip .data-title.color-yellow::before {background-color: $yellow;}
+.chart-data-tooltip .data-title.color-sky::before {background-color: $sky;}
+.chart-data-tooltip .data-title.color-blue::before {background-color: $blue;}
+
+// 비교>긍부정별 툴팁 레이블 블릿 컬러
+.chart-data-tooltip .data-title.color-positive0::before {background-color: $primary;}
+.chart-data-tooltip .data-title.color-positive1::before {background-color: #AE1AC6;}// 컬러 가이드에 없음
+.chart-data-tooltip .data-title.color-positive2::before {background-color: $sky;}
+
+.chart-data-tooltip .data-title.color-negative0::before {background-color: $red;}
+.chart-data-tooltip .data-title.color-negative1::before {background-color: $orange;}// 컬러 가이드에 없음
+.chart-data-tooltip .data-title.color-negative2::before {background-color: #9D130E;}
+
+.chart-data-tooltip .data-title.color-neutral0::before {background-color: $yellow;}
+.chart-data-tooltip .data-title.color-neutral1::before {background-color: #8CA400;} // 컬러 가이드에 없음
+.chart-data-tooltip .data-title.color-neutral2::before {background-color: #6C6524;} // 컬러 가이드에 없음
+
+// 차트 툴팁 스타일 공통 [비교분석 연관어 ]
+.chart-data-tooltip-type2 {min-width: 180px;font-size: $font-small;font-weight: $font-medium;text-align: left;background-color: $white;}
+.chart-data-tooltip-type2::after {content: "";}
+.chart-data-tooltip-type2 .data-title {margin: 10px 0;@include flex-display-between();}
+.chart-data-tooltip-type2 .text-color.primary{color: $primary}
+.chart-data-tooltip-type2 .text-color.pink{color: $pink}
+.chart-data-tooltip-type2 .text-color.yellow{color: $yellow}
+.chart-data-tooltip-type2 .data-title .title{color: $grey-dark2; font-weight: $font-bold;}
+.chart-data-tooltip-type2 .data-title .num{color: $black-light}
+
+// 차트 레이블 박스
+.chart-labelbox {clear: both;position: relative;display: flex;justify-content: center;}
+.chart-labelbox .legend-item {position: relative;display: inline-flex;align-items: center;margin: 0 5px;padding: 12px 10px 12px 30px;font-size: $font-small;font-weight: $font-medium;background-color: $white;color: $grey-dark2;border: 1px solid $grey-light4;border-radius: 20px;@include box-shadow3;}
+
+.chart-labelbox .legend-marker {position: absolute;top: 50%;left: 10px;display: block;width: 7px;height: 7px;@include pos-center('y'); background-color: $primary;border-radius: 50%;}
+.chart-labelbox .legend-marker-role {position: absolute;top: 44%;left: 9px;display: block;width: 7px;height: 7px;@include pos-center('y');}
+.chart-labelbox .legend-value {display: inline-block;margin-left: 5px;color: $black-light;}
+
+.chart-labelbox .legend-item.positive .legend-marker {background-color: $positive;}
+.chart-labelbox .legend-item.negative .legend-marker {background-color: $negative;}
+.chart-labelbox .legend-item.neutrality .legend-marker {background-color: $neutrality;}
+
+.chart-labelbox .legend-item.disable {color: $grey-dark2 !important;background-color: $grey-light3;border-color:$grey-light3;box-shadow: none;}
+.chart-labelbox .legend-item.disable .legend-marker,
+.chart-labelbox .legend-item.disabled .legend-marker {background-color: $grey-dark2 !important;}
+.chart-labelbox .legend-item.disable .legend-value,
+.chart-labelbox .legend-item.disabled .legend-value {color: $grey-dark2 !important;}
+
+.chart-labelbox.checkbox-marker .legend-item {padding-left: 34px;}
+.chart-labelbox.checkbox-marker .legend-marker {width: 16px;height: 16px;border-radius: 3px;}
+.chart-labelbox.checkbox-marker .legend-marker::after {font-family: $icon;content: "\EB7B";position: absolute;top: 50%;left: 46%;@include pos-center();font-size: 14px;font-weight: normal;color: $white;}
+
+.chart-labelbox.checkbox-marker .legend-item.disable,
+.chart-labelbox.checkbox-marker .legend-item.disabled {cursor: pointer;}
+.chart-labelbox.checkbox-marker .legend-item.disable .legend-marker,
+.chart-labelbox.checkbox-marker .legend-item.disabled .legend-marker {background-color: $white !important;}
+.chart-labelbox.checkbox-marker .legend-item.disable .legend-marker-role circle,
+.chart-labelbox.checkbox-marker .legend-item.disabled .legend-marker-role circle{fill: $grey-dark2 !important; stroke: $grey-dark2 !important}
+.chart-labelbox.checkbox-marker .legend-item.disable .legend-marker-role line,
+.chart-labelbox.checkbox-marker .legend-item.disabled .legend-marker-role line{stroke: $grey-dark2 !important}
+
+.chart-labelbox.checkbox-marker .legend-item.disable .legend-marker::after,
+.chart-labelbox.checkbox-marker .legend-item.disabled .legend-marker::after {display: none;}
+
+@include notebook() {
+
+    // 차트 레이블 박스
+    // .chart-labelbox .legend-item {margin: 0 3px;}
+    .chart-labelbox.checkbox-marker .legend-item {padding:10px 9px 10px 30px;}
+    .chart-labelbox.checkbox-marker .legend-marker {left: 9px;width: 12px;height: 12px;}
+    .chart-labelbox.checkbox-marker .legend-marker::after {font-size: 10px;}
+}

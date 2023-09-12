@@ -1,0 +1,261 @@
+@charset "utf-8";
+
+/*
++----------------------------------------------------------------------+
+| Copyright (c) Vaiv.  co. Ltd
++----------------------------------------------------------------------+
+| 파일설명 : 온보딩 가이드 스타일
++----------------------------------------------------------------------+
+*/
+
+/* driver.css (기존 css에서 쓸모 없는 건 수정 & 삭제) */
+#driver-popover-item .driver-popover-tip.mid-center {
+    display: none;
+}
+#driver-popover-item .driver-popover-footer button.driver-disabled {
+    color: grey;
+    cursor: default;
+    pointer-events: none;
+}
+#driver-popover-item .driver-popover-footer .driver-close-btn {
+    float: left;
+}
+#driver-popover-item .driver-popover-footer .driver-btn-group,
+#driver-popover-item .driver-popover-footer .driver-close-only-btn {
+    float: right;
+}
+.driver-clearfix:after,
+.driver-clearfix:before {
+    content: "";
+    display: table;
+}
+.driver-clearfix:after {
+    clear: both;
+}
+.driver-stage-no-animation {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -ms-transition: none !important;
+    -o-transition: none !important;
+    transition: none !important;
+    // background: transparent !important;
+    // outline: 5000px solid rgba(0, 0, 0, 0.5);
+    // transform: scale(0.8);
+}
+.driver-position-relative {
+    position: relative !important;
+}
+.driver-fix-stacking {
+    z-index: auto !important;
+    opacity: 1 !important;
+    -webkit-transform: none !important;
+    -moz-transform: none !important;
+    -ms-transform: none !important;
+    -o-transform: none !important;
+    transform: none !important;
+    -webkit-filter: none !important;
+    -moz-filter: none !important;
+    -ms-filter: none !important;
+    -o-filter: none !important;
+    filter: none !important;
+    -webkit-perspective: none !important;
+    -moz-perspective: none !important;
+    -ms-perspective: none !important;
+    -o-perspective: none !important;
+    perspective: none !important;
+    -webkit-transform-style: flat !important;
+    -moz-transform-style: flat !important;
+    -ms-transform-style: flat !important;
+    transform-style: flat !important;
+    -webkit-transform-box: border-box !important;
+    -moz-transform-box: border-box !important;
+    -ms-transform-box: border-box !important;
+    -o-transform-box: border-box !important;
+    transform-box: border-box !important;
+    will-change: unset !important;
+}
+
+
+/* vguide */
+// 변수
+$vguide-ani-size: 16px;
+$vguide-pop-tip-size: 7px;
+$vguide-pop-tip-position: -($vguide-pop-tip-size * 2) + 1px;
+$vguide-pop-tip-move: 17px;
+
+// 애니메이션
+@keyframes vguide-fade-in-left {
+    0% {opacity: 0;transform: translateX(-$vguide-ani-size);}
+    100% {opacity: 1;transform: translateX(0);}
+}
+@keyframes vguide-fade-in-right {
+    0% {opacity: 0;transform: translateX($vguide-ani-size);}
+    100% {opacity: 1;transform: translateX(0);}
+}
+@keyframes vguide-fade-in-top {
+    0% {opacity: 0;transform: translateY(-$vguide-ani-size);}
+    100% {opacity: 1;transform: translateY(0);}
+}
+@keyframes vguide-fade-in-bottom {
+    $posY: 35px;
+    0% {opacity: 0;transform: translateY(calc(#{$vguide-ani-size - $posY}));}
+    100% {opacity: 1;transform: translateY(-$posY);}
+}
+@keyframes vguide-up-down {
+    0% {transform: translateY(0);}
+    10% {transform: translateY(-3px);}
+    20% {transform: translateY(0);}
+    30% {transform: translateY(-3px);}
+    40% {transform: translateY(0);}
+}
+.vguide-pop {animation: vguide-fade-in-left 0.5s cubic-bezier(.175,.885,.32,1.275) both;}
+.vguide-pop.tip-right {animation-name: vguide-fade-in-right;}
+.vguide-pop.tip-top {animation-name: vguide-fade-in-top;}
+.vguide-pop.tip-bottom {animation-name: vguide-fade-in-bottom;}
+.vguide-pop .driver-popover-footer button.vbtn {animation: vguide-up-down 2s infinite forwards;animation-delay: 1.5s;}
+.vguide-pop .driver-popover-footer button.vbtn:hover {animation: none;}
+
+// z-index: 기존 엘리먼트 < 오버레이 < 하이라이트 엘리먼트 스테이지 < 하이라이트 엘리먼트 < 팝업
+#driver-page-overlay {z-index: 6000;}
+#driver-highlighted-element-stage {z-index: 6001 !important;}
+.driver-highlighted-element {z-index: 6002 !important;}
+.vguide-pop {z-index: 6003;}
+
+// 오버레이
+#driver-page-overlay {display: block;position: fixed;top: 0;bottom: 0;left: 0;right: 0;width: 100%;height: 100%;background: #000;zoom: 1;opacity: $dim-opacity;}
+
+// 하이라이트 엘리먼트 스테이지
+#driver-highlighted-element-stage {display: none;overflow: hidden;position: absolute;top: 0;left: 0;height: 50px;width: 300px;border-radius: 15px;background: #fff;transition: all 0.3s;}
+
+// 하이라이트 엘리먼트
+.driver-highlighted-element {border-radius: 15px;overflow: hidden;}
+
+// 팝업
+.vguide-pop {display: none;position: absolute;margin: 0;min-width: 230px;max-width: 300px;padding: 15px 20px;box-sizing: border-box;border-radius: 10px;background: $primary;@include box-shadow2($primary);-webkit-font-smoothing: subpixel-antialiased;}
+
+// 팝업 > 팁
+.vguide-pop .driver-popover-tip {content: '';position: absolute;border: $vguide-pop-tip-size solid transparent;}
+.vguide-pop .driver-popover-tip.left {top: $vguide-pop-tip-move;left: $vguide-pop-tip-position;border-right-color: $primary;}
+.vguide-pop .driver-popover-tip.left.position-center {top: calc(50% - #{$vguide-pop-tip-size});}
+.vguide-pop .driver-popover-tip.left.position-bottom {top: auto;bottom: $vguide-pop-tip-move;}
+.vguide-pop .driver-popover-tip.right {top: $vguide-pop-tip-move;right: $vguide-pop-tip-position;border-left-color: $primary;}
+.vguide-pop .driver-popover-tip.right.position-center {top: calc(50% - #{$vguide-pop-tip-size});}
+.vguide-pop .driver-popover-tip.right.position-bottom {top: auto;bottom: $vguide-pop-tip-move;}
+.vguide-pop .driver-popover-tip.top {left: $vguide-pop-tip-move;top: $vguide-pop-tip-position;border-bottom-color: $primary;}
+.vguide-pop .driver-popover-tip.top.position-right {top: $vguide-pop-tip-position;}
+.vguide-pop .driver-popover-tip.top.position-center {left: calc(50% - #{$vguide-pop-tip-size});}
+.vguide-pop .driver-popover-tip.bottom {left: $vguide-pop-tip-move;bottom: $vguide-pop-tip-position;border-top-color: $primary;}
+.vguide-pop .driver-popover-tip.bottom.position-center {left: calc(50% - #{$vguide-pop-tip-size});}
+.vguide-pop .driver-popover-tip.bottom.position-right {left: auto;right: $vguide-pop-tip-move;}
+
+// 팝업 > 타이틀
+.vguide-pop .driver-popover-title {display: block;position: relative;margin: 0 0 20px;font-weight: $font-medium;color: $white;line-height: 1.6;letter-spacing: -0.05em;}
+
+// 팝업 > 디스크립션
+.vguide-pop .vguide-pop-desc {margin: -14px 0 6px;border-radius: 6px;padding: 10px;background: $data-primary-light;}
+.vguide-pop .vguide-pop-desc p {font-size: $font-small;line-height: 1.44;letter-spacing: -0.07em;color: $white;}
+.vguide-pop .vguide-pop-desc .tit {display: flex;align-items: center;margin-bottom: 5px;font-weight: $font-bold;}
+.vguide-pop .vguide-pop-desc .tit i {margin-right: 4px;font-weight: $font-regular;font-size: $font-middle;}
+
+// 팝업 > 푸터
+.vguide-pop .driver-popover-footer {position: relative;margin-top: 5px;}
+.vguide-pop .driver-popover-footer button.vbtn {transition-property: background;}
+.vguide-pop .driver-popover-footer .driver-close-btn {display: none !important;}
+.vguide-pop .driver-popover-footer .driver-prev-btn {display: none !important;}
+
+.vguide-pop .vguide-pop-step p, 
+.vguide-pop .vguide-pop-session p {color: $primary-alpha20;font-size: $font-small;font-weight: $font-medium;}
+.vguide-pop .vguide-pop-step p b {font-weight: $font-bold;}
+.vguide-pop .vguide-pop-session {position: absolute;left: 0;bottom: 10px;padding-bottom: 1px;box-sizing: border-box;border-bottom: 1px solid $white;}
+
+
+/* 페이지별 가이드 스타일 */
+// 유튜브분석
+$youtube-guide-ani-size: 120px;
+@keyframes youtube-guide-ani {
+    0% {opacity: 0;transform: translate(-$youtube-guide-ani-size, 20px);}
+    100% {opacity: 1;transform: translate(-$youtube-guide-ani-size + $vguide-ani-size, 20px);}
+}
+.youtube-guide-pop2,
+.youtube-guide-pop7 {animation-name: youtube-guide-ani;}
+
+
+//ing 일 때만 pointer-events 제어
+.vguide-ing{
+    // 분석센터 - hover와 active 막기
+    .analysis-guide .layout-left * {pointer-events: none;}
+    .analysis-guide .top-search-bar * {pointer-events: none;}
+    .analysis-guide .layout-card {pointer-events: none;}
+    .analysis-guide .lnb > li:not(.on) > a:hover {color: $grey-dark;background: transparent;}
+    .analysis-guide .lnb-sub > li:not(.on):hover > a {font-weight: $font-regular;color: $grey-dark2;}
+    .analysis-guide .before-some-list li.hover-primary:hover a,
+    .analysis-guide .before-some-list li.hover-blue:hover a,
+    .analysis-guide .before-some-list li.hover-sky:hover a {@include hover {color: $black-alpha50;}}
+    .analysis-guide .term-label-type1 label:hover {color: rgba(5, 5, 5, 0.5);background-color: $grey-light2;}
+    .analysis-guide .comp-category-select-box .scroll-content-category-select {pointer-events: auto;}
+    .analysis-guide .category-select-body {pointer-events: none;}
+    .analysis-guide .associated-ranking-slider {pointer-events: auto;}
+    .analysis-guide table.table-associated-ranking {pointer-events: none;}
+    .analysis-guide .original-data-list {pointer-events: auto;}
+}
+// 분석센터 - lnb
+.analysis-guide .layout-dashboard .lnb > li:nth-of-type(2) > a::after,
+.analysis-guide .layout-dashboard .lnb > li.on > a::after {opacity: 1;}
+
+// 분석센터 - 시작하기 버튼
+.youtube-guide-pop.last .driver-navigation-btns, 
+.youtube-guide-pop.last .driver-next-btn,
+.mention-guide-pop.last .driver-navigation-btns, 
+.mention-guide-pop.last .driver-next-btn,
+.association-guide-pop.last .driver-navigation-btns, 
+.association-guide-pop.last .driver-next-btn,
+.reputation-guide-pop.last .driver-navigation-btns, 
+.reputation-guide-pop.last .driver-next-btn {width: 100%;}
+.youtube-guide-pop.last .driver-next-btn,
+.mention-guide-pop.last .driver-next-btn,
+.association-guide-pop.last .driver-next-btn,
+.reputation-guide-pop.last .driver-next-btn {padding-top: 7px;padding-bottom: 7px;}
+.youtube-guide-pop.last .driver-next-btn::after,
+.mention-guide-pop.last .driver-next-btn::after,
+.association-guide-pop.last .driver-next-btn::after,
+.reputation-guide-pop.last .driver-next-btn::after {content: '\EA6E';@include icon-font;display: inline-block;margin-left: 5px;vertical-align: middle;font-size: $h5;font-weight: $font-regular;}
+
+// 분석센터 - 차트 이미지
+.analysis-guide-chart {display: flex;justify-content: center;align-items: center;}
+.analysis-guide-chart img {max-width: 100%;}
+
+// 소셜 > 언급량
+$mention-guide-ani-size: 100px;
+@keyframes mention-guide-ani {
+    0% {opacity: 0;transform: translate(-$vguide-ani-size, $mention-guide-ani-size);}
+    100% {opacity: 1;transform: translate(0, $mention-guide-ani-size);}
+}
+.mention-guide-pop0 {animation-name: mention-guide-ani;}
+.mention-guide-pop0 .driver-popover-tip.left {display: none;}
+
+#mention-guide-step1 {border-radius: 0;}
+#mention-guide-step2 {display: flex;align-items: center;}
+#mention-guide-step3 {margin-left: 20px;padding-left: 0;}
+
+#driver-highlighted-element-stage.mention-guide-stage0 {border-top-left-radius: 0;border-bottom-left-radius: 0;}
+.mention-guide-stage1,
+.mention-guide-stage2 {transform: scaleX(1.05);}
+.mention-guide-stage3 {background: $grey-light3 !important;}
+
+.mention-guide-chart {height: 327px;}
+
+// 소셜 > 연관어
+.association-guide-stage0 {background: $grey-light3 !important;}
+
+.association-guide-chart {height: 400px;}
+
+// 소셜 > 긍부정
+.reputation-guide-stage0 {background: $grey-light3 !important;}
+.reputation-guide-step3-wrap {text-align: center;}
+#reputation-guide-step3 {display: inline-block;}
+#reputation-guide-step3 .chart-labelbox .legend-item:first-child {margin-left: 0;}
+#reputation-guide-step3 .chart-labelbox .legend-item:last-child {margin-right: 0;}
+
+.reputation-guide-chart1 {height: 350px;}
+.reputation-guide-chart2 {height: 309px;}
+.reputation-guide-chart3 {height: 351px;}

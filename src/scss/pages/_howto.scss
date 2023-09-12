@@ -1,0 +1,89 @@
+@charset "utf-8";
+/*
++----------------------------------------------------------------------+
+| Copyright (c) VAIV. co. Ltd
++----------------------------------------------------------------------+
+| 썸트렌드 200% 활용법
++----------------------------------------------------------------------+
+*/
+
+/* 공통 */
+.howto-wrap .page-navi-box .page-title-text {line-height: 1.5;}
+
+/* 비주얼 */
+.howto-visual {padding: 60px 0 66px;background: url('/renewal_resources/images/howto/howto_visual_bg.svg') center/cover no-repeat;}
+.howto-visual .page-navi-box {margin-bottom: 25px;}
+
+// 슬라이드
+.howto-visual-slide {position: relative;}
+.howto-visual-swiper {position: relative;width: 1075px;height: 165px;margin: 0 auto;padding-bottom: 5px;box-sizing: content-box;overflow-x: hidden;}
+.howto-visual-slide-box {display: block;position: relative;overflow: hidden;width: 250px;height: 100%;margin: 0 auto;border-radius: 20px;@include card-shadow;}
+.howto-visual-slide-img {width: 100%;height: 100%;}
+.howto-visual-slide-img > img {width: 100%;height: 100%;object-fit: cover;}
+.howto-visual-slide-tit {opacity: 0;visibility: hidden;position: absolute;top: 0;left: 0;display: flex;align-items: center;width: 100%;height: 100%;padding: 0 22px;box-sizing: border-box;text-align: center;}
+.howto-visual-slide-tit > h5 {transform: translateY(5px);width: 100%;font-weight: $font-bold;letter-spacing: -0.07em;line-height: 1.5;color: $white;transition: transform 0.3s;}
+.howto-visual-swiper .swiper-slide:nth-child(4n-3) .howto-visual-slide-tit {background: $primary;}
+.howto-visual-swiper .swiper-slide:nth-child(4n-2) .howto-visual-slide-tit {background: $blue;}
+.howto-visual-swiper .swiper-slide:nth-child(4n-1) .howto-visual-slide-tit {background: $pink;}
+.howto-visual-swiper .swiper-slide:nth-child(4n) .howto-visual-slide-tit {background: $yellow;}
+.howto-visual-slide-box:hover .howto-visual-slide-img {opacity: 0;visibility: hidden;}
+.howto-visual-slide-box:hover .howto-visual-slide-tit {opacity: 1;visibility: visible;}
+.howto-visual-slide-box:hover .howto-visual-slide-tit > h5 {transform: translateY(0);}
+
+.howto-visual-slide-arrow {width: 48px;height: 48px;margin-top: -24px;color: $navy;}
+.howto-visual-slide-arrow:after {@include icon-font;font-size: 48px;}
+.howto-visual-slide-prev {left: 0;}
+.howto-visual-slide-prev:after {content: '\ea64';}
+.howto-visual-slide-next {right: 0;}
+.howto-visual-slide-next:after {content: '\ea6e';}
+
+/* 리스트 */
+.howto-list {padding: 50px 0 130px;}
+
+.howto-floating-banner {bottom: 8%;}
+
+// 헤드
+.howto-list-head {display: flex;justify-content: space-between;margin-bottom: 20px;}
+.howto-list-head > h5 {font-size: $h5;font-weight: $font-bold;letter-spacing: -0.1em;line-height: 1.5;color: $black-light;}
+
+.howto-list-filter .nice-select {width: 105px;}
+.howto-list-filter .nice-select.x-small:after {width: 7px;height: 7px;}
+
+// 탭
+.howto-list-tab {margin-bottom: 10px;}
+.howto-list-tab .tab-type3 {text-align: center;}
+.howto-list-tab .tab-type3 > li {margin: 0 8px 20px;}
+.howto-list-tab .tab-type3 > li.shadow > a {min-width: 118px;letter-spacing: -0.1em;background: $grey;}
+.howto-list-tab .tab-type3 > li.shadow.on > a {background: $primary;}
+
+// 컨텐츠
+.howto-list-con > ul {display: flex;flex-wrap: wrap;}
+.howto-list-con > ul > li {flex: 0 0 277px;overflow: hidden;width: 277px;margin-right: 30px;margin-top: 30px;border: 1px solid $grey-light5;border-radius: 25px;@include card-shadow;transition: box-shadow 0.3s, transform 0.3s;}
+.howto-list-con > ul > li:nth-of-type(4n) {margin-right: 0;}
+.howto-list-con > ul > li:nth-of-type(-n+4) {margin-top: 0;}
+.howto-list-con > ul > li:hover {transform: translateY(2px);@include card-shadow(0.2);}
+.howto-list-con > ul > li > a {display: block;}
+.howto-list-con-thumb {overflow: hidden;height: 170px;}
+.howto-list-con-thumb > img {width: 100%;height: 100%;object-fit: cover;}
+.howto-list-con-txt {padding: 16px 18px 20px;background: $white;}
+.howto-list-con-txt > h6 {min-height: 3em;margin-bottom: 6px;font-size: $font-middle;font-weight: $font-bold;letter-spacing: -0.1em;line-height: 1.5;color: $black-light;@include text-cut-multiline();}
+.howto-list-con-tag {display: flex;flex-wrap: wrap;align-items: center;min-height: 16px;}
+.howto-list-con-tag > li {margin-right: 6px;font-size: $font-small;font-weight: $font-bold;letter-spacing: -0.07em;line-height: 1.44;color: $primary;}
+.howto-list-con-tag > li:last-of-type {margin-right: 0;}
+.howto-list-con-foot {display: flex;justify-content: space-between;align-items: center;margin-top: 15px;border-top: 1px solid $grey-light4;padding-top: 10px;font-size: $font-small;color: $grey-dark2;}
+.howto-list-con-foot > p {line-height: 1.44;}
+.howto-list-con-hits {position: relative;}
+.howto-list-con-hits::before {content: '\ecb4';@include icon-font;position: absolute;top: 50%;left: 0;transform: translate(-100%, -50%);padding-right: 3px;color: $grey-light5;font-size: $h6;}
+
+/* 뷰 */
+.howto-view {padding-top: 60px;margin-bottom: 40px;}
+.howto-view .page-navi-box {margin-bottom: 30px;}
+
+.howto-view-detail {min-height: auto;}
+.howto-view-detail .board-detail-title-text {text-align: left;}
+.howto-view-detail .board-detail-contents {min-height: 100px; line-height: 1.618;}
+.howto-view-detail .board-detail-contents-video {text-align: center;}
+.howto-view-detail .board-detail-contents img { max-width: 700px;}
+.howto-view-detail .board-detail-contents span { white-space: inherit !important; } // 추후 에디터에서 기본 속성 빼주면 삭제할 예정
+
+#main-content-div * {font-family: $base-font !important;}

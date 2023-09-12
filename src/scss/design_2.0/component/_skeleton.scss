@@ -1,0 +1,139 @@
+
+.vskeleton-container {position: relative;z-index: 500;}
+.vskeleton-target {opacity: 0;}
+
+.vskeleton {background-color: #fff;}
+.vskeleton .vskeleton-content {position: absolute;z-index: 20;background-color: #ECEDEE;background-image: linear-gradient(90deg, rgba(#CBCBCB, 0), rgba(#CBCBCB, 0.5) 30%, rgba(#CBCBCB, 0));background-repeat: no-repeat;background-position: 0 0;background-size: 1024px 100%;border-radius: 8px;animation: placeholderSkeleton 1.5s infinite linear forwards;}
+.vskeleton .vskeleton-circle {border-radius: 50%;}
+
+.vskeleton-body {position: relative;height: 100%;}
+.vskeleton-list {position: relative;z-index: 100;width: 100%;}
+
+// 차트 스켈레톤 [선차트, ]
+.skeleton-chart .vskeleton-content {position: relative;width: 100%;}
+.skeleton-chart .vskeleton-header {display: flex;align-items: flex-start;justify-content: space-between;margin-bottom: 10px;}
+.skeleton-chart .vskeleton-header .vskeleton-bar {height: 35px;}
+.skeleton-chart .vskeleton-header .vskeleton-bar:nth-child(1) {width: 49%;}
+.skeleton-chart .vskeleton-header .vskeleton-bar:nth-child(2) {width: 49%;}
+.skeleton-chart .vskeleton-body .vskeleton-bar:nth-child(1) {height: 330px;}
+.skeleton-chart .vskeleton-body .vskeleton-bar:nth-child(2) {height: 40px;margin-top: 10px;}
+
+.skeleton-chart.medium .vskeleton-body .vskeleton-bar:nth-child(1) {height: 370px;}
+
+// 범례가 없는 차트
+.skeleton-chart.none-legend .vskeleton-body .vskeleton-bar:nth-child(1) {height: 90%;}
+
+// 디스크립션 리스트 [원문보기 리스트, ]
+.skeleton-desc-list .vskeleton-list {height: 80px;}
+.skeleton-desc-list .vskeleton-circle {top: 0;left: 0;width: 60px;height: 60px;}
+.skeleton-desc-list .vskeleton-bar {left: auto;right: 0;width: calc(100% - 80px);}
+.skeleton-desc-list .vskeleton-bar:nth-of-type(2) {top: 5px;height: 14px;}
+.skeleton-desc-list .vskeleton-bar:nth-of-type(3) {top: 30px;height: 24px;}
+
+// 썸네일이 있는 리스트 [유튜브 리스트, ]
+.skeleton-thum-list {display: flex;justify-content: space-between;}
+.skeleton-thum-list .vskeleton-list {width: 280px;height: 254px;margin-left: 10px;}
+.skeleton-thum-list .vskeleton-list:first-child {margin-left: 0;}
+.skeleton-thum-list .vskeleton-bar {left: 0;width: 100%;}
+.skeleton-thum-list .vskeleton-bar:nth-of-type(1) {top: 0;left: 0;height: 144px;}
+.skeleton-thum-list .vskeleton-bar:nth-of-type(2) {top: 156px;height: 26px;}
+.skeleton-thum-list .vskeleton-bar:nth-of-type(3) {top: 190px;height: 26px;}
+.skeleton-thum-list .vskeleton-bar:nth-of-type(4) {top: 226px;width: 80%;height: 26px;}
+
+// 카드 섹션 스켈레톤 
+.skeleton-card .vskeleton-circle {top: 36px;left: 6%;width: 12%;height: 60px;border-radius: 15px;}
+.skeleton-card .vskeleton-bar:nth-of-type(2) {top: 14px;left: 60.5%;width: 35%;min-width: 140px;height: 20px;display: none;}
+.skeleton-card .vskeleton-bar:nth-of-type(3),
+.skeleton-card .vskeleton-bar:nth-of-type(4) {left: 20%;width: calc(100% - 25%);}
+.skeleton-card .vskeleton-bar:nth-of-type(3) {top: 40px;height: 26px;}
+.skeleton-card .vskeleton-bar:nth-of-type(4) {top: 72px;width: calc(100% - 35%);height: 22px;}
+
+// 카테고리 스켈레톤
+.skeleton-category {padding: 19px 15px 0;}
+.skeleton-category .vskeleton-title-bar {position: relative;width: 70%;height: 30px;margin: 0 0 5%;}
+.skeleton-category .vskeleton-title-bar .vskeleton-bar {width: 100%;height: 100%;}
+.skeleton-category .vskeleton-list {height: 70px;}
+.skeleton-category .vskeleton-list .vskeleton-bar:nth-of-type(1),
+.skeleton-category .vskeleton-list .vskeleton-bar:nth-of-type(2) {left: 0;width: 90%;}
+.skeleton-category .vskeleton-list .vskeleton-bar:nth-of-type(1) {top: 5px;height: 20px;width: 60%;}
+.skeleton-category .vskeleton-list .vskeleton-bar:nth-of-type(2) {top: 30px;height: 25px;}
+.skeleton-category .vskeleton-button {position: relative;width: 100%;height: 46px;}
+.skeleton-category .vskeleton-button .vskeleton-bar {width: 100%;height: 100%;}
+
+// 테이블 스켈레톤
+.skeleton-table-list .vskeleton-content {position: relative;}
+.skeleton-table-list .vskeleton-table-header {display: flex;justify-content: space-between;margin-bottom: 25px;}
+.skeleton-table-list .vskeleton-table-header .vskeleton-content {height: 33px;}
+.skeleton-table-list .vskeleton-table-header .vskeleton-content:nth-of-type(1) {width: 30%;}
+.skeleton-table-list .vskeleton-table-header .vskeleton-content:nth-of-type(2) {width: 25%;}
+.skeleton-table-list .vskeleton-table-body {display: flex;justify-content: space-between;margin: -5px -10px;}
+.skeleton-table-list .vskeleton-table {width: 100%;padding: 5px 10px;margin: -8px 0;}
+.skeleton-table-list .vskeleton-table-tr {display: flex;justify-content: space-between;width: 100%;padding: 8px 0;}
+.skeleton-table-list .vskeleton-table-tr .vskeleton-content {height: 40px;}
+.skeleton-table-list .vskeleton-table-tr .vskeleton-content:nth-child(1) {width: 78%;flex: 0 0 78%;}
+.skeleton-table-list .vskeleton-table-tr .vskeleton-content:nth-child(2) {width: 18%;flex: 0 0 18%;}
+.skeleton-table-list .vskeleton-table-block {height: 525px;}
+.skeleton-table-list .vskeleton-table-block .vskeleton-content {width: 100%;height: 100%;}
+
+
+// 원문보기 스켈레톤
+#skeletonOriginList .vskeleton-list {margin-top: 7px;}
+#skeletonOriginList .vskeleton-origin-title-bar {display: flex;align-items: center;justify-content: space-between;margin-bottom: 3%;}
+#skeletonOriginList .vskeleton-bar.original-list-title,
+#skeletonOriginList .vskeleton-bar.original-list-date,
+#skeletonOriginList .vskeleton-bar.original-list-keyword,
+#skeletonOriginList .vskeleton-bar.original-list-button {position: relative;top: auto;right: auto;}
+
+#skeletonOriginList .vskeleton-bar.original-list-title,
+#skeletonOriginList .vskeleton-bar.original-list-date {width: 49%;height: 35px;}
+#skeletonOriginList .vskeleton-bar.original-list-keyword {width: 100%;height: 30px;margin: 2% 0;}
+#skeletonOriginList .vskeleton-bar.original-list-button {width: 100%;height: 40px;}
+
+// 원문보기 스켈레톤 소셜 언급량
+#skeletonOriginList[data-id="skeleton-origin-list-social-mention"] .vskeleton-content.original-list-keyword {display: none;}
+
+// 원문보기 스켈레톤 소셜 연관어
+#skeletonOriginList[data-id="skeleton-origin-list-social-association"] .vskeleton-origin-title-bar {margin-bottom: 4%;}
+
+// 비교>연관어 원문 리스트
+#skeletonOriginList[data-id="skeleton-origin-list-compare-association"] .vskeleton-list {margin-top: 13px;}
+
+// 원문보기 모달 스켈레톤
+#skeletonModalOriginalDetail .vskeleton-list {margin-top: 4px;}
+#skeletonModalOriginalDetail .vskeleton-original-detail-title,
+#skeletonModalOriginalDetail .vskeleton-original-detail-keyword-tab,
+#skeletonModalOriginalDetail .vskeleton-original-detail-sns-tab-list,
+#skeletonModalOriginalDetail .vskeleton-original-detail-sns-tab-date {position: relative;left: auto;right: auto;top: auto;bottom: auto;}
+
+#skeletonModalOriginalDetail .vskeleton-original-detail-title {width: 30%;height: 30px;margin-bottom: 10px;}
+#skeletonModalOriginalDetail .vskeleton-original-detail-keyword-tab {width: 40%;height: 30px;margin-bottom: 16px;}
+#skeletonModalOriginalDetail .vskeleton-original-detail-sns-tab {display: flex;align-items: center;justify-content: space-between;height: 30px;margin-bottom: 10px;}
+#skeletonModalOriginalDetail .vskeleton-original-detail-sns-tab-list {width: 60%;height: 100%;}
+#skeletonModalOriginalDetail .vskeleton-original-detail-sns-tab-date {width: 30%;height: 100%;}
+
+//연관어 차트
+#skeletonAssociationRankList {height: 102%;}
+
+// 긍부정 차트
+#skeletonReputationTrendChart {height: 100%;}
+
+// 소셜>긍부정 추이
+#reputationTrendChartVskeleton {min-height: 347px;}
+
+// 비교>연관어 카테고리
+.skeleton-category-compare .vskeleton-list {height: 80px;}
+
+// 비교>긍부정 카테고리
+.skeleton-category-compare-reputation .vskeleton-list {height: 63px;}
+
+// 비고>긍부정 워드클라우드
+.skeleton-compare-reputation-wordcloud .vskeleton-bar:nth-child(1) {height: 333px;}
+
+@keyframes placeholderSkeleton {
+	0% {
+		background-position: -1024px 0;
+	}
+	100% {
+		background-position: 1024px 0;
+	}
+}

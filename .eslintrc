@@ -1,0 +1,80 @@
+{
+	"env": {
+		"browser": true,
+		"node": true,
+		"es2021": true
+	},
+	"settings": {
+		"react": {
+			"version": "detect"
+		},
+		"import/resolver": {
+			"typescript": {},
+			"node": {
+				"extensions": [".js", ".jsx", ".ts", ".tsx", "d.ts"]
+			}
+		}
+	},
+	"parser": "@typescript-eslint/parser", // @typescript-eslint/parser
+	"overrides": [
+		{
+			"files": ["*.js", "*.jsx", "*.ts", "*.tsx"],
+			"parserOptions": {
+				"project": ["./tsconfig.json"]
+			}
+		}
+	],
+	"extends": [
+		"airbnb-typescript", // eslint-config-airbnb-typescript
+		"react-app",
+		"react-app/jest",
+		"plugin:react/recommended", // eslint-plugin-react
+		"plugin:react/jsx-runtime", // eslint-plugin-react
+		"plugin:react-hooks/recommended", // eslint-plugin-react-hooks
+		"plugin:jsx-a11y/recommended", // eslint-plugin-jsx-a11y
+		"eslint:recommended", // @typescript-eslint/eslint-plugin
+		"plugin:@typescript-eslint/eslint-recommended", // @typescript-eslint/eslint-plugin
+		"plugin:@typescript-eslint/recommended", // @typescript-eslint/eslint-plugin
+		"plugin:prettier/recommended" // eslint-config-prettier
+	],
+	"plugins": ["prettier", "import"],
+	"rules": {
+		"prettier/prettier": ["error", { "endOfLine": "auto" }], // 줄바꿈 타입, crlf to lf
+		"@typescript-eslint/no-explicit-any": "off", // 타입스크립트 any 타입 허용
+		"@typescript-eslint/no-shadow": "off", // 상위 인자명이랑 내부 함수 인자명이랑 똑같은 단어 허용
+		"@typescript-eslint/naming-convention": "off", // const 변수명 시작단어에 '_' 허용
+		"@typescript-eslint/ban-ts-comment": [
+			"error",
+			{
+				"ts-ignore": "warn" // 개발단계에서만 임시로 사용.. @ts-ignore 붙이면 규칙이 무시됨..
+			}
+		],
+		"jsx-a11y/no-autofocus": "off", // DOM객체에 autofocus 허용
+		"react/display-name": "off", // 컴포넌트에 display name 필수 제거
+		"react/jsx-uses-react": "error", // import react from 'react'
+		"react/jsx-uses-vars": "error", // 사용안하는 변수 에러표시
+		"react-hooks/exhaustive-deps": "off", // hooks 빈배열 가능하게
+		"import/no-extraneous-dependencies": "off", // 외부 모듈 가져왔을때 뜨는 오류 제거
+		"import/order": [
+			// import 정렬
+			"error",
+			{
+				"groups": ["builtin", "external", "internal"],
+				"pathGroups": [
+					{
+						"pattern": "{react,react-dom/**}",
+						"group": "external",
+						"position": "before"
+					}
+				],
+				"pathGroupsExcludedImportTypes": ["react"],
+				"alphabetize": {
+					"order": "asc",
+					"caseInsensitive": true
+				},
+				"newlines-between": "always"
+			}
+		],
+		"prefer-const": ["error", { "destructuring": "all" }] // let, const 규칙: { a, b } 일떄 각각 let, const 를 사용해야될때 destructuring: all로 적용
+	}
+}

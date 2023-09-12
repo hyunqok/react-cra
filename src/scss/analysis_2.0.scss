@@ -1,0 +1,41 @@
+@charset "utf-8";
+
+/* 디자인 가이드 1.0 
+모달 이전 디자인 상속을 위한 삽입 */
+// @import "common/vars";
+// @import "common/mixin";
+// @import "common/fonts";
+// @import "common/icon";
+// @import "component/modals";
+// @import '_design_1.0_common';
+/* // 모달 이전 디자인 상속을 위한 삽입 */
+
+/* 디자인 가이드 2.0 */
+@import 'design_2.0_common';
+/* // 디자인 가이드 2.0 */
+
+@import 'design_2.0/form'; // form 요소
+@import "design_2.0/colors"; // color
+
+// components
+// third party components
+@import 'design_2.0/component/nice-select';
+@import 'design_2.0/component/datepicker';
+@import '/node_modules/perfect-scrollbar/css/perfect-scrollbar';
+
+@import 'design_2.0/component/tooltip';
+@import 'design_2.0/component/pagination';
+@import 'design_2.0/component/button_bell';
+@import 'design_2.0/component/chip';
+@import 'design_2.0/component/chart';
+@import 'design_2.0/component/skeleton';
+@import 'design_2.0/component/original_document';
+@import 'design_2.0/component/table';
+@import 'design_2.0/component/swiper-bundle';
+
+// layout
+@import "pages/analysis_2.0/layout";
+
+// style
+@import "pages/analysis_2.0/common";
+@import "pages/analysis_2.0/style";

@@ -1,0 +1,33 @@
+@charset "utf-8";
+/*
++----------------------------------------------------------------------+
+| Copyright (c) VAIV.  co. Ltd
++----------------------------------------------------------------------+
+| 에러 페이지
++----------------------------------------------------------------------+
+*/
+
+.error-wrap {background: $white;}
+#wrap.error-wrap {min-height: 100vh;}
+.error-section {display: flex;flex-direction: column; align-items: center;width: 100%;max-width: 1135px;margin: 0 auto;padding: 80px 0 100px;}
+
+.error-con {text-align: center;}
+.error-con-tit {margin-bottom: 25px;}
+.error-con-tit .error-logo{margin-bottom: 55px;}
+.error-con-tit .error-logo img {min-width: 270px;height: auto;}
+.error-con-tit h2 {font-size: $h2-small;font-weight: $font-bold;line-height: 1.35;color: $black-bg;}
+.error-con-tit h6 {margin-bottom: 10px;font-size: $h5;font-weight: $font-bold;line-height: 1.5;color: $black-bg;}
+
+.error-con-txt h6 {font-size: $h6;line-height: 1.68;color: $black-alpha50;font-weight: normal;}
+.error-con-txt h6 span.color-primary-bg-text {color: $primary-bg-text;}
+
+.error-con-link {margin-top: 30px;border-top: 1px solid $grey-light4;padding-top: 26px;}
+.error-con-link-tit {margin-bottom: 12px;font-size: $font-middle;font-weight: $font-bold;line-height: 1.5;}
+.error-con-link-list {display: flex;align-items: center;justify-content: center;}
+.error-con-link-list li {margin-right: 22px;}
+.error-con-link-list li:last-of-type {margin-right: 0;}
+.error-con-link-list li a {display: block;border-bottom: 1px dashed $primary-alpha70;font-size: $font-middle;line-height: 1.5;color: $primary;}
+.error-con-link-list li a:hover {font-weight: $font-bold;}
+
+// 400 이미지 위치 변경
+.error-img-400 img {margin-left: -250px;}

@@ -1,0 +1,57 @@
+@charset "utf-8";
+
+/*
++----------------------------------------------------------------------+
+| Copyright (c) Vaiv.  co. Ltd
++----------------------------------------------------------------------+
+| 파일설명 : reset style CSS
++----------------------------------------------------------------------+
+*/
+
+/*==================================================================
+// web font
+//=================================================================*/
+
+// 매거진 상세 quotes
+@font-face {
+    font-family: 'Catamaran';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Catamaran Regular'), local('Catamaran-Regular'), url(https://sometrend-res.some.co.kr/fonts/Catamaran/Catamaran.woff2) format('woff2');
+}
+
+// 22.04.22 신규 폰트 경기서체
+@font-face {
+    font-family: 'gyeonggi';
+    src: url('https://static.some.co.kr/fonts/gyeonggi/Title_Light.eot');
+    src: url('https://static.some.co.kr/fonts/gyeonggi/Title_Light.eot?#iefix') format('embedded-opentype'),
+        url('https://static.some.co.kr/fonts/gyeonggi/Title_Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'gyeonggi';
+    src: url('https://static.some.co.kr/fonts/gyeonggi/Title_Medium.eot');
+    src: url('https://static.some.co.kr/fonts/gyeonggi/Title_Medium.eot?#iefix') format('embedded-opentype'),
+        url('https://static.some.co.kr/fonts/gyeonggi/Title_Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'gyeonggiBatang';
+    src: url('https://static.some.co.kr/fonts/gyeonggi/batang/Batang_Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'gyeonggiBatang';
+    src: url('https://static.some.co.kr/fonts/gyeonggi/batang/Batang_Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}

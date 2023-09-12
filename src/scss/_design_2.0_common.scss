@@ -1,0 +1,18 @@
+@import "design_2.0/vars";
+@import "design_2.0/mixins";
+@import "design_2.0/mixins/font_size";
+@import "design_2.0/fonts";
+@import "design_2.0/reset";
+@import "design_2.0/grid.min";
+
+// third party components
+@import "component/mingcute-icon";
+
+// common components
+@import "design_2.0/margins";
+@import "design_2.0/component/buttons";
+@import "design_2.0/component/label";
+@import "design_2.0/component/tabs";
+
+// common layout
+@import "design_2.0/layout";

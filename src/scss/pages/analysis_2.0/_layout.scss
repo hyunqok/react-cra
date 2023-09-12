@@ -1,0 +1,120 @@
+$layout-border-color: $borders-default;
+$layout-header-size: 96px; // [left logo 영역, 본문 헤더 타이틀 영역]
+$left-size: 440px;
+$left-px: 26px;
+
+.anlaysis-layout {
+    position: relative;
+}
+
+.anlaysis-left {
+    position: fixed;top: 0;left: 0;z-index: 1100;
+    width: $left-size;height: 100%;
+    background-color: $base-white;border-right: 1px solid $layout-border-color;
+
+    .anlaysis-left-row {
+        padding-inline: $left-px;
+
+        &.border-bottom {
+            border-bottom: 1px solid $layout-border-color;
+        }
+    }
+
+    .anlaysis-left-header {
+        display: flex;align-items: center;
+        height: $layout-header-size;
+        padding-inline: $left-px;
+        border-bottom: 1px solid $layout-border-color;
+    }
+
+    #anlaysis-left-contents {
+        position: relative;
+        height: calc(100% - 290px);
+        // overflow: hidden auto;
+        padding-bottom: 50px;
+        -webkit-mask-image: linear-gradient(180deg, #fff 80%, transparent);
+    }
+
+    .analysis-left-footer {padding-inline: $left-px;display: flex;flex-direction: column; align-items: center;justify-content: center;}
+
+    .btn-analysis-submit {
+        justify-content: space-between;
+
+        .icon {font-size: 20px;}
+    }
+}
+
+.anlaysis-layout-contents {
+    $contents-px: 50px;
+
+    padding-left: $left-size;
+    background-color: $base-background;
+    min-height: 100vh;
+    
+    .anlaysis-layout-contents-header {
+        display: flex;align-items: center;
+        position: fixed;top: 0;left: 0;z-index: 1000;
+        width: 100%;height: $layout-header-size;
+        padding-left: calc($contents-px + $left-size);
+        padding-right: $contents-px;
+        border-bottom: 1px $layout-border-color solid;
+        background-color: $base-white;
+    }
+
+    .anlaysis-layout-contents-header-title {
+        display: inline-flex;align-items: center;gap: 10px;
+        font-size: 1.625rem;font-weight: $font-weight-600; color: $base-black;
+
+        mark {color: $primary-500;}
+    }
+
+    .anlaysis-layout-contents-header-buttons {
+        display: inline-flex;gap: 20px;
+
+        .vbtn {
+            align-items: center;gap: 8px;
+
+            .icon {
+                font-size: 18px;
+            }
+        }
+    }
+
+    .anlaysis-layout-contents-article {
+        padding-top: calc($layout-header-size + 30px);
+        padding-bottom: 30px;
+        padding-inline: $contents-px;
+    }
+
+    .anlaysis-layout-contents-article-title {font-size: $font-size-h6;font-weight: $font-weight-600;color: $base-black;margin-bottom: 20px;}
+
+    .analysis-layout-section {
+        position: relative;
+        margin-block: 12px;margin-top: 60px;
+    }
+    .analysis-layout-section:first-of-type {
+        margin-top: 0;
+    }
+}
+
+@media all and (max-width: $min-width) {
+    $left-size: 380px;   
+
+    .anlaysis-left {
+        width: $left-size;
+    }
+
+    .anlaysis-layout-contents {
+        $contents-px: 30px;
+        padding-left: $left-size;
+
+        .anlaysis-layout-contents-header {
+            padding-left: calc($contents-px + $left-size);
+            padding-right: $contents-px;
+        }
+
+        .anlaysis-layout-contents-article {
+            padding-inline: $contents-px;
+        }
+    }
+}

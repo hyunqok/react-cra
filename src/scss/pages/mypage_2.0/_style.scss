@@ -1,0 +1,51 @@
+// 구독 정보 박스
+.subscription-info-card-stack {display: flex;flex-direction: column;gap: 20px;}
+
+.subscription-info-card {
+    & {position: relative;display: flex;flex-direction: column;align-items: flex-start;justify-content: center;gap: 12px;border: 1px solid $borders-default;border-radius: 3px;padding: 24px;min-height: 140px;}
+
+    .subscription-info-stack {
+        display: flex;align-items: center;line-height: 1;
+
+        &.align-items-start {align-items: flex-start;}
+
+        .subscription-info-stack-col {
+            &:first-of-type {min-width: 100px;padding-right: 15px;}
+
+            .title {font-size: $font-size-sm;color: $grey-tertiary;}
+            .text1 {display: inline-flex;align-items: center;gap: 8px;font-size: $font-size-lg;font-weight: $font-weight-600;color: $base-black;}
+            .text2 {display: inline-flex;align-items: center;gap: 8px;font-size: $font-size-base;font-weight: $font-weight-500;color: $base-black;}
+            .text3 {display: inline-flex;align-items: center;gap: 8px;font-size: $font-size-sm;font-weight: $font-weight-500;color: $grey-secondary;}
+
+            .text-error-case {font-size: $font-size-base;font-weight: $font-weight-500;color: $grey-secondary;}
+        }
+    }
+
+    .subscription-info-btns {
+        position: absolute;bottom: 24px;right: 24px;z-index: 10;
+        display: inline-flex;flex-direction: column;gap: 8px;
+
+        .vbtn {min-width: 124px;}
+    }
+
+    .icon-check-text {
+        display: flex;align-items: center;gap: 10px;font-size: $font-size-sm;font-weight: $font-weight-500;color: $grey-secondary;
+
+        [class^="mgc_"] {color: $primary-500;font-size: 20px;}
+    }
+}
+
+// 내 정보
+.myinfo-table {
+    display: flex;flex-direction: column;gap: 24px;margin-top: 40px;
+
+    .form-col {min-width: 85px;}
+    .form-input {
+        flex: auto;
+    }
+    .user-nickname {
+        font-size: $font-size-lg;font-weight: $font-weight-600;color: $base-black;
+    }
+
+    .btn-change-info {min-width: 144px;}
+}

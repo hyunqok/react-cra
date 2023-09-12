@@ -1,0 +1,308 @@
+@charset "utf-8";
+
+/*==================================================================
+// 고객센터 - 게시판 [공지사항, 자주묻는 질문 등]
+//=================================================================*/
+
+.board-wrap {background-color: $grey-light2;}
+
+/* 아코디언 박스 [공지사항, 자주묻는질문] */
+.accordion-block .accordionBox {padding: 0px 30px;margin-top: 15px;border-radius: 13px;background-color: $white; @include card-shadow;overflow: hidden;}
+.accordion-block .accordionBox:first-child {margin-top: 0;}
+.accordion-block .accordionTitle {display: block;font-size: $font-base;color: $black-light;cursor: pointer;}
+.accordion-block .accordionTitle > a {display: flex;position: relative;padding: 18px 40px 18px 37px;align-items: center;}
+.accordion-block .accordionTitle > a::before,
+.accordion-block .accordionTitle > a::after {@include icon-font;content: "\ea4e";display: block;position: absolute;top: 50%;@include pos-center(y);font-size: 24px;font-weight: normal;color: $grey-dark2;}
+
+.accordion-block .accordionTitle > a::before {content: "\f29b";left: 0;}
+.accordion-block .accordionTitle > a::after {content: "\ea4e";right: 0;@include duration(0.2s);}
+
+.accordion-block .accordionBox.must_notice .accordionTitle > a::before {color: $primary;}
+.accordion-block .accordionBox.must_notice .accordionTitle .board-title {font-weight: $font-bold;}
+
+.accordion-block .accordionTitle > a > span {flex-grow: 0;display: flex;justify-content: flex-end;align-items: center;}
+.accordion-block .accordionTitle > a > .board-title {flex-grow: 1;justify-content: flex-start;@include text-cut;line-height: 1.6;font-weight: $font-regular;}
+.accordion-block .accordionTitle > a > .board-title .finded{@include inline-middle; padding: 3px; background-color: $primary-alpha10; color: $primary}
+.accordion-block .accordionTitle > a > .board-date {width: 100px;text-align: right;font-weight: $font-regular;color: $black-alpha50;}
+.accordion-block .accordionTitle > a > .board-writer {width: 80px;text-align: right;font-weight: $font-regular;color: $black-alpha50;}
+.accordion-block .accordionTitle > a > .board-category {justify-content: center;min-width: 120px;padding-right: 15px;text-align: center;font-weight: $font-bold;color: $primary;}
+.accordion-block .accordionTitle > a > .board-hit {min-width: 100px;text-align: right;font-weight: $font-bold;color: $grey-dark;}
+.accordion-block .accordionTitle > a > .board-hit i {position: relative;top: 1px;margin-right: 10px;font-size: 24px;vertical-align: middle;}
+
+.accordion-block .accordionConts {padding: 30px 0;font-size: $font-base;font-weight: $font-regular;color: $black-alpha70;line-height: 1.5;border-top: 1px solid $grey-light3;display: none;}
+
+// 2022-02-03 
+// faq 내용 써머노트 에디터로 변경하면서 폰트사이즈 고정 풀음
+// .accordion-block .accordionConts *{ font-size: $font-base !important;}
+// 디자인 웹폰트로 변경하면서 에디터로 작성한 글 폰트스타일 강제 적용
+.accordion-block .accordionConts > *, .accordion-block .accordionConts span, .accordion-block .accordionConts font {font-family: $base-font !important;}
+
+.accordion-block .accordionTitle.on + .accordionConts {display: block;}
+.accordion-block .accordionTitle.on > a::after {color: $primary;transform-origin: center;transform: rotate(180deg) translateY(50%);}
+
+// 제목 아이콘 hidden
+.accordion-block.no-title-icon .accordionTitle > a {padding-left: 0;}
+.accordion-block.no-title-icon .accordionTitle > a::before {display: none;}
+
+/* FAQ */
+// FAQ.accordion-block 클래스 상속 accordion-faq
+.accordion-faq .accordionTitle {font-weight: $font-bold;}
+.accordion-faq .accordionConts .btn-box {margin-top: 10px;}
+.accordion-faq .accordionConts .btn-box .vbtn {letter-spacing: normal;}
+
+// FAQ 검색 박스
+.faq-search-box {padding: 45px 0 50px 0;border-radius: 15px;background-color: $primary;text-align: center;}
+.faq-search-title {margin: 0 0 24px 0;font-size: $h4;font-weight: $font-bold;color: $white;}
+.faq-search-title span {font-family: $base-font;}
+.faq-search-box .input-gruop {position: relative;max-width: 500px;margin: 0 auto;border-radius: 13px;overflow: hidden;outline: none;}
+.faq-search-box .input-gruop input {width: 100%;height: 56px;padding: 0 50px 0 25px;border-radius: 50px;}
+.btn-faq-search-submit {position: absolute;top: 0;right: 0;z-index: 10;width: 60px;height: 100%;}
+.btn-faq-search-submit i {font-size: 24px;color: $primary;}
+
+// FAQ sorting tab
+.tab-faq-search-sort {clear: both;margin: 35px 0 20px 0;
+	li .tab-name {color: $grey-dark2;}
+	li.on .tab-name {color: $black;}
+}
+
+// FAQ 데이터 없을 경우
+.FAQ_noData {clear: both;margin: 90px 0 50px 0;text-align: center;font-size: $font-base;color: $black-light;line-height: 1.4;display: none;}
+.FAQ_noData_text {margin-top: 20px;}
+
+// FAQ 1:1문의하기 링크
+.faq-link{background:$white;@include box-shadow; border-radius: 13px;padding: 30px;display: flex;}
+.faq-link .faq-link-text dt{font-size: $h6;font-weight: $font-bold;}
+.faq-link .faq-link-text dd{margin-top: 10px;color:$black-alpha70;}
+.faq-link .faq-link-text dd strong{font-weight: $font-bold;}
+.faq-link .faq-link-btn{margin-left: auto;}
+.faq-link .faq-link-btn .label {letter-spacing: 0.1rem;}
+
+// 리스트 더 불러오기 버튼
+.load-more-box {clear: both;position: relative;margin: 46px 0;text-align: center;}
+.load-more-box .btn-load-more {display: inline-block;font-size: $font-base;font-weight: $font-bold;color: $grey-dark2;}
+.load-more-box .btn-load-more i {position: relative;top: -2px;font-size: 24px;font-weight: $font-bold;}
+
+/* pagination */
+.pagination {clear: both;position: relative;margin: 50px 0;font-size: 0;text-align: center;}
+.pagination .page-item {display: inline-block;margin: 0 5px;}
+.pagination .page-item > a {display: block;width: 30px;height: 30px;line-height: 30px;font-size: $font-x-small;color: $black-alpha70;background-color: $primary-alpha5; border: 1px solid $primary-alpha5; border-radius: 100%;@include duration;}
+.pagination .page-item.disabled > a {width: 30px;height: 30px;line-height: 30px;}
+
+.pagination .page-item.first a,
+.pagination .page-item.prev a,
+.pagination .page-item.next a,
+.pagination .page-item.last a {text-indent: -9999px;position: relative;background-color: $white;border-color: $grey-light4;}
+
+.pagination .page-item.prev a::after,
+.pagination .page-item.next a::after,
+.pagination .page-item.first a::after,
+.pagination .page-item.last a::after,
+.pagination .page-item.first a::before,
+.pagination .page-item.last a::before {@include icon-font;font-weight: normal;display: block;position: absolute;top: 50%;left: 50%;@include pos-center;text-indent: 0;line-height: 1;color: $black-light;font-weight: $font-bold;}
+
+.pagination .page-item.prev a::after {content: "\ea64";}
+.pagination .page-item.next a::after {content: "\ea6e";}
+.pagination .page-item.first a::before,
+.pagination .page-item.first a::after {content: "\ea64";}
+.pagination .page-item.last a::before,
+.pagination .page-item.last a::after {content: "\ea6e";}
+
+.pagination .page-item.first a::before,
+.pagination .page-item.last a::before {left: 40%;}
+.pagination .page-item.first a::after,
+.pagination .page-item.last a::after {left: 56%;}
+
+.pagination .page-item.active > a {border-color: $primary-alpha70;background-color: $white;}
+.pagination .page-item > a {
+	@include hover-focus-active {
+		border-color: $primary-alpha70;background-color: $white;
+	}
+}
+
+
+// 고객센터 리뉴얼 210602
+.service-center{ display: flex; margin-top: 30px;}
+.service-center-content{ flex:1 1 auto; }
+.service-center-widgets{ width: 250px; flex:0 1 250px; margin-left: 50px;}
+.service-center-section{ margin-top: 40px;}
+.service-center-section:first-child{ margin-top: 0;}
+.service-center-section-title{ font-size: $h5; font-weight: $font-bold; }
+.service-center-section-title em{ font-weight: inherit; color: $primary;}
+.service-center-section-filter{ display: flex; align-items: baseline;}
+.service-center-section-filter .btn-more-list{ display: flex; align-items: center; margin-left: auto; font-size: $font-small; color: $grey-dark2; }
+.service-center-section-filter .btn-more-list i{ font-size: $font-middle;}
+
+// 공지사항 최신글 롤링
+.notice-latest-slider{ @include card-shadow; background-color: $white; border-radius: 13px; overflow: hidden; }
+.notice-latest-slider .swiper-container{ display: flex; width: 100%; height: 55px;}
+.notice-latest-subj{ display: flex; align-items: center; padding: 0 30px; font-size: $font-base; color: $black-light;}
+.notice-latest-subj:before{ content: '📢'; display: block; font-size: $font-middle; margin-right: 10px; }
+.notice-latest-subj a{ display: flex; width: 100%; padding: 21px 0;}
+.notice-latest-subj .board-title{ font-weight: $font-bold;}
+.notice-latest-subj .board-date{ margin-left: auto; font-size: $font-base; color: $grey-dark;}
+.notice-latest-buttons{ flex: 0 1 76px; min-width: 76px; position: relative; right: 0; top: 0; display: flex; flex-direction: column; align-items: center; justify-content:center; border-left: 1px solid $grey-light4; }
+.notice-latest-button{ width: 20px; height: 20px; color: $primary; }
+.notice-latest-button.swiper-button-disabled{color: $grey-dark; }
+.notice-latest-button:before,
+.notice-latest-button:before{ display: block; content: ''; font-family: $icon; font-size: 20px; }
+.notice-latest-button-prev:before{content: "\EA78";}
+.notice-latest-button-next:before{content: "\EA4E";}
+
+// 검색 결과가 없는 경우 
+.empty-data{ @include card-shadow; padding: 50px 20px; background-color: $white; border-radius: 15px; text-align: center;}
+.empty-data-icon{ display: block; font-size: 40px; color: $grey-light4;}
+.empty-data-text{ margin-top: 10px; line-height: 150%; font-size: $font-base; color: $grey-dark2;}
+
+// 고객센터 내 1:1문의
+.service-inquiry{ @include card-shadow; padding: 20px 29px; background-color: $white; border-radius: 15px;}
+.service-inquiry-title{ line-height: 168%; font-size: $h6; font-weight: $font-bold; color: $black-light; } 
+.service-inquiry-desc{ margin-top: 2px; font-size: $font-base; color: $black-alpha50; } 
+.service-inquiry-form{ margin-top: 20px; text-align: center;}
+
+.service-inquiry-form .form-control-row { width: 100%; display: flex; margin-bottom: 10px;}
+.service-inquiry-form .form-control-row .form-control{ flex: 1 1 auto; }
+.service-inquiry-form .form-control-row .form-control:first-child { min-width: 143px; flex: 0 1 143px; margin-right: 10px; }
+.service-inquiry-form .input_box{ width: 100% !important; border: 1px solid $grey-light4; border-radius: 8px;}
+.service-inquiry-form .vbtn{ margin-top: 7px; }
+
+// 썸트렌드에 바란다
+.service-wish-form{ max-width: 575px; margin: 0 auto; text-align: center;}
+.service-wish-title{ font-size: $h2-small; font-weight: $font-bold; line-height: 135%; letter-spacing: -.07em; color: $black-light;}
+.service-wish-title em{font-weight: $font-bold; color: $primary;}
+.service-wish-desc{ margin-top: 20px; font-size: $font-middle; color: $black-alpha50; line-height: 150%;}
+.service-wish-form .form-control { margin-top: 13px;}
+.service-wish-form .input-box{ position: relative; display: flex; border: 1px solid $grey-light4; border-radius: 11px; }
+.service-wish-form .input-box .input-type1{ padding-left: 54px;}
+.service-wish-form .input-icon { position: absolute; top:50%; left: 20px; transform: translateY(-50%); font-size: 22px; font-weight: $font-regular; color: $grey-dark;}
+.service-wish-form .textarea-type1 { border: 0; height: 300px;}
+.service-wish-form .form-button { margin-top: 40px; }
+
+.service-wish-info{ position: relative; padding: 19px 21px 19px 44px; margin-top: 40px; margin-bottom: 26px; background-color: rgba(254,237,179,.3);border: 1px solid rgba(158, 145, 99, .2); color: $black-light; line-height: 150%; letter-spacing: -.05em; border-radius: 13px; text-align: left;}
+.service-wish-info:before{ content:"\EE59"; font-family: $icon; position: absolute; left: 20px; top: 19px; font-size: 20px; color: $black-light;}
+
+.service-terms-wrap{width: 100%; padding: 20px 19px; margin-top: 20px; background-color: $grey-light2; border-radius: 13px; color: $grey-dark2; text-align: left; box-sizing: border-box;}
+.service-terms-wrap p{ margin-top: 10px; line-height: 150%; font-size: $font-base; letter-spacing: -.05em;}
+.service-terms-wrap p:first-child{ margin-top: 0; font-weight: $font-bold;}
+.service-terms-wrap p:last-child{ margin-top: 13px;}
+.service-terms-wrap small{ font-size: $font-small;}
+
+// 고객센터 내 위젯버튼
+.widget-info{ @include card-shadow; padding: 25px 10px 25px 19px; margin-bottom: 18px; background-color: $white; border-radius: 15px; }
+.widget-info-tit{ font-size:$font-base; margin-bottom: 15px; font-weight: $font-bold; }
+.widget-info-tel{ display: flex; align-items: center; font-size:1.5rem; font-weight: $font-bold; color: $primary;  }
+.widget-info-tel i{ margin-right: 8px; font-size: 24px; color: $grey-dark;}
+.widget-info-time{ margin-top: 15px; font-size: $font-small;}
+.widget-info-time p{ display: flex; align-items: center; margin-top: 5px;}
+.widget-info-time p:first-child{ margin-top: 0;}
+.widget-info-time span:first-child{ min-width: 45px; color: $grey-dark2; }
+.widget-info-time span:last-child{ margin-left: 14px; color: $black-alpha70;}
+
+.widget-link{ position:relative; display: flex; align-items: center; width: 100%; @include card-shadow; padding: 25px 19px; background-color: $white; border-radius: 15px; margin-bottom: 18px;}
+.widget-link > span{ display: block; flex: 0 1 auto;}
+.widget-link-icon { display: block; display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; line-height: 40px; margin-right: 10px; background-color: $primary-alpha5; text-align: center; font-size: 22px; border-radius: 10px; transition: transform .2s ease-in-out; }
+.widget-link-icon path {fill: $primary; }
+.widget-link-icon .animate-shape { transition: 0.5s;}
+
+.widget-link-how .widget-link-icon svg{ margin-top: 4px; transition: 0.5s;}
+.widget-link-how:hover .widget-link-icon svg{ margin-top: 0; margin-left: 0; }
+.widget-link-how:hover .widget-link-icon #shape1{ d: path("M3 17.7537H18.75V19.5037H3V17.7537Z");}
+.widget-link-wish:hover .widget-link-icon #shape2{ d: path("M2.243 6.854L11.49 1.31a1 1 0 0 1 1.029 0l9.238 5.545a.5.5 0 0 1 .243.429V20a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.283a.5.5 0 0 1 .243-.429zM4 8.133V19h16V8.132l-7.996-4.8L4 8.132zm8.06 5.565l5.296-4.463 1.288 1.53-6.57 5.537-6.71-5.53 1.272-1.544 5.424 4.47z");}
+
+// svg animate not working, replace IE10+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+	.widget-link{ height: 90px; display: flex; align-items: center;}
+    .widget-link:before{ content:''; display: block; width: 35px; height: 35px; line-height: 35px; margin-right: 10px; background-color: $primary-alpha5; color: $primary; text-align: center; font-size: 20px; border-radius: 10px; transition: transform .2s ease-in-out;} 
+    .widget-link-how:before{ content:"\EC86"; font-family: $icon; color: $primary;}
+    .widget-link-wish:before{ content:"\EEFA"; font-family: $icon; }
+    .widget-link-icon{display: none;}
+}
+
+/* 게시판 상세 */
+.board-detail {clear: both;position: relative;width: 100%;min-height: 440px;padding: 40px;text-align: center; border-radius: 13px;background-color: $white;@include box-shadow3;letter-spacing: -1px;}
+.board-detail-title {display: flex;align-items: center;}
+.board-detail-title-text {font-size: $h4;font-weight: $font-bold;line-height: 1.5;letter-spacing: -0.1em;color: $black-light;}
+.board-detail-title-badge {margin-right: 20px;}
+
+.board-detail-tag {display: flex;align-items: center;margin-bottom: 6px;}
+.board-detail-tag li {display: inline-block;margin-right: 6px;padding: 2px 10px;border: 1px solid $primary;border-radius: 50px;font-size: $font-small;line-height: 1.44;color: $primary;}
+.board-detail-tag li:last-of-type {margin-right: 0;}
+
+.board-detail-info {display: flex;align-items: center;flex-wrap: wrap;padding: 0 10px 35px 10px;margin: 20px 0 50px 0;border-bottom: 1px solid $grey-light4;}
+.board-detail-info-content {display: flex;align-items: center;padding-left: 23px;margin-left: 23px;position: relative;font-size: $font-base;font-weight: $font-bold;color: $black-light;}
+.board-detail-info-content:first-child {margin-left: 0;padding-left: 0;}
+.board-detail-info-content::before {content: "";display: block;width: 1px;height: 14px;position: absolute;top: 50%;left: 0;@include pos-center("y");background-color: $grey-light4;}
+.board-detail-info-content:first-child::before {display: none;}
+.board-detail-info-content dt {padding-right: 20px;color: $black-alpha50;}
+.board-detail-info-content dd {font-weight: $font-regular;}
+
+.board-detail-info-dday {display: inline-block;height: 25px;line-height: 23px;padding: 0 10px;margin-left: 8px;font-size: $font-small;color: $sky;background-color: $white;border: 1px solid $sky;border-radius: 50px;}
+
+// 상세 컨텐츠
+.board-detail-contents {clear: both;}
+.board-detail-img {text-align: center;}
+.board-detail-img img {width: auto;max-width: 100%;}
+
+.board-detail-btn-box {clear: both;margin: 50px 0 0 0;}
+
+.board-detail-footer {clear: both;display: flex;align-items: center;padding-top: 30px;margin-top: 65px;border-top: 1px solid $grey-light4;}
+.board-detail-footer > .col,
+.board-detail-footer > .col {display: flex;align-items: center;width: 50%;}
+.board-detail-footer .col-sns-box {justify-content: flex-start;}
+.board-detail-footer .col-btn-box {justify-content: flex-end;}
+
+// 유저 타입별 타이틀 배지, 디데이 배지, 응모 버튼 컬러 변경
+@each $key, $value in $member-colors {
+	.board-detail[data-userType=#{$key}] {
+		// 상세 타이틀 배지
+		.badge.board-detail-title-badge {background-color: $value;}
+
+		// 상세 디데이 배지
+		.board-detail-info-dday {color: $value;border-color: $value;}
+
+		// 상세 응모하기 버튼
+		.btn-event-apply {color: $white;background-color: $value;border-color: $value;}
+	}
+}
+
+// 이벤트 진행중일시 디데이 배지, 응모하기 버튼 노출
+.board-detail[data-eventEnded=""] [data-status="open"],
+.board-detail[data-eventEnded="false"] [data-status="open"] {display: inline-block;}
+
+.board-detail[data-eventEnded=""] [data-status="ended"],
+.board-detail[data-eventEnded="false"] [data-status="ended"] {display: none;}
+
+// 이벤트 종료시 디데이 배지 종료로 변경, 당첨자 발표 버튼 노출
+.board-detail[data-eventEnded="true"] [data-status="open"] {display: none;}
+.board-detail[data-eventEnded="true"] [data-status="ended"] {display: inline-block;}
+.board-detail[data-eventEnded="true"] .board-detail-info-dday {color: $white;background-color: $grey-light5;border-color: $grey-light5;}
+
+// 당첨자 발표
+.board-detail-winner-title {margin-bottom: 45px;font-size: $h4;font-weight: $font-bold;color: $black-light;}
+.board-detail-winner-list {clear: both;padding: 35px 20px;font-size: $font-middle;font-weight: $font-bold;color: $black-alpha70;letter-spacing: -1px;background-color: $grey-light2;}
+.board-detail-winner-list::after {@include clearfix();}
+.board-detail-winner-list > li {float: left;width: 25%;padding: 15px 20px;}
+
+// 게시판 SNS 공유
+.sns-share-list {display: flex;align-items: center;}
+.sns-share-list li {display: inline-block;margin-left: 14px;@include duration(0.2s);animation-timing-function: ease-in-out;}
+.sns-share-list:hover li {transform: scale(0.9);}
+.sns-share-list li:hover {transform: scale(1) translateY(-5px);}
+.sns-share-list li:first-child {margin-left: 0;}
+.sns-share-list .btn-share {display: block;width: 40px;height: 40px;text-indent: -9999px;background-position: center center;background-repeat: no-repeat;background-size: 100% auto;}
+.sns-share-list .btn-share-facebook {background-image: url('/renewal_resources/images/icon_sns_fb.svg');}
+.sns-share-list .btn-share-kakao {background-image: url('/renewal_resources/images/icon_sns_kakao.svg');}
+.sns-share-list .btn-share-url-copy {background-image: url('/renewal_resources/images/icon_sns_link.svg');}
+
+// 공지사항, FAQ 아코디언
+.accordion-notice, .accordion-faq {
+	.accordionTitle > a {padding-right: 0;}
+	.accordionTitle > a::after,
+	.accordionTitle > a > .board-hit,
+	.accordionTitle > a > .board-hit {display: none;}
+}
+
+// FAQ 아코디언
+.accordion-faq {
+	.accordionTitle > a > .board-title {font-weight: $font-bold;}
+	.accordionBox {padding: 0 17px;}	
+}

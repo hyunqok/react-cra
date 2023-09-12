@@ -1,0 +1,285 @@
+
+// form data
+.form-row {
+    display: flex;align-items: center;justify-content: flex-start;gap: 24px;
+}
+.form-col {
+    display: flex;align-items: center;justify-content: flex-start;min-width: 60px;gap: 10px;
+    
+    &.form-label {font-size: $font-size-sm;font-weight: $font-weight-500;color: $grey-tertiary;}
+    &.form-input {font-size: $font-size-base;font-weight: $font-weight-500;color: $base-black;}    
+}
+
+.form-text-sm {font-size: $font-size-sm;color: $grey-secondary;}
+
+.vcheckbox {position: relative;display: inline-flex;align-items: center;justify-content: flex-start;}
+.vcheckbox input {
+    & {opacity: 0;visibility: hidden;position: absolute;top: 0;left: -9999px;}
+}
+.vcheckbox .label {
+    & {
+        display: inline-flex;align-items: center;justify-content: flex-start;
+        position: relative;
+        padding-left: 30px;
+        font-size: $font-size-base;
+        cursor: pointer;
+    }
+
+    & .icon-check {
+        display: inline-flex;align-items: center;justify-content: center;
+        width: 20px;height: 20px;
+        border: 1px solid $grey-secondary;
+        position: absolute;top: 1px;left: 0;
+        border-radius: 5px;
+        background-color: $base-white;
+
+        & .icon {
+            display: inline-flex;align-items: center;justify-content: center;
+            position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);
+            opacity: 0;visibility: hidden;
+            font-size: $font-size-base;color: #fff;
+        }
+    }
+}
+
+.vcheckbox input:checked {
+    & + .label .icon-check {
+        background-color: $primary-500;
+
+        .icon {
+            opacity: 1;visibility: visible;
+        }
+    }
+}
+
+/* 사이즈 */
+.vcheckbox.md {
+    & .label {padding-left: 30px;}
+    & .label .icon-check {width: 20px;height: 20px;}
+}
+
+.vcheckbox.sm {
+    & .label {padding-left: 22px;font-size: $font-size-sm;}
+    & .label .icon-check {
+        width: 16px;height: 16px;
+
+        .icon {
+            font-size: 10px;
+        }
+    }
+}
+
+// disabled style
+.vcheckbox.disabled input, 
+.vcheckbox input.disabled, 
+.vcheckbox input:disabled,
+.vcheckbox input:disabled:checked {
+    & + .label {color: $grey-disabled !important;}
+    & + .label .icon-check {background-color: $grey-disabled !important;border-color: $grey-disabled !important;}
+    & + .label .icon-check .icon {opacity: 0;visibility: hidden;}
+}
+
+/* 레이블 위치 */
+.vcheckbox.label-placement-right {
+    & .label {padding-left: 30px;padding-left: 30px;}
+    & .label .icon-check {right: auto;left: 0;}
+}
+.vcheckbox.label-placement-left {
+    & .label {padding-left: 0;padding-right: 30px;}
+    & .label .icon-check {left: auto;right: 0;}
+}
+
+/**
+* button guide와 종속
+**/
+.vcheckbox.button {
+    & input:checked + .vbtn-label {background-color: $primary-50;border-color: $primary-500;color: $primary-500;}
+
+    & input:disabled + .vbtn-label,
+    & input:checked:disabled + .vbtn-label {
+        cursor: default !important;background-color: $grey-disabled !important;border-color: $grey-disabled !important;color: $grey-tertiary !important;
+    }
+
+    &.primary-500 {
+        & input:checked + .vbtn-label {background-color: $primary-500;border-color: $primary-500;color: $base-white;}
+    }
+}
+
+// 스위치 박스
+.vswitchbox {position: relative;display: inline-flex;align-items: center;vertical-align: middle;cursor: pointer;}
+.vswitchbox input {position:absolute;opacity: 0;height: 0;width: 0;background: none;}
+
+$slider-ball-size: 14px;
+$slider-ball-init-margin: 3px;
+$slider-ball-active-position: $slider-ball-size + $slider-ball-init-margin;
+.vswitchbox .slider {position: relative;display: inline-flex;background-color: $grey-tertiary;border-radius: 1em;transition-duration: .3s;}
+.vswitchbox .slider::before {content: "";display: block;width: $slider-ball-size;height: $slider-ball-size;position: absolute;top: 50%;left: $slider-ball-init-margin;transform: translateY(-50%);border-radius: 50%;background-color: #fff;transition-duration: .3s;}
+
+.vswitchbox input:checked + .slider {background-color: $primary-500;}
+.vswitchbox input:checked + .slider::before {
+	left: calc(100% - $slider-ball-active-position);
+}
+
+.vswitchbox .switch-text {font-size: 14px;margin-left: 5px;}
+
+// 스위치 박스 레이블이 왼쪽에
+.vswitchbox.label-left .slider {order: 2;}
+.vswitchbox.label-left .switch-text {order: 1;margin-left: 0;margin-right: 5px;}
+
+.vswitchbox.sm {
+	$width: 25px;
+	$height: 18px;
+	$ball-size: $height - 6px;
+	$slider-ball-active-position: $ball-size + $slider-ball-init-margin;
+
+	.slider {width: $width;height: $height;}
+	.slider::before {width: $ball-size;height: $ball-size;}
+
+	& input:checked + .slider::before {
+		left: calc(100% - $slider-ball-active-position);
+	}
+}
+
+.vswitchbox.md {
+	$width: 33px;
+	$height: 20px;
+	$ball-size: $height - 6px;
+	$slider-ball-active-position: $ball-size + $slider-ball-init-margin;
+
+	.slider {width: $width;height: $height;}
+	.slider::before {width: $ball-size;height: $ball-size;}
+
+	& input:checked + .slider::before {
+		left: calc(100% - $slider-ball-active-position);
+	}
+}
+
+.vswitchbox.lg {
+	$width: 60px;
+	$height: 24px;
+	$ball-size: $height - 6px;
+	$slider-ball-active-position: $ball-size + $slider-ball-init-margin;
+
+	.slider {width: $width;height: $height;}
+	.slider::before {width: $ball-size;height: $ball-size;}
+
+	& input:checked + .slider::before {
+		left: calc(100% - $slider-ball-active-position);
+	}
+}
+
+// 스위치 박스 type2 on/off 텍스트가 있는
+.vswitchbox.type2 {
+	.slider {width: 45px;height: 20px;}
+	.slider::before {width: 18px;height: 18px;}
+	.slider::after {content: "OFF";position: absolute;top: 50%;right: 5px;transform: translate(0, -50%); font-size: 10px;color: #000;transition-duration: .3s;}
+	input:checked + .slider::before {width: 18px;height: 18px;margin-left: -18px;}
+	input:checked + .slider::after {content: "ON";right: auto;left: 7px;color: #fff;}
+}
+
+// text-field
+.text-field {
+    $size: 52px;
+
+    display: inline-flex;align-items: center;
+    border: 1px solid $borders-dark;
+    height: $size;
+    border-radius: 3px;
+
+    .icon {
+        flex: 0 0 45px;
+        display: flex;justify-content: center;align-items: center;
+        font-size: 24px;color: $grey-secondary;
+    }
+    .input {
+        flex: auto;height: 100%;
+        input {width: 100%;height: 100%;font-size: $font-size-base;color: $base-black;font-weight: $font-weight-500;}
+    }
+    .button {
+        flex: 0 0 45px;
+        display: flex;justify-content: center;align-items: center;
+    }
+
+    .btn-remove-input-value {
+        width: 24px;height: 24px;border-radius: 50%;
+        background-color: $grey-tertiary;
+        color: $base-white;font-weight: $font-weight-100;
+        opacity: 0;visibility: hidden;
+        transform: translateX(10%) rotate(45deg);
+        transition: all .1s ease-in;
+    }
+
+    &.is-valued {
+        .btn-remove-input-value {opacity: 1;visibility: visible;transform: translateX(0) rotate(0deg);}
+    }
+}
+
+.search-field {
+    display: flex;align-items: center;
+
+    .col-text-field {
+        flex: auto;padding-right: 12px;
+    }
+    .col-add-search-field {
+        flex: 0 0 43px;
+        border-radius: 3px;
+    }
+
+    .btn-add-search-field {
+        width: 43px;height: 52px;
+        background-color: $base-background;
+        border: 1px solid $borders-dark;
+        border-radius: 3px;
+        font-size: 24px;color: $grey-secondary;
+    }
+}
+
+// chip-field
+.chip-field {
+    $size: 52px;
+
+    display: inline-flex;align-items: center;
+    border: 1px solid $borders-dark;
+    min-height: $size;
+    border-radius: 3px;
+    padding-right: 4px;
+    padding-block: 4px;
+
+    .chip-select {
+        flex: 0 0 110px;
+    }
+
+    .vselect.nice-select {
+        width: 100%;border-color: transparent;color: $grey-secondary;font-size: $font-size-sm;
+        padding-left: 13px;
+    }
+    
+    .field-label {
+        font-size: $font-size-sm;font-weight: $font-weight-500;color: $grey-secondary;text-align: left;
+        padding: 0 14px;
+    }
+
+    .chip-value {
+        display: flex;flex-wrap: wrap;row-gap: 4px;column-gap: 12px;
+    }
+
+    .chip-stack {
+        display: flex;flex-wrap: wrap;row-gap: 4px;column-gap: 12px;
+    }
+    .chip-input {
+        flex-grow: 1;width: 0;min-width: 50px;display: inline-flex;text-overflow: ellipsis;
+    }
+
+    &[data-fullwidth] {
+        width: 100%;
+    }
+}
+
+.calendar-stack {
+    display: flex;align-items: center;gap: 10px;
+
+    .deco {flex: 0 0 30px;display: flex;align-items: center;justify-content: center;
+        [class^="mgc_"] {font-size: 24px;color: $grey-secondary;}
+    }
+    .text-field {flex: auto;}
+}

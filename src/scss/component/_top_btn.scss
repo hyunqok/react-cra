@@ -1,0 +1,8 @@
+/* top */
+.top-btn {opacity: 0;visibility: hidden;display: inline-block;padding-right: 15px;}
+.top-btn a {display: block;margin-inline: auto;position: relative;width: 60px;height: 60px;border-radius: 50%;line-height: 65px;background: $white;text-align: center;font-weight: bold;box-shadow: 0 2px 12px 0 rgba(37, 42, 49, 0.08), 0 2px 5px 0 rgba(37, 42, 49, 0.15);}
+.top-btn a span {position: relative;font-size: $font-small;color: $black-alpha70;}
+.top-btn a span:before {content: '';position: absolute;left: 50%;top: -6px;width: 10px;margin-left: -4px;height: 5px;background: url('/renewal_resources/images/icon_top_btn_v2.png') 0 0 no-repeat;}
+.top-btn a:hover span {color: $black;}
+.top-btn a:hover span:before {background-position: -21px 0;}
+.top-btn.show {opacity: 1;visibility: visible;}

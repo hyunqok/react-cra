@@ -1,0 +1,7 @@
+@mixin text-cut {
+	white-space: nowrap;overflow: hidden;text-overflow: ellipsis;
+}
+
+@mixin text-cut-multiline($height: 3em, $line: 2) {
+	display: -webkit-box;max-height: $height;overflow: hidden;text-overflow: ellipsis;white-space: normal;word-wrap: break-word;-webkit-line-clamp: $line;-webkit-box-orient: vertical;
+}

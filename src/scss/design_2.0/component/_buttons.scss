@@ -1,0 +1,92 @@
+@charset "utf-8";
+
+@mixin button-hover($color, $amount: 10%) {
+    &:hover {
+        transition: background .2s ease;
+        border-color: darken($color, $amount);background-color: darken($color, $amount);
+    }
+}
+
+.vbtn {
+    & {
+        display: inline-flex;justify-content: center;align-items: center;
+        border-radius: 3px;
+        letter-spacing: -0.4px;
+        line-height: 1.4;
+        border: 1px solid transparent;
+        cursor: pointer;
+    }
+    &.md {
+        padding: 8px 16px;font-weight: 500;font-size: $font-size-sm;
+    }
+    &.lg {
+        padding: 10px 16px;font-weight: 500;font-size: $font-size-base;
+    }
+    &.xl {
+        padding: 15px 16px;font-weight: 500;font-size: $font-size-base;
+    }
+
+    .icon {
+        position: relative;
+
+        &.top_1 {top: -1px;}
+        &.top_2 {top: -2px;}
+        &.top-1 {top: 1px;}
+        &.top-2 {top: 2px;}
+    }
+
+    &:active:not(.no-interaction) {
+        transform-origin: center center;
+        transition: scale .2s ease-in-out;
+        transform: scale(0.99);
+    }
+}
+
+.vbtn[disabled],
+.vbtn.disabled,
+.vbtn.disabled:hover,
+.vbtn.disabled:focus,
+.vlabel.disabled:active {cursor: default !important;background-color: $grey-disabled !important;border-color: $grey-disabled !important;color: $grey-tertiary !important;}
+
+.btn-fill-white {
+    border-color: $base-white;background-color: $base-white;color: $grey-primary;
+    @include button-hover($base-white);
+}
+.btn-fill-primary {
+    border-color: $primary-500;background-color: $primary-500;color: $base-white;
+    @include button-hover($primary-500);
+}
+.btn-fill-black {
+    border-color: $base-black;background-color: $base-black;color: $base-white;
+    @include button-hover($base-black);
+}
+
+.btn-outline-light-default {
+    border-color: $borders-dark;background-color: $base-white;color: $grey-primary;
+    @include button-hover($base-white);
+}
+.btn-outline-primary {
+    border-color: $primary-500;background-color: $primary-50;color: $primary-500;
+    @include button-hover($primary-50);
+}
+.btn-outline-light-primary {
+    border-color: $primary-300;background-color: $primary-50;color: $primary-500;
+    @include button-hover($primary-50);
+}
+.btn-outline-black {
+    border-color: $base-black;background-color: $base-white;color: $base-black;
+    @include button-hover($base-white);
+}
+
+.btn-soft-default {
+    border-color: $base-background-dark;background-color: $base-background-dark;color: $grey-primary;
+    @include button-hover($base-background-dark);
+}
+.btn-soft-primary {
+    border-color: $primary-100;background-color: $primary-100;color: $primary-500;
+    @include button-hover($primary-100);
+}
+.btn-soft-black {
+    border-color: $base-background-dark;background-color: $base-background-dark;color: $base-black;
+    @include button-hover($base-background-dark);
+}

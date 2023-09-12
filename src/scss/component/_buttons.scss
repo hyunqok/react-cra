@@ -1,0 +1,214 @@
+@charset "utf-8";
+
+/*
++----------------------------------------------------------------------+
+| Copyright (c) Vaiv.  co. Ltd
++----------------------------------------------------------------------+
+| 파일설명 : 변수 설정
++----------------------------------------------------------------------+
+*/
+
+/* 버튼 */
+.vbtn {display: inline-block;letter-spacing: -0.5px;vertical-align: middle;border: 0;border: none;background: none;border-radius: 0;@include duration;}
+.vbtn [class^="ri-"],
+.vbtn [class*=" ri-"] {vertical-align: middle;}
+
+.vbtn[disabled],
+.vbtn.disabled,
+.vbtn.disabled:hover,
+.vbtn.disabled:focus,
+.vbtn.disabled:active {cursor: default;background-color: $grey-light5 !important;border: 1px $grey-light5 solid !important;color: $grey-dark2 !important;box-shadow: initial !important;}
+
+.btn-blank {text-indent: -9999px;position: absolute;background-image: url('../images/blank.png'); background-repeat: repeat; background-position: 0 0;}
+
+.btn-x {position: relative;display: inline-block;width: 40px;height: 40px;}
+.btn-x em {display: inline-block;text-indent: -9999px;}
+.btn-x::before,
+.btn-x::after {content: "";display: block;position: absolute;top: 50%;left: 0;width: 100%;height: 2px;background-color: #000;transition-duration: .2s;}
+.btn-x::before {transform: translateY(-50%) rotate(45deg);}
+.btn-x::after {transform: translateY(-50%) rotate(-45deg);}
+
+.btn-x2 {display: inline-block;width: 30px;height: 30px;}
+.btn-x2 em {display: inline-block;text-indent: -9999px;}
+.btn-x2 span {display: block;height: 1px;background-color: #000;transition-duration: .3s;}
+.btn-x2 span.line1 {transform: rotate(45deg);}
+.btn-x2 span.line2 {transform: rotate(-45deg);}
+
+//모바일 햄버거 버튼
+.btn-list {position: relative;display: inline-block;width: 30px;height: 20px;}
+.btn-list em {display: inline-block;text-indent: -9999px;}
+.btn-list span {display: block;position: absolute;top: 0;left: 0;width: 100%; border: 1px #000 solid; background-color: #000;transition-duration: .3s;}
+.btn-list span.line1 {top: 0;}
+.btn-list span.line2 {top: 50%;}
+.btn-list span.line3 {top: 100%;}
+.btn-list:hover span.line1 {top: 50%;transform : rotate(-45deg);}
+.btn-list:hover span.line2 {opacity: 0;}
+.btn-list:hover span.line3 {top: 50%;transform : rotate(-135deg)}
+
+.btn-plus {position: relative;display: inline-block;width: 30px;height: 30px;}
+.btn-plus em {display: inline-block;text-indent: -9999px;}
+.btn-plus::before,
+.btn-plus::after {content: "";position: absolute;top: 50%;left: 0;width: 100%;height: 2px;background-color: #000;}
+.btn-plus::before {transform: rotate(90deg);}
+.btn-plus::after {transform: rotate(-180deg);}
+
+/* 더보기 버튼 */
+.btn-more {height: 32px;line-height: 32px;padding: 0 17px;font-size: $font-small;font-weight: 500;color: $black-light;background-color: $white;border-radius: 50px;@include box-shadow();}
+.btn-more i {font-size: 14px;color: $grey-light5;margin-left: 8px;line-height: 1.5;}
+.btn-more i::before {display: inline-block;vertical-align: middle;}
+
+// 분석 데이터 엑셀 다운로드
+.btn-excel-down {display: inline-flex;align-items: center;font-size: $font-small;font-weight: $font-medium;color: $primary;}
+.btn-excel-down:disabled {background-color: transparent !important; border-color: transparent !important;color: $grey-light5 !important;}
+.btn-excel-down:disabled .icon-base {fill: $grey-light5;}
+.btn-excel-down i {margin-right: 5px;font-size: 24px;font-weight: normal;}
+.btn-excel-down .icon-base {fill: $primary;}
+
+// 리셋 버튼 [분석 원본보기]
+.btn-reset-icon {display: inline-flex;align-items: center;justify-content: center;width: 26px;height: 26px;margin: 0 5px;font-size: $font-middle;color: $primary;border: 1px solid $grey-light5;border-radius: 10px;}
+
+// 텍스트가 있는 리셋 버튼 [분석 검책 모달,]
+.btn-reset-text {display: inline-flex;align-items: center;justify-content: center;font-size: $font-small !important;border-radius: 6px !important;}
+.btn-reset-text i {margin-right: 5px;font-size: $font-middle;color: $primary !important;}
+
+// 차트 수정하기
+.btn-chart-modify {display: inline-flex;align-items: center;justify-content: center;margin-right: 20px;font-size: $font-small !important;font-weight: $font-medium;}
+.btn-chart-modify.on {color: $white;background-color: $primary;border-color: $primary;}
+.btn-chart-modify.on:hover {background-color: darken($primary, 0.5) !important;}
+.btn-chart-modify i {margin-right: 5px;font-size: $font-base;}
+.btn-chart-modify-reset {margin-right: 10px;transform: scale(0.5);opacity: 0;visibility: hidden;@include duration(initial);}
+
+// 공유하기, 저장하기 버튼 [분석 고도화]
+.btn-share-type1,
+.btn-save-type1 {display: inline-flex !important;align-items: center;line-height: 1;}
+
+.btn-share-type1 i,
+.btn-save-type1 i {margin-right: 5px;font-size: 21px;}
+
+.btn-share-type1 i {color: $sky;}
+.btn-save-type1 i {color: $blue;}
+
+// 필터 토글 버튼 [분석 평판 분석,]
+.btn-filter-toggle {display: inline-flex;align-items: center;}
+.btn-filter-toggle i {font-size: $font-middle;color: $grey-dark;}
+.btn-filter-toggle.on i {color: $primary;}
+
+// 삭제 버튼 X 아이콘 [분석 평판 분석 데이터 테이블]
+.btn-delete-icon {display: inline-flex;align-items: center;justify-content: center; width: 20px;height: 20px;font-size: $font-base;color: $black-light;background-color: $white;border: 1px solid $grey-light4;border-radius: 50%;}
+
+// 버튼 클릭시 효과
+.button-scale {animation-name: button-scale;}
+@keyframes button-scale {
+	0% {
+		transform: scale(0.8);
+	}
+	30% {
+		transform: scale(1);
+	}
+}
+
+@mixin button-size-variant($padding, $font-size, $font-weight, $radius: 11px) {
+	padding: $padding;
+	font-size: $font-size;
+	font-weight: $font-weight;
+	border-radius: $radius;
+}
+ 
+@mixin button-generator($type) {
+	@if $type == "fill" {
+		@each $fill-color, $fill-value in $button-colors {
+			@each $font-color, $font-value in $button-colors {
+				.btn-#{$type}-#{$fill-color}-#{$font-color} {
+					color: $font-value;
+					background-color: rgba($fill-value, 1);
+					border: 1px rgba($fill-value, 1) solid;
+					&:hover {
+						@if $fill-color != 'primary-alpha10' {
+							background-color: lighten($fill-value, 5%);
+							border-color: lighten($fill-value, 5%);
+						}
+					}
+					&:active {
+						background-color: darken($fill-value, 5%);
+						border-color: darken($fill-value, 5%);
+					}
+					&:focus {
+						box-shadow: 0 0 10px rgba($fill-value, 0.8);
+					}
+				}
+			}
+		}
+	}@else if $type == "line" {
+		@each $fill-color, $fill-value in $button-colors {
+			@each $font-color, $font-value in $button-colors {
+				.btn-#{$type}-#{$fill-color}-#{$font-color} {
+					color: $font-value;
+					background-color: rgba($white, 1);
+					border: 1px solid $fill-value;
+					&:hover {
+						background-color: rgba($fill-value, 0.1);
+					}
+					&:active {
+						background-color: rgba($fill-value, 0.2);
+					}
+					&:focus {
+						box-shadow: 0 0 10px rgba($fill-value, 0.8);
+					}
+				}
+			}
+		}
+	}@else if $type == "line-clear" {
+		@each $fill-color, $fill-value in $button-colors {
+			.btn-#{$type}-#{$fill-color} {
+				color: $fill-value;
+				background-color: transparent;
+				border: 1px rgba($fill-value, 1) solid;
+				&:hover {
+					background-color: rgba($fill-value, 1);
+					color: $white;
+				}
+				&:active {
+					background-color: rgba($fill-value, 0.2);
+					color: $fill-value;
+				}
+				&:focus {
+					box-shadow: 0 0 10px rgba($fill-value, 0.8);
+				}
+			}
+		}
+	}
+}
+
+@include button-generator("fill");
+@include button-generator("line");
+@include button-generator("line-clear");
+
+// button size
+.vbtn.xx-small {@include button-size-variant(4px 10px, $font-base, $font-bold, 6px);}
+.vbtn.x-small {@include button-size-variant(9px 16px, $font-base, $font-bold, 6px);}
+.vbtn.small {@include button-size-variant(14px 20px, $font-base, $font-bold, 11px);}
+.vbtn.medium {@include button-size-variant(16.5px 25px, $font-base, $font-bold, 11px);}
+.vbtn.large {@include button-size-variant(17.8px 25px, $font-middle, $font-bold, 13px);}
+.vbtn.x-large {@include button-size-variant(19.8px 40px, $h6, $font-bold, 13px);}
+.vbtn.xx-large {@include button-size-variant(22px 45px, $h6, $font-bold, 13px);}
+
+.vbtn.wide {width: 100% !important;}
+
+.vbtn.xx-small.icon-right {padding-right: 5px;}
+.vbtn.x-small.icon-right {padding-right: 8px;}
+.vbtn.small.icon-right {padding-right: 10px;}
+.vbtn.medium.icon-right {padding-right: 16px !important;}
+.vbtn.large.icon-right {padding-right: 13px;}
+.vbtn.x-large.icon-right {padding-right: 20px;}
+.vbtn.xx-large.icon-right {padding-right: 25px;}
+
+// button round
+.vbtn.round {border-radius: 50em;}
+
+// button icon
+.vbtn .icon {position: relative;display: inline-flex;align-items: center;}
+.vbtn .icon i {margin-left: 4px;}
+.vbtn .icon.align-left i {margin: 0;margin-right: 4px;}
+
+.vbtn.load {display: inline-flex;align-items: center;justify-content: center;}
+.vbtn.load .label {position: relative;display: inline-flex;align-items: center;justify-content: center;}

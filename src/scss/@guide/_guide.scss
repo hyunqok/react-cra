@@ -1,0 +1,67 @@
+@charset "utf-8";
+
+/*
++----------------------------------------------------------------------+
+| Copyright (c) Vaiv.  co. Ltd
++----------------------------------------------------------------------+
+| 파일설명 : component 및 공통 소스의 가이드 스타일
++----------------------------------------------------------------------+
+*/
+
+body {background-color: $grey-light2;}
+#guide-wrap {padding: 30px 15px 30px 215px;}
+#guide-wrap h2 {display: inline-flex;align-items: center;justify-content: start;padding: 5px 10px;font-size: $h4;font-weight: bold;background-color: $white;border: 1px solid $grey-dark2; border-radius: 10px;}
+#guide-wrap h3 {margin: 20px 0 15px 0;color: $black;font-weight: bold;}
+#guide-wrap h5 {font-size: $h5;}
+#guide-wrap h6 {font-size: $h6;}
+
+/*==================================================================
+// guide-navs
+//=================================================================*/
+.guide-navs-body{background-color: $white; min-width: auto}
+.guide-navs iframe{height: 100%; width : 100%; border: 0; padding: 0;}
+.guide-navs{position: fixed; left: 0; top: 0; bottom: 0; overflow: hidden; overflow-y: scroll; width: 200px; background-color: $white}
+
+/*========= in nav html  =========*/
+.guide-nav-list{padding: 10px 15px;;}
+.guide-nav-list li{margin: 15px 0;}
+.guide-nav-list > li{font-weight: $font-bold; list-style: decimal; margin-left: 20px;}
+.guide-nav-list > li .sub-list{margin-left: 15px; font-size: $font-small; color: $black-alpha50}
+
+/*==================================================================
+// button-guide-wrap
+// 버튼 가이드 스타일
+//=================================================================*/
+.button-guide-wrap {display: flex;flex-wrap: wrap; padding: 30px 0;}
+.button-guide-wrap .col {width: 33.3333%;padding: 0 10px;}
+.button-guide-wrap .col .vbtn {margin: 2px 0;}
+.button-guide-wrap .result-button-class {display: block;font-size: 14px;}
+.button-guide-wrap .result-button-class span.button-round-option {margin-right: 6px;}
+
+.button-guide-control {display: flex;align-items: center;margin: 20px 0 0;background-color: #fff;padding: 10px;border-radius: 10px;}
+.button-guide-control .check-type {margin-right: 10px;}
+.button-guide-control label {font-weight: bold;color: 15px;}
+.button-guide-control select {width: auto;min-width: auto;height: 35px;margin: 0 5px;padding: 0 10px;border-radius: 5px;-webkit-appearance: auto;appearance: auto;}
+
+.vbtn-loading-type2 {padding: 0 10px;}
+
+.check-form-list{padding: 10px; background-color: $white}
+
+.input-guide-list {display: flex;flex-wrap: wrap; background-color: $white;margin: 10px 0;padding: 10px;}
+.input-guide-list li {width: 19%;margin: 5px;}
+
+
+
+pre {text-align: left;margin: 10px 0;color: $red;}
+
+/* 온보딩 */
+.vguide-box {position: relative;margin-bottom: 30px;}
+.vguide-box h5 {margin-bottom: 10px;}
+.vguide-box a {text-decoration: underline;color: $blue;}
+.vguide-box p, .vguide-box li {line-height: 1.4;}
+.sample-guide-box {display: inline-block;}
+.sample-guide-stage1 {background: darkseagreen !important;}
+
+// 커스텀 얼럿 모달 클래스 추가 샘플
+.modal-custom-msg.class-test {max-width: 500px;background-color: $primary;color: $white;}
+.modal-custom-msg.class-test2 {background-color: $black;color: $white;}

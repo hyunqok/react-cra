@@ -1,0 +1,4 @@
+// text colors
+@each $key, $value in $colors {
+	.color-#{$key} {color: $value !important;}
+}

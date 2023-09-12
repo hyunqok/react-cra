@@ -1,0 +1,116 @@
+// 썸네일이 있는 리스트
+$photo-thum-list-width: 256px;
+.photo-thum-list-box {position: relative;clear: both;}
+.photo-thum-list {display: flex;margin: 0 -1%;}
+.photo-thum-list > li {max-width: 300px;max-height: 260px;margin-bottom: 20px;padding: 0 1%;}
+.photo-thum-list > li:hover h6{text-decoration: underline;}
+
+// 썸네일 박스
+.photo-thum-list .item-thumb {width: 100%;height: 8vw;min-height: 144px;border-radius: 5px;overflow: hidden;}
+.photo-thum-list .item-thumb img {width: 100%;height: 100%; opacity: 0.8;@include transition;}
+.photo-thum-list .item-thumb:hover img{opacity:1;transform: scale(1.2);}
+
+// 아이템 정보
+.photo-thum-list .item-vedioInfo-box {width: 100%;margin-top: 10px}
+.photo-thum-list .vedioInfo-subject {font-size: $font-base;font-weight: $font-medium;color: $black-light;line-height: 1.6;@include text-cut-multiline(3em, 2);min-height: 42px;}
+.photo-thum-list .vedioInfo-text {display: flex;justify-content: space-between;margin-top: 10px;}
+.photo-thum-list .vedioInfo-text dt,
+.photo-thum-list .vedioInfo-text dd {font-size: $font-small;color: $grey-dark2;line-height: 1.2; letter-spacing: 0;}
+.photo-thum-list .vedioInfo-text dt {width: 70%;@include text-cut();}
+
+// 조회수 등
+.photo-thum-list .vedioInfo-render-box {display: flex;align-items: center;margin-top: 10px;font-size: $font-small;color: $grey-dark2;}
+.photo-thum-list .vedioInfo-render-box span {display: inline-flex;align-items: center;margin-right: 3.5%;}
+.photo-thum-list .vedioInfo-render-box span:last-child {margin-right: 0;}
+.photo-thum-list .vedioInfo-render-box .icon-render {position: relative;font-size: 16px;margin-right: 5px}
+
+// 첨부파일
+.board-file-list {padding: 20px 40px 10px;}
+.written-file-box {border: 0;display: inline-block;background-color: $grey-light;padding: 12px 19px 12px 13px;border-radius: 20px;margin: 10px 10px 10px 0;}
+.written-file-box span {@include inline-middle;color: $grey-dark2;}
+.written-file-box .icon-file {font-size: $h5;line-height: 1;position: relative;top: 1px;margin-right: 10px;}
+.written-file-box .file-name {font-size: $font-small;line-height: 144%;}
+
+// 게시판 상세 타입1
+.board-detail-type1 {clear: both;border-radius: 13px;background-color: $white;@include card-shadow;}
+.board-detail-header {
+	display: flex;align-items: center;justify-content: space-between;padding: 30px 40px;border-bottom: 1px solid $grey-light3;
+	.col-title {flex: 80%;}
+	.col-etc {flex: 20%;text-align: right;font-size: $font-base;color: $black-alpha50;}
+	.col-etc span {position: relative;display: inline-flex;padding-left: 10px;margin-left: 10px;}
+	.col-etc span::after {content: "";display: block;width: 1px;height: 100%;position: absolute;top: 0;left: 0;background-color: $grey-dark;}
+	.col-etc span:first-child {padding-left: 0;margin-left: 0;}
+	.col-etc span:first-child::after {display: none;}
+}
+.board-detail-title {position: relative;font-size: $h6;font-weight: $font-bold;color: $black-light;line-height: 1.4;}
+.board-detail-title .label {display: inline-flex;margin-right: 20px;font-size: $h6;font-weight: $font-bold;color: $primary;}
+
+.board-detail-title-notice {padding-left: 35px;}
+.board-detail-title-notice::before {font-family: $icon;content: "\f29b";display: block;position: absolute;top: -4px;left: 0;font-size: 24px;color: $grey-dark2;}
+
+// 게시판 본문
+.board-detail-body {padding: 30px 40px;font-size: $font-middle;line-height: 1.5;color: $black-light;}
+
+// 이전글 다음글
+$nav-title-width: 95px;
+.board-detail-nav {margin: 20px 0 40px;border-radius: 13px;background-color: $white;@include card-shadow;}
+.board-detail-nav-item {display: block;padding: 0 40px;color: $black-light;font-weight: $font-bold;border-top: 1px solid $grey-light3;cursor: pointer;}
+.board-detail-nav-item.first-child {border-top: none;background-color: red;}
+.board-detail-nav dl {display: flex;align-items: center;height: 50px;}
+.board-detail-nav dt {display: inline-flex;align-items: center; flex: 0 0 $nav-title-width;font-size: $font-base;}
+.board-detail-nav dt i {position: relative;top: -1px;font-size: 20px;margin-right: 8px;}
+.board-detail-nav .title {position: relative;flex: 0 0 auto;width: calc(100% - $nav-title-width);@include text-cut;}
+.board-detail-nav .label {display: inline-flex;margin-right: 10px;font-size: $font-small;font-weight: $font-bold;color: $primary;}
+
+.board-detail-nav-notice .title {padding-left: 25px;}
+.board-detail-nav-notice .title::before {font-family: $icon;content: "\f29b";display: block;position: absolute;top: -3px;left: 0;font-size: 20px;color: $grey-dark2;}
+
+// 고정된 공지
+.board-detail-header.fixed-notice {
+	.board-detail-title-notice::before {color: $primary;}
+}
+
+// 고정된 공지
+.board-detail-nav-item.fixed-notice {
+	.title::before {color: $primary;}
+}
+
+// 이전, 다음글 없을 때
+.board-detail-nav-item.disabled {
+	color: $grey-dark2;
+	.title {padding-left: 0;}
+	.title::before {display: none;}
+}
+
+.board-btn-row {text-align: center;}
+
+// 테이블 리스트 타입 23.03.08 [GPT, ]
+.table-list-type1 {
+	& {border-radius: 16px;overflow: hidden;box-shadow: 5px 20px 20px rgba(145, 158, 171, 0.1);}
+	
+	table {
+		& {table-layout: fixed;line-height: 1.4;}
+
+		th, td {padding: 16px;border-left: 1px solid $grey-light4;border-bottom: 1px solid $grey-light4;font-weight: $font-bold;}
+
+		th {background-color: $white;font-size: $font-middle;color: $black-light;text-align: center;}
+		td {background-color: $grey-light;font-size: $font-base;color: $black-alpha70;}
+
+		th:first-of-type,
+		td:first-of-type {border-left: none;}
+
+		.content-text {font-weight: $font-bold; color: $black-light;line-height: 1.4; @include text-cut;color: $black-light;}
+		.content-text.multiline {@include text-cut-multiline(3em, 2);}
+
+		.date {line-height: 1.5;}
+	}
+}
+
+@media all and (max-width: 1400px) {
+	.photo-thum-list {margin: 0 -5px;}
+	.photo-thum-list > li {width: 20%;padding: 0 5px;}
+}
+
+@include notebook() {
+.photo-thum-list .vedioInfo-render-box span {display: inline-flex;align-items: center;margin-right: 2%;}
+}

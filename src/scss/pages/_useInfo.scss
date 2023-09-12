@@ -1,0 +1,50 @@
+@charset "utf-8";
+/*
++----------------------------------------------------------------------+
+| Copyright (c) VAIV.  co. Ltd
++----------------------------------------------------------------------+
+| 썸트렌드 200% 활용법
++----------------------------------------------------------------------+
+*/
+
+// background-attachment: fixed 사용시, IE에서 스크롤 시 떨림현상 방지하기 위해 추가
+@supports (-ms-ime-align:auto){  //for Edge
+	html{ height: 100%; overflow: hidden; }
+	body{ position: relative; height: 100%; overflow: auto;}
+}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none){ //for Ie10/11
+	html{ height: 100%; overflow: hidden; }
+	body{ height: 100%; overflow: auto;}
+}
+
+body.layout-useInfo{ background-color: $white;}
+.content-inner{ max-width: 800px; width: 100%; padding: 0 15px; margin: 0 auto;}
+
+// 상단 배너
+.useInfo-banner{ position: relative; padding: 4% 0 4%;  background: #c4cccf url(../images/useInfo/visual_img_pc.jpg) no-repeat; background-size: cover; background-position: bottom 250px center; background-attachment: fixed; overflow: hidden; }
+.useInfo-banner .phrase{ margin-bottom: 35px; font-size: 36px; line-height: 145%; letter-spacing: -.05em; word-spacing: -.08em; color:$white;}
+.useInfo-banner .vbtn{ display: inline-flex; align-items: center;}
+.useInfo-banner .vbtn i{ font-size: 150%; margin-left: 5px;}
+
+// 활용법 리스트
+.posts{ margin: 25px 0 50px 0; }
+.post-item{ position: relative; border-top: 1px solid $grey-light4;}
+.post-item:first-child{border-top: 0;}
+.post-info{ display: block; padding: 30px 75px 30px 10px; 
+	@include hover-focus-active(){ 
+		.post-platform{ opacity: 1;}
+		.post-title{ opacity: 1; color: $primary;}
+		.post-title-emoji{ -webkit-animation: scale-down .3s linear 1; animation: scale-down .3s linear 1;}
+		.post-description{ opacity: 1;}	
+	}
+}
+
+@keyframes scale-down {
+	50% { -webkit-transform: scale(.5); transform: scale(.5); transform-origin: center center; }
+}
+
+.post-platform{ position: absolute; top: 30px; right: 10px; opacity: .8;}
+.post-title{ margin-bottom: 10px; line-height: 150%; font-size: 1.5rem; font-weight: $font-bold; color: $black-light; transition: color .2s ease-in-out;}
+.post-title-emoji{ display: inline-block; transition: transform ease-out;}
+.post-description{ margin-bottom: 10px; line-height: 160%; font-size: $font-middle; color: $black-alpha50; word-break: keep-all; opacity: .75; transition: opacity .2s ease-in-out;}
+.post-author{ font-size: $font-middle; color: $grey-dark;}

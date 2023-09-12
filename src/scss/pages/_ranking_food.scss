@@ -1,0 +1,175 @@
+@charset "utf-8";
+/*
++----------------------------------------------------------------------+
+| Copyright (c) VAIV.  co. Ltd
++----------------------------------------------------------------------+
+| 맛집랭킹 
++----------------------------------------------------------------------+
+*/
+
+@keyframes food-btn-point {
+	0% {top: 0px;left: 0px;box-shadow: 4px 4px 0px $primary;}
+	2% {top: 4px;left: 4px;box-shadow: 0px 0px 0px $primary;}
+	4% {top: 0px;left: 0px;box-shadow: 4px 4px 0px $primary;}
+	8% {top: 4px;left: 4px;box-shadow: 0px 0px 0px $primary;}
+	10% {top: 0px;left: 0px;box-shadow: 4px 4px 0px $primary;}
+	100% {top: 0px;left: 0px;box-shadow: 4px 4px 0px $primary;}
+}
+
+.ranking-food-wrap {
+	.ranking_wrap {position: relative;height: 180px;margin-bottom: 10px;background-color: #000;}
+	.ranking_wrap .contentInner {position: relative;z-index: 1;}
+
+    .food_ranking_wrap .update-tooltip-box {top: 78px;}
+    .food_ranking_wrap .update-tooltip-box .ico-alert::after {top: -2px;}
+
+	// 상단 > 배경 이미지
+	.ranking_wrap .image-wrapper {position: absolute;left: 0;top: 0;right: 0;bottom: 0;overflow: hidden;}
+	.ranking_wrap .image-wrapper img {display: block;margin-left: auto;margin-right: auto;}
+	.ranking_wrap .image-wrapper .bg_filter {z-index: 1;position: absolute;top: 0;bottom: 0;left: 0;right: 0;background: linear-gradient(to right,  #161616 0%,#171717c4 40%,#69696914 100%);}
+
+	// 상단 > 타이틀
+	.ranking_wrap .page_title {margin-bottom: 6px;padding-top: 48px;font-size: 28px;line-height: 1;color: #fff;}
+	.ranking_wrap .page_title > span {display: inline-block;vertical-align: middle;}
+	.ranking_wrap .page_title .icon-collabo {padding-top: 12px;}
+	.ranking_wrap .page_subTitle {margin-bottom: 20px;font-size: 16px;line-height: 21px;color: #fff;}
+
+	// 상단 > 검색
+	.ranking_search_frm {position: absolute;right: 160px;top: 40px;z-index: 1000;min-width: 400px;text-align: right;}
+	.ranking_search_frm .search_banner_block {position: absolute;top: 0;right: 0;min-width: 400px;}
+	.ranking_search_frm .search_banner {display: inline-block;width: 130px;height: 44px;}
+
+	.ranking_wrap .search_form .search_input {display: inline-block;position: relative;width: 45.5%;height: 52px;}
+	.ranking_wrap .search_form .search_input .close_btn {right: 10px;}
+	.ranking_wrap .search_form span.vs {display: inline-block;margin-top: 2px;padding: 0 9.5px;font-size: 22px;color: #2c8aff;}
+	.ranking_wrap .input_keyword {display: block;width: 100%;height: 54px;border: 2px solid #fff;border-radius: 5px;font-size: 20px;line-height: 165%;padding: 0 15px 0 46px;background: url('/renewal_resources/images/ranking/icon_search2.png') no-repeat 16px 50%;background-color: #fff;}
+	.ranking_wrap .input_keyword::placeholder {color:#949494;}
+	.ranking_wrap .search_box {position: relative;display: inline-block;width: 470px;}
+
+	// 상단 > 업데이트 툴팁
+	.update-tooltip-box {position: absolute;top: 73px;right: 1px;color: #fff;font-size: 14px;}
+	.update-tooltip-box .tooltip-box {position: absolute;top: -49px;right: 0px;visibility: hidden;min-width: 230px;padding: 10px 10px 5px 10px;font-size: 12px;word-break: keep-all;line-height: 1.6;background-color: rgba(0, 0, 0, 0.81);color: #fff;box-shadow: 5px 6px 6px 1px #5959591f;border-radius: 5px;}
+	.update-tooltip-box .tooltip-box b {vertical-align: top;font-weight: 700;}
+	.update-tooltip-box .tooltip-box .tooltip_desc {margin-bottom: 6px;}
+	.update-tooltip-box .tooltip-box .tooltip_desc_list li {margin-left: 13px;padding: 6px 0;list-style-type: decimal;}
+
+	.update-tooltip-box .tooltip-icon {position: relative;top: 0px;display: inline-block;width: 20px;height: 20px;color: #999;vertical-align: middle;font-size: 18px;} /* background: url('/resources/images/mypage/SVG/icon_question.svg') no-repeat 0 50%; */
+	.update-tooltip-box .tooltip-icon:hover + .tooltip-box,
+	.update-tooltip-box .tooltip-icon:active + .tooltip-box,
+	.update-tooltip-box .tooltip-icon:focus + .tooltip-box {opacity: 1;visibility: visible;}
+
+	.update-tooltip-box .ico-alert {position: relative;display: inline-block;width: auto;height: auto;padding-right: 20px;vertical-align: top;font-size: 12px;color: #fff;}
+	.update-tooltip-box .ico-alert::after {content: '';display: block;position: absolute;top: 0;right: 0;width: 16px;height: 16px;background: url('/renewal_resources/images/ranking/icon_info_top.svg') no-repeat center center;}
+
+    // 슬라이드
+    .rankingFood-slider {position: relative;height: inherit;padding: 0 50px;margin-bottom: 45px;margin-top: 48px;}
+    .rankingFood-slider .slick-track {display: table;table-layout: fixed;height: inherit;padding-top: 30px;}
+    .rankingFood-slider .slick-list {overflow: hidden;height: inherit;padding: 0 !important;text-align: center;}
+    
+    .rankingFood-slider .slick-slide {float: none;display: table-cell;position: relative;height: inherit;height: 10vw;vertical-align: middle;outline: none;}
+    .rankingFood-slider .slick-slide > div {height: 204px;border-radius: 10px;overflow: hidden;margin-bottom: 10px;}
+    .rankingFood-slider .slick-slide li {position: relative;transform: scale(0.94);overflow: hidden;height: inherit;outline: none;border-radius: 10px;}
+    .rankingFood-slider .slick-slide li > a {display: block;height: 100%;}
+    .rankingFood-slider .slick-slide figure {overflow: hidden;margin : 0 auto;height: 100%;border-radius: 10px;}
+    .rankingFood-slider .slick-slide figure img {display: inline-block;width: 100%;height: 100%;object-fit: cover;margin: 0 auto;border-radius: 10px;opacity: 0.75;}
+    .rankingFood-slider .slick-slide dl {position: absolute;left: 0;right: -1px;bottom:0;padding: 13px 0;text-align: center;background-color: rgba(255, 255, 255, 0.9);}
+    .rankingFood-slider .slick-slide dt, .rankingFood-slider .slick-slide dd {line-height: 1;}
+    .rankingFood-slider .slick-slide dt {font-size: 15px;color: #000;}
+    .rankingFood-slider .slick-slide dd {margin-top: 5px;font-size: 12px;color: #686868;}
+    .rankingFood-slider .slick-slide.slick-center li {transform: scale(1.0);transition: transform 0.2s;}
+    .rankingFood-slider .slick-slide.slick-center figure img {opacity: 1;max-height: 240px;}
+    .rankingFood-slider .slick-slide.slick-center > div {height: 240px;box-shadow: 1px 0px 10px rgba(0, 0, 0, 0.2);}
+    .rankingFood-slider .slick-slide.slick-center dt {font-size: 17px;font-weight: 600;}
+    .rankingFood-slider .slick-slide.slick-new:before {content: '';z-index: 1;display: inline-block;position: absolute;left: 17px;top: 34px;width: 61px;height: 29px;background: url('/renewal_resources/images/ranking/icon_new.svg') center no-repeat;}
+    .rankingFood-slider .slick-slide.slick-center.slick-new:before {left: 10px;top: 10px;}
+    .rankingFood-slider .slick-slide .food-ranking-medal {z-index: 1;display: inline-block;position: absolute;top: -10px;left: 50%;transform: translate(-50%, -100%);min-width: 140px;margin: 0;padding: 5px 28px;border-radius: 30px;font-size: $font-middle;font-weight: $font-bold;line-height: 1.5;letter-spacing: -0.1em;color: $white;background: rgba($black, 0.8);}
+    
+    .rankingFood-slider .slick-arrow {z-index: 9;position: absolute;top: 50%;transform: translateY(-50%);display: block;width: 50px;height: 50px;margin: 0;border: 1px solid $grey-light4;border-radius: 50%;box-sizing: border-box;background: transparent;}
+    .rankingFood-slider .slick-arrow:before {@include icon-font;text-align: center;line-height: 50px;font-size: 24px;color: $grey-dark2;}
+    .rankingFood-slider .slick-arrow.slick-prev {left: -20px;}
+    .rankingFood-slider .slick-arrow.slick-prev:before {content: '\ea64';}
+    .rankingFood-slider .slick-arrow.slick-next {right: -20px;}
+    .rankingFood-slider .slick-arrow.slick-next:before {content: '\ea6e';}
+
+    // 리스트
+    .rankingFood-listWrap {margin-bottom: 130px;}
+
+	// 리스트 > 상단 랭킹 타이틀
+	.fixed-bar {padding-top: 20px;}
+	.fixed-bar.on {z-index: 100;position: fixed;top: 0;left: 50%;width: 100%;max-width: 1200px;transform: translate(-50%, 0);background-color: #fff;}
+
+	.section_title.line {border-bottom: 1px solid #e7e7e7;}
+	.section_title .download_btn {position: absolute;top: 4px;right: 2px;font-size: 18px;color: #525252;padding-right: 14px;background: none;line-height: 22px;outline: none;text-indent: -9999px;}
+	.section_title .download_btn:before {content: '';position: absolute;display: block;right: 0; top: 1px;width: 38px;height: 24px;background: url('/renewal_resources/images/ranking/imagedown_btn.svg') no-repeat 100% center;}
+	.section_title_wrap {position: relative;}
+
+	.filter_category {font-size: 24px;font-weight: bold;text-align: left;color: #444;}
+	.filter_category .select_type1 {float: none;display: inline-block;vertical-align: top;border: none;padding-left: 0 !important;margin-left: 3px !important;}
+	.filter_category .select_type1 span.txt {display: inline-block;vertical-align: top;}
+	.filter_category .select_type1 .current {font-size: 24px;color: #405071;}
+	.filter_category .select_type1.open .list {right: 0;height: 200px;overflow: hidden;overflow-y: scroll;}    
+
+    // 리스트 > 타이틀
+    .foodTitle-box {text-align: center;padding: 65px 0 22px;}
+    .foodTitle-box .food-title {font-size: $h4;font-weight: $font-bold;line-height: 1.5;color: $black;}
+    .foodTitle-box .food-title .subject-title {letter-spacing: -0.1em;}
+    .foodTitle-box .food-btn {margin-top: 20px;}
+    .foodTitle-box .food-btn .vbtn {position: relative;padding-left: 30px;padding-right: 30px;box-shadow: 4px 4px 0px $primary;animation: food-btn-point 5s linear 1s infinite;transition: box-shadow 0s;}
+    .foodTitle-box .food-btn .vbtn:hover {top: 4px;left: 4px;box-shadow: none;animation: none;}
+    .foodTitle-box .food-btn .vbtn i[class^='ri-'] {display: inline-block;margin-top: -3px;margin-left: 8px;font-size: 22px;line-height: 18px;}
+    // .foodTitle-box .food-btn .vbtn {display: inline-block;padding: 12px 35px;border-radius: 100px;font-size: 16px;color: #fff;line-height: 1;background: linear-gradient(to right, #508af2, #7d7ffb, #877cfd);box-shadow: 5px 7px 10px rgba(0,0,0,0.1);}
+
+    // 리스트 > 아코디언
+    .accordion-box .ac-listBox {position: relative;border-bottom: 1px solid #cecece;padding: 39px 0;}
+    .accordion-box .ac-listBox dl dt, .accordion-box .ac-listBox dl dd {display: inline-block;vertical-align: top;}
+    .accordion-box .ac-listBox .list-index {width: 49px;}
+    .accordion-box .ac-listBox .list-index span {font-size: 28px;color: #000;}
+    .accordion-box .ac-listBox .list-img {width: 350px;font-size: 0;}
+    .accordion-box .ac-listBox .list-img span {display: inline-block;position: relative;width: 170px;height: 110px;overflow: hidden;border-radius: 8px;text-align: center;vertical-align: top;}
+    .accordion-box .ac-listBox .list-img span:first-child {margin-right: 10px;}
+    .accordion-box .ac-listBox .list-img span img {max-width: 100%;vertical-align: middle;position: absolute;left: 50%;top: 50%;transform: translate(-50%, -50%);min-height: 110px;}
+    .accordion-box .ac-listBox .list-addr {width: 580px;padding-top: 10px;padding-left: 28px}
+    .accordion-box .ac-listBox .list-addr .addr-name {font-size: 22px;color: #000;line-height: 1.2;}
+    .accordion-box .ac-listBox .list-addr .addr-text {margin-top: 10px;font-size: 14px;color: #646464;line-height: 1;}
+    .accordion-box .ac-listBox .ac-hashTag {padding-top: 14px;font-size: 0;}
+    .accordion-box .ac-listBox .ac-hashTag .hashTag-text {display: inline-block;line-height: 1;margin-right: 5px;margin-bottom: 5px;border-radius: 100px;border: 1px solid $primary;padding: 6px 10px;font-size: 13px;color: $primary;}
+    .accordion-box .ac-listBox .ac-hashTag .hashTag-text:last-child {margin-left: 0;}
+
+    .ac-listBox .accordion-btn {display: inline-block;outline: none;position: absolute;transform: rotate(180deg);top: 45px;right: 0;width: 22px;height: 14px;text-indent: -999px;font-size: 0;border: 0;background: 0;}
+    .ac-listBox .accordion-btn:before {content: '';display: inline-block;position: absolute;right: 0;top: 0;transform: rotate(180deg);width: 22px;height: 14px;border: 0;background: #fff url('/renewal_resources/images/ranking/accordion_btn_grey.svg') 0 50% no-repeat;}
+    .ac-listBox .open {transform: rotate(0deg);}
+
+    .accordion-box .ac-detailBox {display: none;border-bottom: 1px solid #e7e7e7;padding: 48px 50px;}
+    .accordion-box .ac-detailBox.open {display: block;}
+
+    .accordion-box .ac-detailBox .list-img {font-size: 0;text-align: center;}
+    .accordion-box .ac-detailBox .list-img .img-wrap {width: 438px;display: inline-block;margin: 0 13px;vertical-align: top;}
+    .accordion-box .ac-detailBox .list-img .img-box {width: 438px;height: 284px;display: inline-block;overflow: hidden;position: relative;}
+    .accordion-box .ac-detailBox .list-img .img-box img {width: 100%;height: 100%;}
+    .accordion-box .ac-detailBox .list-img .text-box {padding: 12px 35px;border: 1px solid #e7e7e7;text-align: left;font-size: 12px;color: #626262;background: url('/renewal_resources/images/ranking/icon_link.png') no-repeat 15px 50%;}
+    .accordion-box .ac-detailBox .list-img .origin-text {display: block;overflow: hidden;word-break: break-all;}
+
+    .accordion-box .ac-detailBox .figure-box .relation-img {overflow: hidden;}
+    .accordion-box .ac-detailBox .figure-box .relation-img img {max-width: 100%;}
+    .accordion-box .ac-detailBox .figure-box .relation-img-type2 {text-align: center;}
+    .accordion-box .ac-detailBox .figure-box .mapDiv, .accordion-box .ac-detailBox .figure-box .relation-img {width: 900px;margin: 30px auto 0;}
+    .accordion-box .ac-detailBox .figure-box .mapDiv {border: 1px solid #dcdcdc;height: 400px;}
+    .accordion-box .ac-detailBox .figure-box .mapDiv .iw_inner h3 {font-size: 25px;}
+
+    .accordion-box .ac-detailBox .detail-infoBox {position: relative;margin-top: 18px;padding: 20px 48px;padding-right: 220px;padding-left: 70px;border-radius: 8px;background-color: #f2f5f9;}
+    .accordion-box .ac-detailBox .detail-infoBox:before {content: '';position: absolute;left: 27px;top: 50%;width: 22px;height: 34px;margin-top: -18px;background: url('/renewal_resources/images/ranking/icon_tip.png') no-repeat 0 50%;}
+    .accordion-box .ac-detailBox .detail-infoBox li {position: relative; padding-left: 9px;font-size: 13px;line-height: 1.8;color: #000;}
+    .accordion-box .ac-detailBox .detail-infoBox li:before {content: '';display: inline-block;position: absolute;top: 10px;left: 0;width: 3px;height: 3px;border-radius: 50%;background-color: #000;}
+    .accordion-box .ac-detailBox .detail-infoBox .go-review-btn {position: absolute;top: 50%;right: 30px;margin-top: -20px;list-style-type: none;padding: 0;}
+    .accordion-box .ac-detailBox .detail-infoBox .go-review-btn:before {display: none;}
+    .accordion-box .ac-detailBox .detail-infoBox .go-review-btn a {display: block;width: 167px;height: 40px;text-align: center;line-height: 40px;border-radius: 8px;background-color: #04cf5c;color: #fff;}
+
+    // 별점
+    .star-rating {height: 20px;position: relative;width: 95px;display: inline-block;vertical-align: middle;}
+    .star-rating:before {content: '';position: absolute;top: 0;bottom: 0;left: 0;right: 0;display: block;background-image: url('/renewal_resources/images/ranking/icon_ratingG.svg');background-repeat: repeat-x;background-size: 19px;}
+    .star-rating .rating-box {display: block;text-indent: -10000px;width: 95px;height: 20px;position: absolute;overflow: hidden;}
+    .star-rating .rating-box:before {content: '';position: absolute;top: 0;bottom: 0;left: 0;right: 0;display: block;text-indent: 10000px;background-image: url('/renewal_resources/images/ranking/icon_ratingC_yellow.svg');background-repeat: repeat-x;background-size: 19px;}
+    .rating-text {display: inline-block;vertical-align: middle;margin-left: 10px;}
+    .rating-text em {font-size: 17px;color: #acb6c0;font-weight: 600;}
+    .rating-text .rating {color: #000;}
+}

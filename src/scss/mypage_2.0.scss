@@ -1,0 +1,24 @@
+@charset "utf-8";
+
+/* 디자인 가이드 1.0
+header, footer 등 공통 부분 이전 디자인 상속을 위한 삽입 */
+@import '_design_1.0_common';
+/* // header, footer 등 공통 부분 이전 디자인 상속을 위한 삽입 */
+
+
+/* 디자인 가이드 2.0 */
+@import '_design_2.0_common';
+/* // 디자인 가이드 2.0 */
+
+// components
+@import 'design_2.0/component/avatar'; // 아바타
+@import 'design_2.0/component/sliding_toggle_nav'; // 슬라이딩 토글 내비
+
+// layout
+@import "pages/mypage_2.0/layout";
+
+// style
+@import 'design_2.0/form'; // form 요소
+
+@import "pages/mypage_2.0/common";
+@import "pages/mypage_2.0/style";

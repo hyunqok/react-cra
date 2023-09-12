@@ -1,0 +1,199 @@
+@mixin select-size-variant($height-size, $line-height, $min-height, $font-size, $font-weight: $font-regular ) {
+    height: $height-size;
+    line-height: $line-height;
+    min-height: $min-height;
+    font-size: $font-size;
+    font-weight: $font-weight;
+}
+
+/*==================================================================
+// select  default
+//=================================================================*/
+.nice-select {
+    -webkit-tap-highlight-color: $clear;
+    background-color: $white;
+    border-radius: 5px;
+    border: solid 1px $white;
+    box-sizing: border-box;
+    clear: both;
+    cursor: pointer;
+    display: inline-block;
+    //float: left;
+    font-family: inherit;
+    outline: none;
+    padding-left: 20px;
+    padding-right: 39px;
+    position: relative;
+    text-align: left !important;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    white-space: nowrap;
+    width: auto;
+    color: $black-light;
+    @include select-size-variant(48px, 46px, 46px, $font-base, $font-regular);
+}
+.nice-select:hover {border-color: $grey-light4;}
+
+.nice-select:active,
+.nice-select.open,
+.nice-select:focus {border-color: $grey-dark2;}
+
+
+
+/*==================================================================
+// select  type
+//=================================================================*/
+/*========= disabled  =========*/
+.nice-select.disabled {border-color: $grey-light4;color: $black-alpha50;pointer-events: none;}
+.nice-select.disabled:after {border-color: $grey-light4;}
+
+/*========= line  =========*/
+.nice-select.line{border: solid 1px $grey-light4;}
+
+/*========= wide  =========*/
+.nice-select.wide {width: 100%;}
+.nice-select.wide .list {left: 0 !important;right: 0 !important;}
+
+/*========= right  =========*/
+.nice-select.right {float: right;}
+.nice-select.right .list {left: auto;right: 0;}
+
+/*========= select-type2  =========*/
+.nice-select.select-type2 {background-color: $clear; border-color: $clear; color: $grey-dark2; padding: 0; padding-right: 20px;}
+.nice-select.select-type2:after {border-color: $grey-dark2; right: 0;}
+.nice-select.select-type2 .list{color: $black-light}
+.nice-select.select-type2.disabled{color : $grey}
+.nice-select.select-type2.disabled:after{border-color : $grey}
+
+
+/*==================================================================
+// select  size
+//=================================================================*/
+
+.nice-select.x-small{@include select-size-variant(35px, 33px, 33px, $font-base);}
+.nice-select.x-small .option{@include select-size-variant(35px, 34px, 34px, $font-base);}
+.nice-select.x-small:after {height: 4px;width: 4px;}
+
+.nice-select.small{@include select-size-variant(48px, 46px, 46px, $font-base);}
+.nice-select.small .option{@include select-size-variant(46px, 46px, 46px, $font-base);}
+
+.nice-select.xx-large{@include select-size-variant(65px, 63px, 63px, $font-middle);}
+.nice-select.xx-large .option{@include select-size-variant(63px, 63px, 63px, $font-middle);}
+
+
+
+/*==================================================================
+// select  after
+//=================================================================*/
+
+.nice-select:after {
+    border-bottom: 2px solid $black;
+    border-right: 2px solid $black;
+    content: '';
+    display: block;
+    width: 7px;
+    height: 7px;
+    margin-top: -4px;
+    pointer-events: none;
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    -webkit-transform-origin: 66% 66%;
+    -ms-transform-origin: 66% 66%;
+    transform-origin: 66% 66%;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    -webkit-transition: all 0.15s ease-in-out;
+    transition: all 0.15s ease-in-out;
+}
+
+.nice-select.open:after {
+    -webkit-transform: rotate(-135deg);
+    -ms-transform: rotate(-135deg);
+    transform: rotate(-135deg);
+}
+
+
+/*==================================================================
+// select  list
+//=================================================================*/
+.nice-select.open .list {
+    opacity: 1;
+    pointer-events: auto;
+    -webkit-transform: scale(1) translateY(0);
+    -ms-transform: scale(1) translateY(0);
+    transform: scale(1) translateY(0);
+}
+
+.nice-select .list {
+    background-color: $white;
+    border-radius: 5px;
+    box-shadow: 0 0 0 1px rgba(68, 68, 68, 0.11);
+    box-sizing: border-box;
+    margin-top: 4px;
+    opacity: 0;
+    overflow: hidden;
+    padding: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    -webkit-transform-origin: 50% 0;
+    -ms-transform-origin: 50% 0;
+    transform-origin: 50% 0;
+    -webkit-transform: scale(0.75) translateY(-21px);
+    -ms-transform: scale(0.75) translateY(-21px);
+    transform: scale(0.75) translateY(-21px);
+    -webkit-transition: all 0.2s cubic-bezier(0.5, 0, 0, 1.25), opacity 0.15s ease-out;
+    transition: all 0.2s cubic-bezier(0.5, 0, 0, 1.25), opacity 0.15s ease-out;
+    z-index: 9;
+}
+
+.nice-select .list:hover .option:not(:hover) {
+    background-color: $clear !important;
+}
+
+/*========= option  =========*/
+.nice-select .option {
+    cursor: pointer;
+    font-weight: 400;
+    line-height: 40px;
+    list-style: none;
+    min-height: 40px;
+    outline: none;
+    padding-left: 20px;
+    padding-right: 29px;
+    text-align: left;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;
+}
+
+.nice-select .option:hover,
+.nice-select .option.focus,
+.nice-select .option.selected.focus {
+    background-color: $grey-light2;
+}
+
+.nice-select .option.selected {
+    font-weight: $font-bold;
+}
+
+.nice-select .option.disabled {
+    background-color: $clear;
+    color: $black-alpha50;
+    cursor: default;
+}
+
+.no-csspointerevents .nice-select .list {
+    display: none;
+}
+
+.no-csspointerevents .nice-select.open .list {
+    display: block;
+}

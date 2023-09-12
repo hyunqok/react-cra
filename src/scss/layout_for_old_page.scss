@@ -1,0 +1,37 @@
+@charset "utf-8";
+
+
+@import "common/vars";			//sometrend 공통색상
+@import "common/mixin";		//sometrend mixin
+@import "common/fonts";		//sometrend font
+@import "common/icon";		//sometrend remix 아이콘
+@import "component/buttons";		//buttons
+@import "component/aiLoading";
+@import "component/modals";		//modals
+@import "component/ie_change_edge_banner"; // IE로 접근시 크롬 브라우저 업데이트 권유 상단 띠배너 
+@import "component/guide";		//guide
+
+/*====== common ======*/
+@import "common/layout";		// layout header, footer
+
+
+body {letter-spacing: 1px;
+	// iOS에서 간헐적 텍스트 개행되는 문제로 추가
+	word-break: unset;direction: ltr;
+}
+
+.gnb-menu-list .gnb-menu * {font-family: $base-font !important;} //올드 페이지 헤더 푸터 공유 이슈로 추가 21.01.21 추후에 삭제
+footer * {font-family: $base-font !important;} // 올드 페이지 헤더 푸터 공유 이슈로 추가 21.01.21 추후에 삭제
+
+
+
+//임시 플로팅 배너 - 8/31 삭제예정
+@keyframes rtbounce {
+	0% { top: 0px; }
+	100% { top: -10px; }
+  }
+  .right_floating_temporary{position: fixed; right:40px;bottom: 15%;cursor: pointer;z-index: 9000;}
+  .right_floating_temporary:hover{opacity: 0.8;}
+  .right_floating_temporary img{position: relative;animation: rtbounce .5s ease infinite alternate;}
+
+  

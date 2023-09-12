@@ -1,0 +1,605 @@
+@charset "utf-8";
+
+/*
++----------------------------------------------------------------------+
+| Copyright (c) Vaiv. co. Ltd
++----------------------------------------------------------------------+
+| 분석 센터
++----------------------------------------------------------------------+
+*/
+
+// 섹션
+.layout-section {clear: both;margin-top: 26px;}
+
+// custom grid
+.layout-row > .col-box {width: 100%;padding: 0 13px;}
+
+// 상단 분석 요약 카드
+.section-analysis-desc-card {margin-top: 0 !important;}
+.section-analysis-desc-card .layout-card {padding: 0 !important;}
+
+// 예외 케이스 문구
+.section-analysis-desc-card .layout-card.exception-case .analysis-desc-card-item {padding: 0;justify-content: center;}
+.section-analysis-desc-card .exception-case-text1 {font-size: $font-base;color: $grey-dark2;text-align: center;line-height: 1.5;}
+.section-analysis-desc-card .exception-case-text1 .icon-block {display: block;margin: 0 0 8px;text-align: center;}
+.section-analysis-desc-card .exception-case-text1 .icon-block i {font-size: 24px;font-weight: normal;color: $grey-dark;}
+.section-analysis-desc-card .exception-case-text1 em,
+.section-analysis-desc-card .exception-case-text1 .count {color: $primary;}
+
+.analysis-desc-card-item {position: relative;display: flex;align-items: center;width: 100%;height: 134px;padding: 30px;padding-left: 115px; letter-spacing: -1px;background-repeat: no-repeat;background-position: 90% center;}
+.analysis-desc-card-item-compare{padding-left: 0;padding-right: 0;}
+.analysis-desc-card-item-dl {position: relative;display: flex;flex-direction: column;width:100%;}
+.analysis-desc-card-item-dt {display: flex;align-items: center;font-size: $h5;font-weight: $font-bold;}
+
+// 요약 카드 키워드 ... 처리
+.analysis-desc-card-item-dt .label {display: inline-block;max-width: 160px;margin-left: 10px;padding-right: 2px;line-height: normal;@include text-cut;}
+.analysis-desc-card-item-dt .label.current {font-weight: $font-bold;}
+// 키워드가 2개 이상일 경우
+.analysis-desc-card-item-dt .label.label-short {max-width: 100px;}
+.analysis-desc-card-item-dt .label:first-child {margin-left: 0;}
+.analysis-desc-card-item-dt .label:nth-child(2) {color: $yellow;}
+
+.analysis-desc-card-item-dt .other {font-size: $font-middle;font-weight: $font-regular;color: $grey-dark2;}
+
+.analysis-desc-range {position: absolute;top: -25px;right: 0;z-index: 10;font-size: $font-small;color: $grey-dark;letter-spacing: 0;margin-left:auto;}
+.analysis-desc-count {margin-left: 5px;font-size: $font-middle;color: $grey-dark2;letter-spacing: 0;}
+.analysis-desc-text {margin: 12px 0 0 0;font-size: $font-base;color:$grey-dark2;}
+.analysis-desc-date {font-size: $h5;letter-spacing: 0;}
+.analysis-desc-keyword {display: flex;align-items: center;font-size: $h5;}
+.analysis-desc-keyword .depth {opacity:0.7;}
+.analysis-desc-keyword .current {opacity: 1 !important;margin-left: 0 !important;}
+.analysis-desc-keyword .category-depth {display: inline-flex;align-items: center;}
+.analysis-desc-keyword .equal {display: inline-block;margin: 0 10px;color: $grey-dark !important;}
+
+.analysis-desc-reputation .analysis-desc-count {font-size: $font-base;}
+
+// 예외케이스 카드 비교형 
+.analysis-desc-card-item-compare.exception-case {padding: 30px;}
+
+//카드 디자인 변경
+.analysis-desc-card-item::before{content:'';display: block;position: absolute;top: 50%;left:30px;@include pos-center('y'); width: 60px;height: 60px;line-height: 60px;text-align: center;font-size: $h4;@include icon-font;border-radius: 25px;}
+//채널카드-커뮤니티
+.analysis-desc-card-item-channel.community{color:$community;}
+.analysis-desc-card-item-channel.community::before{content: "\ef45";background-color: rgba($community,0.08);}
+//채널카드-블로그
+.analysis-desc-card-item-channel.blog{color:$blog;}
+.analysis-desc-card-item-channel.blog::before{content: "\ead1";background-color: rgba($blog,0.1);} //이미지 수정 예정
+//채널카드-트위터
+.analysis-desc-card-item-channel.twitter{color:$twitter;}
+.analysis-desc-card-item-channel.twitter::before{content: "\f23a";background-color: rgba($twitter,0.1);}
+//채널카드-인스타
+.analysis-desc-card-item-channel.insta{color:$insta;}
+.analysis-desc-card-item-channel.insta::before{content: "\ee65";background-color: rgba($insta,0.08);}
+//채널카드-뉴스
+.analysis-desc-card-item-channel.news{color:$news;}
+.analysis-desc-card-item-channel.news::before{content: "\ef8e";background-color: rgba($news,0.1);}
+//채널카드-유튜브
+.analysis-desc-card-item-channel.youtube{color:$youtube;}
+.analysis-desc-card-item-channel.youtube::before{content: "\f2d4";background-color: rgba($news,0.08);}
+
+//일자카드
+.analysis-desc-card-item-date{color:$primary;}
+.analysis-desc-card-item-date::before{content: "\eb21";background-color: rgba($primary,0.08);}
+
+//언급 증감 - 상승
+.analysis-desc-card-item-rate.up-down-up{color:$red;}
+.analysis-desc-card-item-rate.up-down-up::before{content: "\eeab";background-color: rgba($red,0.08);}
+//언급 증감 - 하락
+.analysis-desc-card-item-rate.up-down-down{color:$blue;}
+.analysis-desc-card-item-rate.up-down-down::before{content: "\eeab";background-color: rgba($blue,0.1);}
+
+// 언급 증가율 없을 경우
+.analysis-desc-card-item-rate.exception-case::before{content: "\ea95";}
+
+//카테고리
+.analysis-desc-card-item-category{color:$blue;}
+.analysis-desc-card-item-category:before{content: "\ef90";background-color: rgba($blue,0.1);}
+//TOP1
+.analysis-desc-card-item-associated,.analysis-desc-card-item-ranking-comepare{color:$orange;}
+.analysis-desc-card-item-associated:before,.analysis-desc-card-item-ranking-comepare:before{content: "\f28b";background-color: rgba($orange,0.1);}
+//순위변화
+.analysis-desc-card-item-ranking{color:$primary;}
+.analysis-desc-card-item-ranking:before{content: "\ea95";background-color: rgba($primary,0.08);}
+//긍정률
+.analysis-desc-card-item-reaction.good{color: $positive;}
+.analysis-desc-card-item-reaction.good:before{content: "\f206";background-color: rgba($positive,0.08);}
+//부정률
+.analysis-desc-card-item-reaction.bad{color: $pink;}
+.analysis-desc-card-item-reaction.bad:before{content: "\f204";background-color: rgba($pink,0.08);}
+
+//중립
+.analysis-desc-card-item-reaction.neutrality{color: $neutrality;}
+.analysis-desc-card-item-reaction.neutrality:before{content: "\ec92";background-color: rgba($neutrality,0.11);}
+
+// 다수
+.analysis-desc-card-item-reaction.equal:before {content: "\efe5";background-color: rgba($grey-light3, 1);}
+
+//비교분석-언급량
+.analysis-desc-card-item-talk{color:$primary;}
+.analysis-desc-card-item-talk:before{content: "\eb70";background-color: rgba($primary,0.08);}
+.analysis-desc-card-item-talk-type2{color:$blue;}
+.analysis-desc-card-item-talk-type2:before{content: "\f042";background-color: rgba($blue,0.08);}
+
+// 비교분석-언급량 다수일 때
+.analysis-desc-card-item-talk.exception-case::before{content: "\ef44";}
+
+// 긍,부정 비교 카드
+.analysis-desc-reputation {display: flex;align-items: center;justify-content: center;font-size: $h5;}
+.analysis-desc-reputation i {margin-right: 8px;font-size: $h6;}
+.analysis-desc-reputation span {display: inline-block;margin-left: 5px;}
+.analysis-desc-reputation.positive {color: $primary;}
+.analysis-desc-reputation.negative {color: $pink;}
+.analysis-desc-reputation.negative i {position: relative;top: 1px;}
+.analysis-desc-reputation.text-small {font-size: $font-middle;}
+
+//카드 hover 문구
+.analysis-desc-card-item-hover {display: flex;align-items: center;position: absolute;top: 0;left: 0;z-index: 10;width: 100%;height: 100%;padding: 30px;font-size: $font-middle;line-height: 1.5;background-color: $white;opacity: 0;visibility: hidden;}
+.analysis-desc-card-item-hover em {font-style: normal;font-weight: $font-bold;}
+.analysis-desc-card-item-hover .hover-copy {max-width: 83%;word-wrap: break-word;word-break: keep-all;transform: translateX(-30px);opacity: 0;@include duration(0.2s);line-height: 1.6;color:$grey-dark2;}
+.analysis-desc-card-item-hover .icon-go {display: flex;align-items: center;justify-content: center;position: absolute;top: 50%;right: 30px;z-index: 10;width: 48px;height: 48px;text-align: center;font-size: 20px;color: $grey-dark;border-radius: 50%;background-color: $grey-light2;transform: scale(0.9) translate(30px, -50%);opacity: 0;@include duration(0.2s);}
+.analysis-desc-card-item-hover strong, .analysis-desc-card-item-hover em{ color: $black-light;}
+
+
+// 요약 카드 비교형
+.analysis-desc-card-compare {display: flex;align-items: center;justify-content: center;width: 100%;}
+.analysis-desc-card-compare .analysis-desc-card-item-dl {width: 50%;flex: 0 0 50%;padding: 20px 0;text-align: center;border-left: 1px solid $grey-light3;}
+.analysis-desc-card-compare .analysis-desc-card-item-dl:first-child {border-left: none;}
+.analysis-desc-card-compare .analysis-desc-text {margin: 0 0 20px 0;}
+
+.analysis-desc-card-item:hover .analysis-desc-card-item-hover {opacity: 1;visibility: visible;}
+.analysis-desc-card-item:hover .analysis-desc-card-item-hover .hover-copy {transform: translateX(0);opacity: 1;line-height: 1.6;}
+.analysis-desc-card-item:hover .analysis-desc-card-item-hover .icon-go {transform: translate(0, -50%);opacity: 1;}
+
+// 비교분석 -  2014년 이전 검색
+.analysis-desc-card-before{width: 100%;text-align: center;}
+.analysis-desc-card-before .before-icon{font-size: 24px;color: $grey-dark;}
+.analysis-desc-card-before .before-desc{color: $grey-dark2;font-size: $font-base;line-height: 1.5;margin-top: 12px;}
+
+/*언급량 분석*/
+.section-mention-data .mention-data-chart {position: relative;width: 100%;height: 363px;}
+
+// 언급량 추이 차트
+#mention-chart-wrap {opacity: 0;}
+#mentionChart {height: 327px;}
+
+// 원문보기 새로고침 날짜
+.reset-date {font-size: $font-small;color: $grey-dark2;line-height: 1.2;letter-spacing: 0;line-height: 26px;padding-right: 15px;}
+
+// 원문 보기 리스트
+.layout-card-originals {padding: 25px;}
+.original-data-list {height: 330px;overflow-x: hidden;overflow-y: auto;}
+.original-data-list li.card-no-data-box {height: 100%;}
+
+.original-data-item {display: flex;align-items: flex-start;width: 100%;margin-bottom: 6px;}
+.original-data-item span img{max-width: 25px;}
+.original-data-item .icon-channel {padding-top: 5px;}
+.original-data-item .mention-desc {min-width: calc(100% - 31px);width: 100%;margin-left:6px;padding: 8px 13px;font-weight: $font-medium;line-height: 1.4;background-color: $grey-light2;border-radius: 10px; transition: all .2s ease-in-out;}
+.original-data-item .mention-desc-title {display: inline-block;max-width: 100%;@include text-cut();font-size: $font-base;color: $black-light;}
+.original-data-item .mention-desc-text { margin-top: 3px;font-size: $font-small;color: $grey-dark2;@include text-cut-multiline(3em, 2);font-weight: $font-regular;}
+.original-data-item mark {color: $primary;}
+
+
+// 원문 더보기
+.btn-more-original {width: 100%;margin: 10px 0 0 0;font-weight: $font-bold;}
+.btn-more-original:hover{background:darken($primary-alpha5,5);border-color: darken($primary-alpha5,5)}
+
+// 유튜브 반응 확인하기
+#youtubeVideoList {opacity: 0;}
+
+.analysis-youtube-video-list{min-height: 250px} //스켈레톤 로딩시 접힌 것 처럼 보여서 min-height 추가 
+.section-youtube-list .btn-more-youtube {display: inline-flex;align-items: center;font-size: $font-base;font-weight: $font-medium;color: $grey-dark2;}
+.section-youtube-list .btn-more-youtube i {font-size: 24px;color: $grey-dark;}
+
+// 유튜브 리스트 [photo-thum-list 종속]
+.photo-thum-list[data-id="analysis-center-youtube-list"] > li {width: 20%;max-width: 100%;max-height: initial;flex: 0 0 20%;margin-bottom: 0;}
+.photo-thum-list[data-id="analysis-center-youtube-list"] > li img{border-radius: 13px;}
+#skeletonYoutubeList .vskeleton-list {width: 20%;}
+
+// 별점 주기
+.rating-form .section-opinion {text-align: center;}
+.rating-form .section-opinion .opinion-title {color: $black; font-size: $h6; line-height: 150%; font-weight: bold;}
+.rating-form .section-opinion .opinion-contents {margin-top: 10px;}
+.rating-form .startRadio-boxs {display: inline-block;overflow: hidden;height: 44px;background-color: $grey-light5;}
+.rating-form .startRadio-boxs:after {content: "";display: block;position: relative;z-index: 10;height: inherit;background: url("../images/icon_startRate.png") repeat-x 0 0;background-size: contain;pointer-events: none;}
+.rating-form .startRadio-box {position: relative;z-index: 1;float: left;width: 22px;height: inherit; cursor: default;}
+.rating-form .startRadio-box input {opacity: 0 !important;height: 0 !important;width: 0 !important;position: absolute !important;}
+
+/* possible-boxs : 평가를 할 수 있을 때만 있는 class  */
+.rating-form .possible-boxs .startRadio-box {cursor: pointer;}
+.rating-form .possible-boxs .startRadio-box input:hover + .startRadio-img,
+.rating-form .possible-boxs .startRadio-box input:checked + .startRadio-img,
+.rating-form .startRadio-box input.checked + .startRadio-img {background-color: $yellow;}
+.rating-form .possible-boxs .startRadio-box input:hover + .startRadio-img {opacity: 0.4}
+.rating-form .startRadio-box .startRadio-img {display: block;position: absolute;top: 0;right: 0;width: 1000%;height: inherit;pointer-events: none;}
+
+.rating-form .startRadio-boxs,
+.rating-form .startRadio-btn {@include inline-middle;}
+.rating-form .startRadio-buttons {margin-top: 10px}
+.rating-form .startRadio-buttons li {@include inline-middle; margin: 0 7px;}
+.rating-form .startRadio-buttons .startRadio-input {border: 1px solid $grey-light4; height: 50px; width: 530px;font-weight: normal;}
+
+/* 별점 사이즈 small */
+.rating-form.small .startRadio-box {width: 15px;}
+.rating-form.small .startRadio-boxs {height: 30px;}
+.rating-form.small .opinion-title {font-size: $font-base;font-weight: 100;}
+.rating-form.small .startRadio-buttons .startRadio-input {width: 434px;height: 45px;padding-inline: 15px;}
+.rating-form.small .startRadio-btn {padding: 14px 25px;}
+
+// 평점 별아이콘 active 컬러
+.rating-form.star-color-primary .possible-boxs .startRadio-box input:hover + .startRadio-img,
+.rating-form.star-color-primary .possible-boxs .startRadio-box input:checked + .startRadio-img,
+.rating-form.star-color-primary .startRadio-box input.checked + .startRadio-img {background-color: $primary;}
+
+// 평점 별아이콘 disabled 컬러
+.rating-form.star-color-primary .possible-boxs .startRadio-box input:disabled:hover + .startRadio-img,
+.rating-form.star-color-primary .possible-boxs .startRadio-box input:disabled + .startRadio-img,
+.rating-form.star-color-primary .startRadio-box input:disabled + .startRadio-img {background-color: $grey-light5 !important;}
+
+/*연관어 분석*/
+.section-associated-data > .layout-row > .col-box:nth-child(1) {flex: 0 0 19%;max-width: 19%;}
+.section-associated-data > .layout-row > .col-box:nth-child(2) {flex: 0 0 47.6%;max-width: 47.6%;}
+.section-associated-data > .layout-row > .col-box:nth-child(3) {flex: 0 0 33.4%;max-width: 33.4%;}
+
+.layout-card-category {padding: 0 !important;position: relative;} /*relative 카테고리 적용하기 버튼을 위한*/
+.layout-card-category .vskeleton-container {height: 100%;}
+.layout-card-category .layout-card-header {padding: 25px 20px 0;}
+.layout-card-category .btn-category-apply {width: 100%;border-radius: 0;position: absolute;left:0;right:0;bottom:0;width:100%;z-index: 20;}
+
+// 분석 카테고리 [카테고리 선택, 속성 선택]
+.comp-category-select-box {padding: 0 10px 20px 20px;}
+.comp-category-select-box .keyword-label {display: block;width: 100%;margin: 0 0 12px;padding: 6px 5px;font-size: $font-small;font-weight: $font-bold;color: $black-light;text-align: center;background-color: $grey-light3;border-radius: 5px;@include text-cut();}
+
+.comp-category-select-box .category-select-title {display: flex;justify-content: center;align-items: center;width: 100%;margin: 0 auto 12px;padding: 6px 5px;font-size: $font-small;font-weight: $font-bold;color: $black-light;text-align: center;background-color: $grey-light3;border-radius: 5px;@include text-cut();}
+.comp-category-select-box .category-select-title .icon-tooltip {display: inline-block;font-size: $h6;}
+
+.comp-category-select-box .category-select-body {margin-top: 12px;padding-right: 10px;}
+.comp-category-select-box .category-item {display: flex;align-items: flex-start;padding: 13px 0;letter-spacing: -1px;border-top: 1px solid $grey-light2;}
+.comp-category-select-box .one-depth-caterory {flex: 0 0 45%;width: 45%;}
+.comp-category-select-box .sub-category {display: flex;flex-direction: column;flex: 0 0 50%;width: 50%;}
+.comp-category-select-box .sub-category .check-type {display: block;margin: 5px 0;}
+.comp-category-select-box .sub-category .check-type:first-child {margin-top: 2px;}
+.comp-category-select-box .sub-category .check-type label {font-size: $font-small;color: $grey-dark2; word-break: initial;}
+
+// 비교 긍,부정 분석 비교 긍,부정 속성 선택 리스트
+.comp-category-select-box .category-item-list.type2 {margin: -6px 0;}
+.comp-category-select-box .category-item-list.type2 .category-item {padding: 6px 0;border: none;}
+.comp-category-select-box .category-item-list.type2 .one-depth-caterory {flex: 0 0 100%;width: 100%;}
+
+// 소셜 긍,부정 분석
+.comp-category-select-box .category-item-list.type3 {display: flex;flex-wrap: wrap;margin: -7.4px 0;}
+.comp-category-select-box .category-item-list.type3 .category-item {width: 50%;flex: 0 0 50%;padding: 7.4px 0;border: none;}
+.comp-category-select-box .category-item-list.type3 .category-item-all {width: 100%;flex: 0 0 100%;}
+.comp-category-select-box .category-item-list.type3 .one-depth-caterory {flex: 0 0 100%;width: 100%;}
+
+// 분석 카테고리 선택
+.comp-category-select-box .scroll-content-category-select {height: 373px;padding-left: 2px;/*카테고리, 속성 선택에서 스위치 좌측이 살짝 잘리는 부분이 있어서 padding 추가함*/}
+
+// 긍부정 분석 카테고리 박스
+.comp-category-select-box-reputation .scroll-content-category-select {height: 330px;}
+
+// 연관어 분석 워드 클라우드
+#associationWordCloud {position: relative;}
+#associationWordCloud,.association-word-cloud {height: 400px}
+
+// 연관어 원문 리스트 헤더
+.layout-card-header-associated,
+.layout-card-header-type2 {flex-direction: column;justify-content: flex-start;margin-bottom: 12px;}
+.layout-card-header-associated .layout-card-header-title,
+.layout-card-header-type2 .layout-card-header-title {justify-content: space-between;width: 100%;text-align: left;}
+
+// 원문보기 리스트 연관어 리스트
+.original-list-associated-keyword {display: flex;align-items: center;justify-content: space-between;width: 100%;margin-top: 10px;}
+.original-list-associated-keyword .associated-keywords {display: flex;align-items: center;}
+.original-list-associated-keyword .associated-label {display: inline-block;padding: 5px 14px 6px;font-size: $font-small;font-weight: $font-medium;color: $primary;background-color: $primary-alpha10;border-radius: 5px;}
+.original-list-associated-keyword .associated-keyword {display: inline-block;margin: 0 10px;font-size: $font-base;font-weight: $font-medium;}
+
+// 연관어 순위 변화 타이틀
+.layout-card-header-title-associated .layout-card-title1 {display: flex;align-items: center;}
+.layout-card-header-title-associated .layout-card-title1 i {margin-right: 5px;font-size: $h4;color: $primary;}
+
+// 연관어 순위 변화 테이블
+.table-associated-ranking-header {display: flex;align-items: center;justify-content: space-between;margin-bottom: 10px;}
+.table-associated-ranking-header .title {display: flex;align-items: center;font-size: $font-middle;font-weight: $font-bold;color: $primary;}
+.table-associated-ranking-header .title i {margin-right: 6px;font-size: 21.58px;}
+.table-associated-ranking-header .title .title-text{display: inline-block;width: 130px;@include text-cut();font-weight: $font-bold;line-height: normal;}
+.table-associated-ranking-header .date {font-size: $font-small;color: $grey-dark2;}
+
+// hidden-scroll-content 확장 스크롤박스 사이즈
+// .associated-ranking-table-box .table-scroll-box {position: relative;height: 334px;padding-top: 27px;padding-right: 0;}
+.associated-ranking-table-box .table-scroll-box {position: relative;padding-top: 30px;padding-right: 0;}
+
+// 공통 데이터 테이블
+table.type1-list {table-layout: fixed;letter-spacing: -0.5px;border-top: 1px solid $grey-light5;}
+table.type1-list thead th {padding: 7px 5px;font-size: $font-small;font-weight: $font-medium;color: $black-alpha70;text-align: center;vertical-align: middle;background-color: $white;border-bottom: 1px solid $grey-light3;}
+table.type1-list tbody td {padding: 10px 5px;font-size: $font-base;color: $black-light;text-align: center;vertical-align: middle;background-color: $white;}
+table.type1-list tbody tr:nth-child(1) td.rank,
+table.type1-list tbody tr:nth-child(2) td.rank,
+table.type1-list tbody tr:nth-child(3) td.rank {color: $primary;}
+
+table.type1-list thead .label {display: inline-block;margin-right: 10px;font-size: $font-small;font-weight: $font-medium;color: $black-alpha70;text-align: center;}
+table.type1-list .keyword-text {display: block;@include text-cut;}
+
+table.type1-list td.keyword {text-align: left;}
+table.type1-list td.rank {font-size: $font-middle;font-weight: $font-medium;color: $grey-dark2;}
+table.type1-list td.count {text-align: right;}
+
+table.type1-list col.col-num {width: 46px;}
+table.type1-list col.col-count {width: 27%;}
+table.type1-list col.col-updown {width: 68px;}
+
+table .td-filter {position: relative;}
+
+// 고정 헤더
+table.table-fixed-header {position: absolute;top: 0;left: 0;z-index: 100;width: 100%;border-top: 1px solid $grey-light5;background: $white;}
+
+.hidden-scroll-content table.type1-list{ border-top: 0;}
+
+// 연관어 순위 리스트 테이블
+table.table-associated-ranking {table-layout: fixed;letter-spacing: -0.5px;}
+
+table.table-associated-ranking thead th {padding: 7px 5px;font-size: $font-small;font-weight: $font-medium;color: $black-alpha70;text-align: center;background-color: $white;border-bottom: 1px solid $grey-light3;}
+table.table-associated-ranking tbody td {padding:7.5px 5px;font-size: $font-base;color: $black-light;text-align: center;background-color: $white;line-height: normal;}
+table.table-associated-ranking tbody td{padding: 8.5px 5px;}
+table.table-associated-ranking-total tbody td{padding: 8.2px 5px;}
+table.table-associated-ranking tbody td.keyword {width: auto; text-align: left;}
+table.table-associated-ranking tbody td.count{color: $black-alpha50;}
+table.table-associated-ranking tbody td.rank {font-size: $font-middle;font-weight: $font-medium;color: $grey-dark2;}
+table.table-associated-ranking tbody tr:nth-child(1) td.rank,
+table.table-associated-ranking tbody tr:nth-child(2) td.rank,
+table.table-associated-ranking tbody tr:nth-child(3) td.rank {color: $primary;}
+table.table-associated-ranking .keyword-text {display: block;@include text-cut;font-weight: $font-bold;}
+
+table.table-associated-ranking tr:hover td,
+table.table-associated-ranking tr.on td {background-color: $primary-alpha10;cursor: pointer;}
+
+table.table-associated-ranking tr:hover td.keyword,
+table.table-associated-ranking tr:hover td.count,
+table.table-associated-ranking tr.on td.keyword,
+table.table-associated-ranking tr.on td.count {color: $primary;}
+
+table.table-associated-ranking col.col-num {width: 46px;}
+table.table-associated-ranking col.col-keyword {width: auto;}
+table.table-associated-ranking col.col-reputation {width: 55px;}
+table.table-associated-ranking col.col-count {width: 75px;}
+table.table-associated-ranking col.col-updown {width: 88px;}
+
+table.table-associated-ranking .positive {color: rgba($positive,.6);}
+table.table-associated-ranking .negative {color: rgba($negative,.6);}
+table.table-associated-ranking .neutrality {color: rgba($neutrality,.6);}
+
+// 연관어 순위 테이블 슬라이더
+.associated-ranking-slider {position: relative;min-height: 390px;padding: 0 50px;}
+.associated-ranking-slider .associated-ranking-table-box {padding: 0 18px;}
+
+// 연관어 전체 순위 테이블
+// .associated-ranking-table-box-total .table-scroll-box {position: relative;height: 400px;}
+.associated-ranking-table-box-total .table-scroll-box {position: relative;}
+
+table.table-associated-ranking-total tbody {overflow: hidden;}
+table.table-associated-ranking-total tr:hover td,
+table.table-associated-ranking-total tr.on td {background-color: transparent;}
+
+table.table-associated-ranking-total tr:hover td.keyword,
+table.table-associated-ranking-total tr.on td.keyword {color: $primary;}
+table.table-associated-ranking-total tr:hover td.count,
+table.table-associated-ranking-total tr.on td.count {color: $black-light;}
+
+// 디자인 hvoer시 라인 생성
+table.table-associated-ranking-total tr:hover{cursor: pointer;}
+table.table-associated-ranking-total tr td {position: relative;}
+table.table-associated-ranking-total tr td.keyword {z-index: 11;}
+
+table.table-associated-ranking-total tr td:first-child::after,
+table.table-associated-ranking-total tr td:last-child::after {content: "";position: absolute;top: 0;z-index: 10;display: none;}
+
+table.table-associated-ranking-total tr td:first-child::after {left: 0;width: 600px;height: 100%;border: 2px solid $primary-alpha70;}
+table.table-associated-ranking-total tr td:last-child::after {right: 0;height: 100%;border-right: 2px solid $primary-alpha70;}
+
+table.table-associated-ranking-total tr:hover td:first-child::after,
+table.table-associated-ranking-total tr:hover td:last-child::after,
+table.table-associated-ranking-total tr.on td:first-child::after,
+table.table-associated-ranking-total tr.on td:last-child::after {display: block;}
+
+// 연관어 순위 리스트 테이블 고정 헤더
+table.table-associated-ranking.table-fixed-header col.col-reputation {width: 55px;}
+table.table-associated-ranking.table-fixed-header col.col-count {width: 75px;}
+table.table-associated-ranking.table-fixed-header col.col-updown {width: 88px;}
+
+// 연관어 전체 순위 리스트 테이블 고정 헤더
+table.table-associated-ranking-total.table-fixed-header col.col-reputation {width: 52px;}
+table.table-associated-ranking-total col.col-count{width: 30%;}
+table.table-associated-ranking-total.table-fixed-header col.col-count {min-width: 65px;width: 30%;}
+
+/*긍,부정 분석*/
+.section-reputation-data > .layout-row > .col-box:nth-child(1) {flex: 0 0 19%;max-width: 19%;}
+.section-reputation-data > .layout-row > .col-box:nth-child(2) {flex: 0 0 47.6%;max-width: 47.6%;}
+.section-reputation-data > .layout-row > .col-box:nth-child(3) {flex: 0 0 33.4%;max-width: 33.4%;}
+
+/*.section-reputation-data > .layout-row > .col-box:nth-child(1) {flex: 0 0 16%;max-width: 16%;}
+.section-reputation-data > .layout-row > .col-box:nth-child(2) {flex: 0 0 50.6%;max-width: 50.6%;}
+.section-reputation-data > .layout-row > .col-box:nth-child(3) {flex: 0 0 33.4%;max-width: 33.4%;}*/
+
+.section-reputation-data.social-reputation .layout-card-header{ position: relative;}
+.section-reputation-data.social-reputation .change-chart-view-labels{ display: flex; min-width: 176px;letter-spacing: -1px;flex: 1 1 auto;position: absolute;left: 50%;transform: translateX(-50%);}
+
+// 차트 보기 변경 표보기 on/off
+.change-chart-view-labels {display: flex;align-items: center; max-width: 220px;margin: 0 auto;letter-spacing: -1px;}
+.change-chart-view-labels label {width: 50%;@include text-cut();}
+
+// 긍,부정분석 추이 차트
+#reputationTrendChart {height: 309px;}
+#reputationPercentageChart,.reputation-percentage-chart {height: 351px;}
+
+// 워드클라우드 차트
+#wordCloud {height: 350px;} // 소셜분석 - 긍부정
+.word-cloud-chart{position: relative;padding: 10px 0px;}  // 비교분석 - 긍부정
+#wordCloud.reputation-data{ padding-top: 15px;}
+
+// 긍,부정 워드클라우드 테이블
+#wordCloudTable {display: none;}
+
+//워드클라우드 데이터가 없을 경우
+.word-cloud-nodata-box{position: relative;height: 340px;text-align: center;display: none;}
+.word-cloud-nodata-text{@include fixed-center(relative);line-height: 1.6;color: $grey-dark2;font-size: $font-base;}
+
+// 긍,부정 분석 워드클라우드 테이블
+.reputation-word-cloud-table-wrap {padding-top: 11px;display: none;}
+.reputation-word-cloud-table-wrap .table-scroll-box {height: 369px;padding-top: 30px;}
+table.table-reputation-list td.keyword {color: $black-light;}
+table.table-reputation-list .btn-filter-toggle i {position: relative;top: -1px;}
+table.table-reputation-list .btn-delete-icon {position: relative;top: -1px;margin-left: 10px;}
+table.table-reputation-list .btn-delete-icon i {vertical-align: baseline;}
+table.table-reputation-list .positive {color: rgba($positive,.6);}
+table.table-reputation-list .negative {color:  rgba($negative,.6);}
+table.table-reputation-list .neutrality {color:  rgba($neutrality,.6);}
+
+// 소셜>긍부정 테이블
+table.table-reputation-list col.col-keyword {width: auto;}
+table.table-reputation-list col.col-reputation {width: 25%;}
+table.table-reputation-list col.col-count {width: 25%;}
+
+table.table-reputation-list.table-fixed-header col.col-keyword {width: auto;}
+table.table-reputation-list.table-fixed-header col.col-reputation {width: 25%;}
+table.table-reputation-list.table-fixed-header col.col-count {width: 25%;}
+table.table-reputation-list.table-fixed-header thead th {background-color: transparent;}
+table.table-reputation-list.table-fixed-header thead th:last-child {padding-right: 4%;text-align: right;}
+
+table.table-reputation-list col.col-reputation-social {width: 25%;}
+
+// 워드클라우드 버튼
+.wordcloud-chart-buttons {display: flex;align-items: flex-end;}
+.wordcloud-chart-buttons .btn-excel-down {display: flex; margin-left: 12px;}
+.wordcloud-chart-buttons-modify {display: flex;align-items: center;}
+.wordcloud-chart-buttons-modify .btn-chart-modify {margin-right: 0;}
+
+//데이터없음 (컴포넌트) 
+.section-no-data{min-height: calc(100vh - 212px);margin-top: 0;}
+@include notebook() {.section-no-data{min-height: calc(100vh - 217px);}}
+.section-no-data .layout-card{min-height: 500px;}
+.section-no-data .no-data-wrap{margin: 65px auto;text-align: center}
+.section-no-data .no-data-icon{font-size: 44px; color: $grey-light4}
+.section-no-data .no-data-text-box{margin: 25px auto 20px;}
+.section-no-data .no-data-subject{font-size: $h6;color: $grey-dark2;line-height: 168%;letter-spacing: -.1em;}
+.section-no-data .no-data-subject .no-data-keyword{color: $primary;font-weight: $font-medium}
+.section-no-data .no-data-desc{margin-top: 8px;line-height: 150%;letter-spacing: -.07em; color: $grey-dark2;font-size: $font-base; }
+
+.section-no-data .no-data-buttons{max-width: 750px;padding-bottom: 50px;margin:0 auto 45px;border-bottom: 1px solid $grey-light4}
+.section-no-data .no-data-buttons .vbtn{margin: 0 2px;}
+
+.section-no-data .no-data-info-title{line-height: 150%;color: $grey-dark2;font-size: $font-base;}
+
+// 추천 키워드 공통 [분석결과없는경우, 최초인입페이지]
+.recommend-keywords{margin-top: 15px;display: flex;@include flex-center();}
+.recommend-keywords li{margin: 0 11px;}
+.recommend-keywords a{padding-bottom:3px; border-bottom: 1px dashed $primary-alpha70;font-size: $font-middle; color: $primary;}
+
+//데이터없음 (카드형)
+.card-no-data-box{display: none}
+.card-no-data-box .card-no-data-posi{display: flex;@include flex-center();height: inherit;text-align: center;}
+.card-no-data-box .card-no-data-icon{line-height: 24px;}
+.card-no-data-box .card-no-data-icon i{@include inline-middle();font-size: 20px;color: $grey-dark}
+.card-no-data-box .card-no-data-text{margin-top: 12px;font-size: $font-base;line-height: 150%;color: $grey-dark2;}
+
+//데이터 없음
+.card-no-data-box.analysis-youtube-video-list{height: 250px;}//유튜브 순위
+.card-no-data-box.associated-ranking-slider{height: 390px;} //연관어 순위 변화
+.card-no-data-box.table-associated-ranking{height: 340px;}	//연관어전체 순위
+.card-no-data-box.modal-original-detail{height: 400px;}	//모달 원문 더보기
+.card-no-data-box.associated-ranking-compare{height: 400px;}	//비교분석 연관어
+
+// 최초 인입 페이지
+.layout-section.section-incoming{ display: -ms-flexbox; display: -webkit-flex; display: flex; -ms-flex-direction: column; -webkit-flex-direction: column; flex-direction: column; align-items: center; justify-content: center; min-height: calc(100vh - 212px); margin-top: 0; } 
+@include notebook(){ .layout-section.section-incoming{min-height: calc(100vh - 197px);}}
+:-ms-fullscreen, :root .layout-section.section-incoming { height: calc(100vh - 212px);} // for IE11
+
+.incoming-info{ display: flex;align-items: center;}
+.incoming-info-img{ margin-right: 58px;}
+.incoming-greeting{ padding-bottom: 30px; margin-bottom: 20px; border-bottom: 1px solid rgba($grey-light5,.6); }
+.incoming-greeting-title{ font-size: $h4; font-weight: $font-bold; line-height: 160%; color: $black-light; letter-spacing: -.1em;}
+.incoming-greeting-desc{ margin-top: 5px; font-size: $font-middle; line-height: 150%; color: $black-alpha50; }
+.incoming-recommend-keywords{font-size: $font-middle; color: $grey-dark2;}
+.incoming-recommend-keywords .no-data-info-title{ font-size: $font-base; }
+.incoming-recommend-keywords .recommend-keywords{ justify-content: flex-start;}
+.incoming-recommend-keywords .recommend-keywords li:first-child{ margin-left: 0;}
+
+// 그래프 영역 내 워터마크
+.section-mention-data .mention-data-chart #mentionChart:after {@include addWatermark();bottom: -16px;}
+#associationWordCloud:after {@include addWatermark();bottom: 3px;}
+#wordCloudChart.reputation-data.wordCloud #wordCloud:after {@include addWatermark();bottom: 3px;}
+.reputation-trend-chart .reputation-trend-chart-wrap #reputationTrendChart:after {@include addWatermark();bottom: 0px;}
+#reputationPercentageChart:after {@include addWatermark();bottom: 3px;}
+.compare-mention-data-chart:after {@include addWatermark();bottom: -10px;}
+#compareAssociationWordCloud {position: relative;}
+#compareAssociationWordCloud:after {@include addWatermark();bottom: 5px;}
+.word-cloud-chart:after {@include addWatermark();right:15px;bottom: 15px;}
+#move-chart .reputation-trend-chart #compare-reputationTrendChart:after {@include addWatermark();bottom: -11px;}
+// 온보딩 그래프 영역 내 워터마크
+#mention-chart-wrap .mention-guide-chart:after {@include addWatermark();bottom: -16px;}
+#association-chart-wrap .association-guide-chart:after {@include addWatermark();bottom: 3px;}
+#wordCloudChart.reputation-data.wordCloud .reputation-guide-chart1:after {@include addWatermark();bottom: 3px;}
+.reputation-trend-chart .reputation-trend-chart-wrap .reputation-guide-chart2:after {@include addWatermark();bottom: 0;}
+.reputation-percentage-chart-wrap .reputation-guide-chart3:after {@include addWatermark();bottom: 3px;}
+
+@include notebook() {
+	html{font-size: 13px;}
+
+	.layout-dashboard .layout-card {padding: 15px;}
+	.layout-row > .col-box {padding: 0 10px;}
+
+	// 섹션
+	.layout-section {clear: both;margin-top: 20px;}
+
+	// 카드
+	.analysis-desc-card-item {padding: 20px;padding-left: 90px;}
+	.analysis-desc-card-item::before{left:20px;width: 50px;height: 50px;line-height: 50px;border-radius: 15px;}
+	.analysis-desc-card-item-compare{padding: 20px;}
+
+	.analysis-desc-reputation {font-size: $h6;} 
+	.analysis-desc-reputation.text-small {font-size: $font-base;}
+
+	// 분석 카테고리
+	.comp-category-select-box .scroll-content-category-select {height: 345px}
+	.comp-category-select-box .category-item {/* display: block; */padding: 5px 0;}
+	.comp-category-select-box .sub-category .check-type label {word-break: keep-all;}  //notebook 사이즈일 경우, 카테고리 긴 네이밍 자연스럽게 떨어지게
+	.layout-card-category .layout-card-header{padding: 15px 15px 0}
+	.comp-category-select-box{padding: 10px 10px 20px 15px;} //notebook 사이즈일 경우 공통 hedaer margin-bottom 20px > 10px 줄이는 작업 진행으로 인한 추가 작업
+	.comp-category-select-box .category-select-body {margin-top: 8px;padding-right: 0;}
+
+	// 소셜 긍,부정 분석
+	.comp-category-select-box .scroll-content-category-select-reputation {height: 290px}
+	.comp-category-select-box .scroll-content-category-select-reputation + .scroll-overlay {display: none !important;}
+	.comp-category-select-box .category-item-list.type3 {margin: -6.3px 0;}
+	.comp-category-select-box .category-item-list.type3 .category-item {padding: 6.3px 0;}
+
+	// 원문 더보기
+	.btn-more-original {margin: 10px 0 0;}
+
+	.comp-category-select-box .category-item-list.type2 .one-depth-caterory {margin: 0;flex: 0 0 100%;width: 100%;}
+
+	// 워드클라우드 차트
+	#wordCloud {height: 320px;}
+	.word-cloud-chart{margin: 10px 0px;}
+	.reputation-data #wordCloud{height:350px;} //소셜분석>긍,부정
+
+	// 비교>긍부정 워드맵 표
+	table.table-reputation-list td {font-size: $font-small;}
+	table.table-reputation-list .btn-delete-icon {width: 18px;height: 18px;margin-left: 5px;}
+
+	// 그래프 영역 내 워터마크
+	.section-mention-data .mention-data-chart #mentionChart:after {bottom: -8px;}
+	#associationWordCloud:after {bottom: 13px;}
+	#wordCloudChart.reputation-data.wordCloud #wordCloud:after {bottom: 7px;}
+	.reputation-trend-chart .reputation-trend-chart-wrap #reputationTrendChart:after {bottom: 9px;}
+	#reputationPercentageChart:after {bottom: 13px;}
+	.compare-mention-data-chart:after {bottom: -25px;}
+	#compareAssociationWordCloud:after {bottom: -14px;}
+	.word-cloud-chart:after {bottom: 3px;}
+	#move-chart .reputation-trend-chart:after {bottom: -6px;}
+	#move-chart .reputation-trend-chart #compare-reputationTrendChart:after {bottom: -6px;}
+	// 온보딩 그래프 영역 내 워터마크
+	#mention-chart-wrap .mention-guide-chart:after {bottom: -8px;}
+	#association-chart-wrap .association-guide-chart:after {bottom: 13px;}
+	#wordCloudChart.reputation-data.wordCloud .reputation-guide-chart1:after {bottom: 7px;}
+	.reputation-trend-chart .reputation-trend-chart-wrap .reputation-guide-chart2:after {bottom: 9px;}
+	.reputation-percentage-chart-wrap .reputation-guide-chart3:after {bottom: 13px;}
+}

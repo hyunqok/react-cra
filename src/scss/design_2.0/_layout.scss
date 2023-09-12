@@ -1,0 +1,18 @@
+body {
+    min-width: $min-width;
+}
+
+.text-align-left {text-align: left !important;}
+.text-align-right {text-align: right !important;}
+.text-align-top {text-align: top !important;}
+.text-align-bottom {text-align: bottom !important;}
+
+.w-100,
+[data-fullwidth] {width: 100% !important;}
+
+/*//Chrome, Safari용 스크롤 바*/
+::-webkit-scrollbar {width: 8px;height: 5px;}
+::-webkit-scrollbar-track {background-color: rgba(#eee, 0);}
+::-webkit-scrollbar-thumb {background: #E2E2E2;border-radius: 10px;border: 1px #fff solid;opacity: .5;}
+::-webkit-scrollbar-thumb:hover {background: #E2E2E2;opacity: 1;}
+::-webkit-scrollbar-track-piece {background-color: rgba(255, 255, 255, 0);}

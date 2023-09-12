@@ -1,0 +1,126 @@
+@charset "utf-8";
+/*
++----------------------------------------------------------------------+
+| Copyright (c) Vaiv. co. Ltd
++----------------------------------------------------------------------+
+| 썸스쿨 > 썸트렌드 교육
++----------------------------------------------------------------------+
+*/
+
+.some-edu-wrap .section-education{ padding:110px 0;}
+.some-edu-wrap .section-education.step{ background-color: #F0F4FE;}
+.some-edu-wrap .section-education.classes{ background-color: $navy;}
+.some-edu-wrap .section-education.review{ background-color: $primary-bg-text;}
+.some-edu-wrap .section-head{ text-align: center;}
+.some-edu-wrap .section-title{ line-height: 135%; letter-spacing: -.1em; font-size: $h2-small; font-weight: $font-bold; color:$white;}
+.some-edu-wrap .section-title em{ font-weight: $font-bold; color:$primary;}
+.some-edu-wrap .section-desc{ margin-top:10px; line-height: 168%; letter-spacing: -.1em; font-size: $h6; color:$primary-alpha10;}
+.some-edu-wrap .section-education.step .section-title{color:$black;}
+.some-edu-wrap .section-education.step .section-desc{color:$grey-dark2;}
+.some-edu-wrap .section-body{ margin-top: 60px;}
+
+// 교육 상단 배너
+.section-education.banner{ min-height: 545px; padding: 90px 0 100px 0; background: url('../images/education/bg_banner.jpg') center center no-repeat; background-size: cover; text-align: center;}
+.edu-banner-btns{ margin-top: 38px; opacity: 0;}
+.edu-banner-sub-text{ margin-bottom:30px; opacity: 0;}
+.edu-banner-text{ position: relative; display: inline-block; z-index: 1; opacity: 0;}
+.edu-banner-text span{ position: absolute; top: 24px; right: -68px; z-index: -1; opacity: 0;}
+
+// 교육 단계
+.edu-step{ filter: drop-shadow(0px 0px 30px rgba(21, 7, 61, 0.22));}
+.edu-step > ul{ display: flex;}
+.edu-step-item{ flex: 1 0 25%; background-color: $white; border-radius: 20px; overflow: hidden;}
+.edu-step-item-head{ padding:18px 20px 21px; text-align: center;}
+.edu-step-item-head span,
+.edu-step-item-head strong{ display: block; margin: 0 auto;}
+.edu-step-item-head span{ line-height: 150%; letter-spacing: -.04em; font-family: 'Montserrat'; font-size:$h6; font-weight:500; color: $primary-alpha20; text-transform: uppercase;}
+.edu-step-item-head strong{ margin-top: -4px; line-height: 150%; letter-spacing: -0.1em; font-size:$h4; font-weight: $font-bold; color: $white;}
+.edu-step-item:nth-child(1) .edu-step-item-head{ background-color: $primary-alpha70;}
+.edu-step-item:nth-child(2) .edu-step-item-head{ background-color: #8478E2;}
+.edu-step-item:nth-child(3) .edu-step-item-head{ background-color: #6452E9;}
+.edu-step-item:nth-child(4) .edu-step-item-head{ background-color: #4A36DD;}
+.edu-step-item-body{ min-height: 178px; padding: 25px 20px 32px; border-left: 1px solid $grey-light5;}
+.edu-step-item:first-child .edu-step-item-body{border-left:0;}
+.edu-step-obj{ margin-bottom: 10px; line-height: 150%; letter-spacing: -.1em; font-size: $h5; font-weight: $font-bold; color: $black;}
+.edu-step-act li{ position: relative; padding-left: 27px; line-height: 168%; letter-spacing: -.1em; font-size: $h6; color: $black-light; word-break: keep-all;}
+.edu-step-act li:before{ content: ""; position: absolute; left: 11px; top: .7em; display: block; width: 5px; height: 5px; border-radius: 50%; background-color:$black-light;}
+
+// 교육 특강
+.edu-class{ display: -ms-flexbox; display: flex; flex-wrap: wrap; gap: 40px;}
+.edu-class-item{position: relative; min-width: calc(50% - 20px); flex-basis: calc(50% - 20px); flex: 0 1 calc(50% - 20px); perspective: 800px;}
+.edu-class-item:first-child{margin-top: 0;}
+.edu-class-item-card{ position: relative; width:100%; min-height:351px; transform-style: preserve-3d; transform: translateZ(-290px); transition: transform 350ms cubic-bezier(0.390, 0.575, 0.565, 1.000);}
+.edu-class-infos, .edu-class-curriculum{ position: absolute; width:100%; height:100%; padding: 30px; border-radius: 30px; transition: all 350ms cubic-bezier(0.390, 0.575, 0.565, 1.000);}
+.edu-class-infos{ display: flex; flex-direction: column; background-color: $white; transform: rotateY(0deg) translateZ(290px);}
+.edu-class-curriculum{ display: flex; flex-direction: column; color:$white; background-color: $primary; opacity: 0; transform: rotateY(90deg) translateZ(290px);}
+
+.edu-class-item.active .edu-class-item-card{ transform: translateZ(-290px) rotateY( -90deg);}
+.edu-class-item.active .edu-class-infos{ opacity: 0;}
+.edu-class-item.active .edu-class-curriculum{ opacity: 1;}
+
+.edu-class-infos .edu-class-type{ display: inline-block; padding: 4px 14px; margin-bottom: 19px; line-height: 150%; letter-spacing: -.03em; font-size: $font-middle; color: $primary; text-align: center; border: 1px solid $primary-alpha70; border-radius: 50em;}
+.edu-class-infos .edu-class-name{ margin-bottom: 21px; line-height: 150%; letter-spacing: -.1em; font-size: $h4; font-weight: $font-bold; color: $black;}
+.edu-class-infos .edu-class-period .period-date{ display: flex; align-items: baseline; margin-top:12px;} 
+.edu-class-infos .edu-class-period .period-date:first-child{ margin-top: 0;}
+.edu-class-infos .edu-class-period .period-date dt{ padding: 5px; margin-right: 9px; background-color: $grey-light3; border-radius: 3px; font-size: $font-base; color: $black-light;} 
+.edu-class-infos .edu-class-period .period-date dd{ line-height: 150%; font-size: $h6; font-weight: $font-bold; color: $black-light;} 
+.edu-class-infos .edu-class-period .period-edu dd{ color: $primary;} 
+.edu-class-infos .edu-class-btns{ display: flex; justify-content: space-between; margin-top:auto;}
+.edu-class-infos .edu-class-btns .vbtn:first-child{ flex-grow: 1; text-align: center;}
+.edu-class-infos .edu-class-btns .vbtn + .vbtn{ margin-left: 19px;}
+.edu-class-infos .edu-class-btns .btn-apply-edu{ background-color: $primary; color:$white; font-weight: $font-bold;}
+.edu-class-infos .edu-class-btns .btn-apply-edu.is-ready.disabled{ background-color: $data-black-light !important; color: $white !important;}
+.edu-class-infos .edu-class-btns .btn-more-class-detail{ background-color: $primary-alpha20; color:$primary; font-weight: $font-bold;}
+
+// 정기특강 상세내용
+.edu-class-curriculum .edu-class-curri-detail{ height: 219px; overflow-x:hidden; overflow-y: scroll; -webkit-overflow-scrolling: touch; -webkit-overflow-y:touch;  touch-action: pan-y;}
+.edu-class-curriculum .edu-class-objective{ font-size: $h4; font-weight: $font-bold; line-height: 150%; letter-spacing: -.1em;}
+.edu-class-curriculum .edu-class-active{ counter-reset: section; width: 100%;margin-top: 23px;}
+.edu-class-curriculum .edu-class-active li{ counter-increment: section; display: flex; align-items: baseline; margin-top:8px; line-height: 150%; font-size: $h6;}
+.edu-class-curriculum .edu-class-active li:first-child{ margin-top: 0;}
+.edu-class-curriculum .edu-class-active li:before{ content: counter(section); flex:0 0 30px; display: inline-block; background-color: $white; width: 30px; height: 30px; line-height:29px; margin-right: 7px; border-radius: 50em; font-size: $h6; color:$primary; text-align: center;}
+.edu-class-curriculum .edu-class-btns-close{ margin-top: auto;text-align: right;}
+.edu-class-curriculum .edu-class-btns-close .btn-close-class-detail{ border:1px solid $white; color:$white;}
+
+// 마감된 교육
+.edu-class-item.colseDown {
+	.edu-class-infos .edu-class-type{border-color: $grey-dark; color: $grey-dark2;}
+	.edu-class-infos .edu-class-name{color: $grey-dark2;}
+	.edu-class-infos .edu-class-period .period-date dt{color: $grey-dark2 !important; background-color: $grey-light3 !important;}
+	.edu-class-infos .edu-class-period .period-date dd{color: $grey-dark2;}
+}
+
+// 등록된 정기교육 없을 시, 200% 컨텐츠 (howto 구조 동일)
+.section-education .howto-list-con{ text-align: center;}
+.section-education .howto-list-con .info-text{ display: inline-block; padding: 5px 14px 6px; margin-bottom: 30px; line-height: 160%; letter-spacing: -.05em; font-size:$font-middle; color: $primary; background-color: $primary-alpha20; border-radius: 10px;}
+.section-education .howto-list-con .info-text i{display: inline-block; vertical-align: bottom; font-size: 24px;}
+.section-education .howto-list-con > ul > li{ flex: 0 0 270px;width: 270px; margin-right: 40px; border-radius: 30px; border:0; box-shadow:none;}
+.section-education .howto-list-con > ul > li:nth-of-type(4n){ margin-right: 0;}
+.section-education .howto-list-con-txt {padding: 11px 24px 20px 18px;}
+.section-education .howto-list-con-txt > h6{ text-align: left;}
+.section-education .howto-list-con .btn-more-howto{ min-width: 251px; margin:60px auto 0; text-align: center;}
+
+// 교육 리뷰
+@keyframes edu-review-roll {
+	100% {transform: translateX(-100%);}
+}
+.edu-review {position: relative;margin-top: 100px;transform: translateX(-525px);}
+.edu-review-roll-ani {display: flex;align-items: center; animation: edu-review-roll 60s linear infinite;}
+.edu-review-list {display: flex;align-items: baseline; flex:1 0 auto;}
+.edu-review-list > li { position:relative; flex:1 0 auto; width: 500px; padding:55px 62px 29px; margin: 0 12.5px;border-radius: 20px;background: $white;text-align: center;}
+.edu-review-list > li:nth-child(even){ transform: translateY(40px);}
+.edu-review-list > li:before{content:""; display: block; position: absolute; top: -46px; left:50%; transform: translateX(-50%); width:100px; height:100px;background:url('../images/education/img_review_face.png') center center no-repeat; background-size: 293px 720px;}
+.edu-review-list > li:nth-child(1):before{background-position: -20px -20px;}
+.edu-review-list > li:nth-child(2):before{background-position: -173px -20px;}
+.edu-review-list > li:nth-child(3):before{background-position: -20px -136px;}
+.edu-review-list > li:nth-child(4):before{background-position: -173px -136px;}
+.edu-review-list > li:nth-child(5):before{background-position: -20px -252px;}
+.edu-review-list > li:nth-child(6):before{background-position: -173px -252px;}
+.edu-review-list > li:nth-child(7):before{background-position: -20px -368px;}
+.edu-review-list > li:nth-child(8):before{background-position: -173px -368px;}
+.edu-review-list > li:nth-child(9):before{background-position: -20px -484px;}
+.edu-review-list > li:nth-child(10):before{background-position: -173px -484px;}
+.edu-review-list > li:nth-child(11):before{background-position: -20px -600px;}
+.edu-review-list > li:nth-child(12):before{background-position: -173px -600px;}
+.edu-review-comment{ line-height: 168%; letter-spacing: -.1em; font-size:$h6; color: $black; word-break: keep-all;}
+.edu-review-people{ margin-top: 15px; line-height: 150%; letter-spacing: -.07em; font-size:$font-base; color:$grey-dark2;}

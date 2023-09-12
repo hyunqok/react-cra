@@ -1,0 +1,209 @@
+
+/*==================================================================
+// Form
+//=================================================================*/
+/*=========  calendar =========*/
+.calendar-box{display: flex;align-items: center;}
+.calendar-box span{display: flex;align-items: center;flex-direction: row-reverse;}
+.calendar-box .calendar{cursor: pointer; background-color: $white}
+.calendar-box .calendar-dash{margin: 0 13px;color:$grey-light5}
+
+.calendar-box .icon-date{font-size: $h5;color: $primary;margin-right: 12px;line-height: 31px;}
+.calendar-box .input-date{font-size: $font-base;line-height: 30px;height: 30px;color: $black-light;font-weight: $font-bold;display: inline-block;padding: 0;width: 83px;border: 0;text-align :center; margin-left: 10px ; }
+.calendar-box input.input-date{cursor: pointer;}
+
+// input datepicker [분석]
+.input-calendar {display: inline-flex;align-items: center;width: 100%;min-width: 160px;max-width: 290px;} /*파이어폭스에서 잘림 160으로 수정*/
+.input-calendar-item{position: relative;padding-left: 24px;}
+.input-calendar-unit{padding: 0 9px 0 7px; color: $grey-dark;}
+.input-calendar label{display: block;width: 100%; display: flex; justify-content: center; align-items: baseline;border-bottom: 1px dashed $primary-alpha70;}
+.input-calendar .date-span{width: 65px;line-height: 1;font-size: $font-small;color: $black-alpha50;}
+.input-calendar i {position: absolute;top: 50%;left: 0;@include pos-center('y');font-size: 20px;color: $primary;}
+.input-calendar input {width: 100%;height: 20px;font-size: $font-small;color: $black-light;border: none;background-color: $white;font-weight: $font-bold; cursor: pointer;}
+.input-calendar input.selected{color: $primary;}
+
+/*=========  radio/ check =========*/
+.radio-type1{position: relative;}
+.radio-type1 label {display: inline-block;position: relative;cursor: pointer;padding-left: 26px;font-size: $font-base; line-height:$font-middle }
+.radio-type1 label::before,
+.radio-type1 label::after {
+  content: " ";
+  border-radius: 50%;
+  display: inline-block;
+  position: absolute;
+  @include duration();
+}
+.radio-type1 input{opacity: 0; visibility: hidden; position: absolute; top:0; left: -9999999px}
+// grid.css 추가로 box-sizing이 변해서 사이즈 +2 함
+.radio-type1 input+label::before{width: 16px;height: 16px; border: 1px solid $grey-light5 ; left: 0px;top: 1px;  }
+.radio-type1 input+label:after {opacity: 0; top: 5px;left: 4px;width: 8px;height: 8px;border: 0;   }
+.radio-type1 input:checked+label::before{border-color: $primary}
+.radio-type1 input:checked+label::after {background-color: $primary; opacity: 1}
+
+@each $key, $value in $colors {
+	.radio-type1.line-#{$key} input:checked+label::before {border-color: $value;}
+	.radio-type1.line-#{$key} input:checked+label::after {background-color: $value;}
+}
+
+.check-type {position: relative;display: inline-block;}
+.check-type label {display: inline-block;position: relative;cursor: pointer;padding-left: 26px;font-size: $font-base; line-height:$font-middle }
+.check-type label::before,
+.check-type label::after {content: " ";display: inline-block;position: absolute;@include duration();}
+.check-type input{opacity: 0; visibility: hidden; position: absolute; top:0; left: -9999999px}
+.check-type input+label::before{width: 14px;height: 14px; border: 1px solid $grey-dark; left: 0px;top: 1px; border-radius: 3px; background:$white;}
+.check-type input+label::after {opacity: 0; top: 0px;left: 0px;border: 0;  font-size: $font-base; content: "\EB7B"; font-family: $icon;font-weight: $font-regular; color: $primary;}
+.check-type input:checked+label::after {opacity: 1}
+
+.check-type input:disabled+label::before {background-color: $grey-light5 !important;border-color: $grey-light5 !important;}
+.check-type input:disabled+label::after {display: none !important;}
+.check-type input:checked:disabled+label::after{ content: "\EB7B"; display: inline-block !important; opacity: 1 !important; top: 0px;left: 0px;border: 0; font-family: $icon;font-weight: $font-regular; color: $grey-dark2;}
+
+.check-type2 label{line-height: 24px; padding-left: 31px}
+.check-type2 input+label::before{width: 22px;height: 22px; border-radius: 6px  }
+.check-type2 input+label:after {top: 2px;left: 3px; font-size: $h6;}
+
+.check-type3 input+label::before {background-color: $white;}
+
+.check-type.small label {padding-left: 24px;}
+.check-type.small input + label::before {width: 16px;height: 16px;border-radius: 3px;}
+.check-type.small input + label::after {top: 1px;font-size: 16px;}
+.check-type.small.label-left label {padding-left: 0;padding-right: 24px;}
+
+.check-type.base label {padding-left: 28px;word-break: keep-all;}
+.check-type.base input + label::before {top: -3px;width: 20px;height: 20px;border-radius: 4px;}
+.check-type.base input + label::after {font-size: 20px;color: $navy-alpha70;}
+.check-type.base.label-left label {padding-left: 0;padding-right: 28px;}
+
+.check-type.medium label {padding-left: 32px;}
+.check-type.medium input + label::before {top: -5px;width: 24px;height: 24px;border-radius: 6px;}
+.check-type.medium input + label::after {font-size: 24px;}
+.check-type.medium.label-left label {padding-left: 0;padding-right: 32px;}
+
+.check-type.label-left label {padding-left: 0;padding-right: 26px;}
+.check-type.label-left input + label::before {left: auto;right: 0;}
+.check-type.label-left input + label::after {left: auto;right: 0;}
+
+// checkbox colors
+@each $key, $value in $colors {
+	.check-type.line-#{$key} input + label::before {border-color: $value;}
+	.check-type.line-#{$key} input + label::after {color: $value;}
+}
+
+@each $key, $value in $colors {
+	.check-type.#{$key} input + label::after {color: $value;}
+}
+
+/*=========  label =========*/
+.term-label-type1 {font-size: 0;background-color: $grey-light2;border-radius: 10px;}
+.term-label-type1 input[type="radio"] { display: none;  }
+.term-label-type1 label {border: 1px solid $grey-light2;padding: 3px 7px;font-size: $font-small;font-weight: 500;color: rgba(5, 5, 5,0.5);min-width: 55px;display: inline-block;cursor:pointer;text-align: center;line-height: 24px;border-radius: 10px;}
+.term-label-type1 input[type="radio"]:checked + label {background-color: $white;color: $primary;border-color: $primary; box-shadow: 5px 10px 30px rgba(206, 208, 214, 0.3);font-weight: $font-bold;}
+.term-label-type1 label:hover {color: $primary; background-color: $grey-light4;}
+
+//sort 라벨 ex) 인사이트 리스트
+.sort-label-lists {display: flex;@include flex-center();justify-content: flex-start;}
+.sort-label-type1 input[type="radio"] {display: none;}
+.sort-label-type1 label {display: inline-block;padding: 10px 20px;color: $black-alpha70;font-size: $font-small;line-height: 150%;border-radius: 50em;min-width: 55px;cursor:pointer;text-align: center;border: 1px solid $primary-alpha5;background-color: $primary-alpha5;}
+.sort-label-type1 input[type="radio"]:checked + label {background-color: $white;border-color: $primary-alpha70;}
+.sort-label-type1 label:hover {color: $primary; background-color: $grey-light4;}
+
+/*=========  input-type1 =========*/
+.input-type1-active{border: 1px solid $primary; border-radius: 11px;}
+
+.input-type1 {border: $white;color: $black-light;border-radius: 11px;padding: 0 24px;width: 100%;outline: 0;font-weight: $font-bold;@include placeholder-color(); @include input-size-variant();}
+.input-type1.active,
+.input-type1:focus {border-color: $primary !important;@include active-input-font;}
+.input-type1.line {border: 1px solid $grey-light4;}
+.input-type1.xsmall {@include input-size-variant(35px, 35px, $font-base); border-radius: 8px; }
+.input-type1.large {@include input-size-variant(56px, 56px, $font-middle);}
+.input-type1:disabled {color: $grey-dark2;}
+.input-type1.line-grey-light4 {border: 1px solid $grey-light4;}
+.input-type1.bg-grey-light2 {background-color: $grey-light2;}
+
+// 신규 인풋 가이드 21.04 [분석,]
+// .input-style:focus {@include active-input;@include active-input-font;}
+// 노트북 사이즈에서 input focus되면 잔상 남는 문제로 border로 수정함 [정현국, 21.07.05]
+.input-style:focus {border-color: $primary !important;}
+
+.input-style.type1 {border: 1px solid $grey-light4;@include placeholder-color;border-radius: 6px;}
+
+.input-style.x-small {height: 34px;padding: 0 12px;border-radius: 6px;}
+
+/*=========  textarea-type1 =========*/
+.textarea-type1{display: block; padding: 14px 20px; font-size: $font-base; border: 1px solid $grey-light4; color: $black-light;width: 100%; border-radius: 8px; @include placeholder-color(); }
+.textarea-type1.active,
+.textarea-type1:focus {@include active-input();}
+
+/*=========  switch-list =========*/
+.switch-item .switch {position: relative;display: inline-block;}
+.switch-item .switch input { opacity: 0;width: 0;height: 0;}
+.switch-item .slider {cursor: pointer;  border-radius: 50em;@include pos-full; @include toggle-swich-slider(29px, 19px,$grey-light4); @include duration(0.4s);}
+.switch-item .slider:before {content: ""; border-radius: 50%; position: absolute; background-color: $white; @include toggle-swich-before(15px,15px,3px,2px);@include box-shadow2;  @include duration(0.4s);}
+.switch-item input:checked + .slider {background-color: $black-light}
+.switch-item input:checked + .slider:before {@include pos-x(9px);}
+.switch-item .switch-text {display: inline-block; letter-spacing: -0.05em; @include toggle-swich-text($font-base, 19px, $black-light, 39px);font-weight: 400;}
+
+// ON, OFF가 있는 스위치 버튼
+.switch-item.type2 .switch {display: inline-flex;align-items: center;}
+.switch-item.type2 .slider {@include toggle-swich-slider(46px, 22px, $grey-light5);}
+.switch-item.type2 .slider::before {@include toggle-swich-before(20px, 20px, 1px, 1px);}
+.switch-item.type2 .slider::after {content: "OFF";position: absolute;top: 50%;left: 0;transform: translate(23px, -50%); font-size: $font-small - 0.3;color: $white;}
+.switch-item.type2 input:checked + .slider {background-color: $primary;}
+.switch-item.type2 input:checked + .slider::before {@include pos-x(24px);}
+.switch-item.type2 input:checked + .slider::after {content: "ON";transform: translate(6px, -50%);}
+.switch-item.type2 .switch-text {@include toggle-swich-text($font-small, 22px, $grey-dark2, 53px);word-break: keep-all;}
+
+// switch type2 왼쪽 레이블 여백
+.switch-item.type2.label-left .switch-text {padding-left: 0;padding-right: 53px;}
+
+// .switch-item type3
+// 기존에 짜여져 있던 마크업을 유지하기 위해서 slider와 switch label text 디폴트 위치를 변경함 (order)
+.switch-item.type3 .switch {display: inline-flex;align-items: center;}
+.switch-item.type3 .slider {order: 1;position: relative;@include toggle-swich-slider(24px, 6px, $grey-light5);}
+.switch-item.type3 .slider::before {@include toggle-swich-before(12px, 12px, 0, -3px);box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);}
+.switch-item.type3 .switch-text {order: 2;margin-left: 6px;@include toggle-swich-text($font-small, normal, $grey-dark2, 0);word-break: keep-all;}
+.switch-item.type3 input:checked + .slider {background-color: rgba($primary, 0.2) !important;}
+.switch-item.type3 input:checked + .slider::before {@include pos-x(100%);background-color: $primary;}
+
+// 레이블이 왼쪽에
+.switch-item.type3.label-left .slider {order: 2;}
+.switch-item.type3.label-left .switch-text {order: 1;margin-left: 0;margin-right: 6px;}
+
+.switch-item.line .slider {background-color: $white;border: 1px solid $grey-light5;}
+.switch-item.line .slider::before {z-index: 10;width: 18px;height: 18px;background-color: $navy-alpha70;}
+.switch-item.line .slider::after {transform: translate(22px, -50%); color: $navy-alpha70;}
+.switch-item.line input:checked + .slider {border-color: $black-light;background-color: $white;}
+.switch-item.line .switch-text {color: $grey-dark2;}
+
+// switch item label position left
+.switch-item.label-left .slider {left: auto;right: 0;}
+
+// switch colors
+@each $key, $value in $colors {
+	.switch-item.fill-#{$key} input:checked + .slider {background-color: $value;}
+}
+// switch colors
+@each $key, $value in $colors {
+	.switch-item.line-#{$key} input:checked + .slider {border-color: $value;}
+	.switch-item.line-#{$key} input:checked + .slider::before {background-color: $value;}
+	.switch-item.line-#{$key} input:checked + .slider::after {color: $value;}
+}
+
+// switch colors
+@each $key, $value in $colors {
+	.switch-item.type3.fill-#{$key} input:checked + .slider {background-color: rgba($value, 0.2) !important;}
+	.switch-item.type3.fill-#{$key} input:checked + .slider::before {background-color: $value !important;}
+}
+
+// switch disabled 
+.switch-item.type2 input:checked:disabled + .slider { background-color: $grey-light5 !important;}
+.switch-item.type2 input:checked:disabled + .slider::before {background-color: $white !important;}
+.switch-item.type2 input:checked:disabled + .slider::after {color: $white !important;}
+
+.switch-item.type2.line input:checked:disabled + .slider { border-color:$grey-light5 !important; background-color:$white !important;}
+.switch-item.type2.line input:checked:disabled + .slider::before {background-color: $grey-light5 !important;}
+.switch-item.type2.line input:checked:disabled + .slider::after {color: $grey-light5 !important;}
+
+// select
+select.vselect {display: none;}
+.vselect.list-position-top .list {top: auto;bottom: 100%;}

@@ -1,0 +1,72 @@
+@charset "utf-8";
+
+@import "common/vars"; //sometrend 공통색상
+@import "common/mixin"; //sometrend mixin
+@import "common/fonts"; //sometrend font
+@import "common/icon"; //sometrend remix 아이콘
+@import "common/jquery-ui"; //sometrend jquery-ui
+@import "common/nice-select"; //sometrend select lib
+@import "common/slick"; //sometrend slick slider lib
+@import "common/aos"; //sometrend scoll Effect lib
+
+/*====== common ======*/
+@import "common/reset";
+@import "common/common";
+@import "common/grid.min";
+@import "component/aiLoading";
+
+@import "component/ie_change_edge_banner"; // IE접속시 엣지 브라우저 전환 상단 띠배너 
+
+@import "common/layout"; // layout header, footer
+@import "common/layout_dashboard"; // [분석,] 대시보드 레이아웃
+@import "common/layout_detail"; // layout for 콘텐츠 상세
+
+/*====== component ======*/
+@import "component/animations";
+@import "component/text_color";
+@import "component/swiper-bundle";
+@import "component/datepicker";
+@import "component/pinchzoomer";
+@import "component/buttons";
+@import "component/form";
+@import "component/tooltip";
+@import "component/modals";
+@import "component/board"; // 게시판 요소 [썸네일 리스트, 게시판 리스트]
+@import "component/tab"; // 탭 스타일
+@import "component/chart"; // 차트 관련
+@import "component/skeleton"; // skeleton
+@import "component/guide"; // 온보딩
+@import "component/froala_editor.pkgd.min"; // 에디터
+@import "component/chatbot"; // 챗봇
+@import 'component/top_btn'; // 상단 바로가기 버튼
+
+/*====== pages ======*/
+// @import "pages/useInfo"; // 썸트렌트 200%활용법 (현재 게시판형 이전 버전)
+// @import "pages/ranking_food"; // 맛집랭킹
+// @import "pages/ranking_various"; // 별별랭킹
+// @import "pages/education"; // 썸스쿨 교육신청
+
+@import "pages/analysis"; // 리뉴얼 분석페이지
+@import "pages/analysis_upgrade";	// 분석 고도화 소셜 분석
+@import "pages/analysis_compare";	// 분석 고도화 비교 분석
+@import "pages/analysis_share";		// 분석 고도화 공유
+@import "pages/main"; // 메인
+@import "pages/insight"; // 인사이트 리스트
+@import "pages/plan"; // 플랜소개
+@import "pages/magazine"; // 썸매거진
+@import "pages/mypage"; // 리뉴얼 마이페이지
+@import "pages/board"; // 리뉴얼 게시판 [공지사항, 자주묻는 질문]
+@import "pages/error"; // 에러페이지
+@import "pages/sometrend_intro_2021"; // 썸트렌드 소개 2021
+@import "pages/payment"; // 결제 페이지
+@import "pages/howto"; // 활용법
+@import "pages/life"; // 생활변화관측소
+@import "pages/biz_report"; // 비즈리포트
+@import "pages/these_days"; // 요즘 뜨는
+
+@import "pages/notice"; // 공지사항
+@import "pages/faq"; // faq
+@import "pages/some_letter"; // 썸레터 소개
+@import "component/gpt";
+
+// @import "theme/itaewon_221031"; // 이태원 참사 추모

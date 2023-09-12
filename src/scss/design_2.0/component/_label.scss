@@ -1,0 +1,56 @@
+@charset "utf-8";
+
+.vlabel {
+    & {
+        display: inline-flex;justify-content: center;align-items: center;
+        padding: 6px 8px;border-radius: 3px;
+        font-weight: 500;font-size: $font-size-xs;letter-spacing: -0.4px;
+        border: 1px solid transparent;
+        cursor: pointer;
+    }
+}
+
+.vlabel[disabled],
+.vlabel.disabled,
+.vlabel.disabled:hover,
+.vlabel.disabled:focus,
+.vlabel.disabled:active {cursor: default !important;background-color: $grey-disabled !important;border-color: $grey-disabled !important;color: $grey-tertiary !important;}
+
+.label-fill-primary {
+    border-color: $primary-500;background-color: $primary-500;color: $base-white;
+}
+.label-fill-red {
+    border-color: $error-500;background-color: $error-500;color: $base-white;
+}
+.label-fill-grey {
+    border-color: $grey-tertiary;background-color: $grey-tertiary;color: $base-white;
+}
+.label-fill-dark {
+    border-color: $primary-800;background-color: $primary-800;color: $base-white;
+}
+
+.label-soft-primary {
+    border-color: $primary-100;background-color: $primary-100;color: $primary-500;
+}
+.label-soft-red {
+    border-color: $error-50;background-color: $error-50;color: $error-500;
+}
+.label-soft-grey {
+    border-color: $base-background-dark;background-color: $base-background-dark;color: $grey-primary;
+}
+.label-soft-dark {
+    border-color: $borders-default;background-color: $borders-default;color: $primary-800;
+}
+
+.label-outline-primary {
+    border-color: $primary-500;background-color: $base-white;color: $primary-500;
+}
+.label-outline-red {
+    border-color: $error-500;background-color: $base-white;color: $error-500;
+}
+.label-outline-grey {
+    border-color: $grey-tertiary;background-color: $base-white;color: $grey-tertiary;
+}
+.label-outline-dark {
+    border-color: $primary-800;background-color: $base-white;color: $primary-800;
+}

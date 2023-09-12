@@ -1,0 +1,44 @@
+.btn-bell {
+    display: inline-flex;
+    position: relative;
+
+    &::before {
+        content: '';
+        opacity: 0;visibility: hidden;
+        width: 5px;height: 5px;background-color: $error-500;
+        position: absolute;top: 0px;right: 0px;z-index: 1;
+        border-radius: 50%;
+    }
+
+    & .icon {transform-origin: top;display: inline-flex;align-items: center;}
+
+    &.active {
+        &::before {
+            opacity: 1;visibility: visible;
+        }
+    }
+    &.active.animation {
+        .icon {animation: notice 3s infinite;}
+    }
+
+    @keyframes notice {
+        0% {
+            transform: rotate(0deg);
+        }
+        2% {
+            transform: rotate(3deg);
+        }
+        4% {
+            transform: rotate(0deg);
+        }
+        6% {
+            transform: rotate(-3deg);
+        }
+        8% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(0deg);
+        }
+    }
+}

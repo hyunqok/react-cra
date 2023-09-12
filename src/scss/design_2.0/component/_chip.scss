@@ -1,0 +1,40 @@
+.chip {
+    $color: $base-black;
+    $bgcolor: $base-background-dark;
+    $font-size: $font-size-sm;
+    $close-btn-bgcolor: $grey-tertiary;
+
+    display: inline-flex;align-items: center;gap: 5px;
+    background-color: $base-background-dark;
+    font-size: $font-size;
+    color: $color;
+
+    height: 24px;
+    padding-left: 8px;
+    padding-right: 8px;
+
+    line-height: 1;
+
+    border-radius: 4px;
+    
+    .label {
+        color: $color;
+    }
+
+    .btn-remove-chip {
+        display: inline-flex;align-items: center;justify-content: center;width: 16.67px;height: 16.67px;border-radius: 50%;
+        background-color: $close-btn-bgcolor;
+        color: #fff;font-weight: 400;font-size: 11px;
+        text-indent: -1px;
+        margin-right: -4px;
+    }
+
+    &.error {
+        background-color: $error-50;
+        color: $error-500;
+    }
+    &.blue {
+        background-color: $blue-50;
+        color: $blue-500;
+    }
+}

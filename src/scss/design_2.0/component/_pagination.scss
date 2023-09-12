@@ -1,0 +1,14 @@
+
+.pagination {display: flex;align-items: center;margin-block: 15px;}
+.pagination-item {display: flex;align-items: center;justify-content: center;}
+.pagination-item button {min-width: 22px;font-size: $font-size-base;font-weight: $font-weight-500;color: $base-black;}
+.pagination-item [class^="mgc"] {font-size: 24px;color: $base-black;font-weight: $font-weight-500;}
+.pagination-item {
+    &.active {
+        button {color: $primary-500;}
+    }
+    &.disabled {
+        button,
+        [class^="mgc"] {color: $grey-quatinary;}
+    }
+}

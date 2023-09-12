@@ -1,0 +1,188 @@
+.chart-legend-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-inline: 10px;
+}
+
+// 차트 레이블 박스
+.chart-labelbox {
+    clear: both;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 20px;
+    row-gap: 5px;
+}
+
+.chart-labelbox .legend-item {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-500;
+    cursor: pointer;
+}
+
+.chart-labelbox .legend-marker {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    display: block;
+    width: 7px;
+    height: 7px;
+    transform: translateY(50%);
+}
+
+.chart-labelbox .legend-marker-role {
+    position: absolute;
+    top: 44%;
+    left: 9px;
+    display: block;
+    width: 7px;
+    height: 7px;
+    transform: translateY(50%);
+}
+
+.chart-labelbox .legend-value {
+    display: inline-block;
+    margin-left: 5px;
+    color: $base-black;
+}
+
+.chart-labelbox .legend-item.positive .legend-marker {
+    background-color: $positive;
+}
+
+.chart-labelbox .legend-item.negative .legend-marker {
+    background-color: $negative;
+}
+
+.chart-labelbox .legend-item.neutrality .legend-marker {
+    background-color: $neutral;
+}
+
+.chart-labelbox .legend-item.disable {
+    color: $grey-tertiary;
+
+    & .legend-value {
+        color: $grey-tertiary;
+    }
+}
+
+// check marker
+.chart-labelbox.check-marker  {
+    .legend-item {
+        position: relative;
+        padding-left: 20px;
+    }
+
+    .legend-marker {
+        position: absolute;top: 2px;left: 0;transform: initial;
+        width: 15px;height: 15px;border-radius: 3px;
+
+        display: flex;align-items: center;justify-content: center;
+    
+        background-color: $primary-500;
+    
+        & .icon {font-size: 10px;color: #fff;}
+    }
+
+    & .legend-item.disable {
+        .legend-marker {
+            background-color: $grey-quatinary !important;
+        }
+    }
+}
+
+// switch marker
+.chart-labelbox.switch-marker {
+    width: 100%;
+}
+
+.chart-labelbox.switch-marker .legend-item {
+    margin: 3px 0;
+    padding: 0 10px;
+    border: none;
+    background-color: transparent;
+    box-shadow: initial;
+}
+
+.chart-labelbox.switch-marker .legend-marker {
+    position: relative;
+    display: inline-flex;
+    top: auto;
+    left: auto;
+    transform: translateY(0);
+    width: 24px;
+    height: 6px;
+    margin-right: 10px;
+    background-color: initial;
+}
+
+.chart-labelbox.switch-marker .legend-marker span.bar {
+    content: "''";
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
+    background-color: $grey-primary;
+    opacity: 0.15;
+}
+
+.chart-labelbox.switch-marker .legend-marker span.circle {
+    content: "''";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 12px;
+    height: 12px;
+    margin-top: -6px;
+    transform: translatex(100%);
+    border-radius: 50%;
+    background-color: $grey-primary;
+}
+
+.chart-labelbox.switch-marker .legend-item.disable .legend-marker {
+    background-color: initial !important;
+}
+
+.chart-labelbox.switch-marker .legend-item.disable .legend-marker span.bar {
+    background-color: #909398 !important;
+}
+
+.chart-labelbox.switch-marker .legend-item.disable .legend-marker span.circle {
+    transform: translatex(0);
+    background-color: #909398 !important;
+}
+
+.chart-labelbox.rect-marker {
+    column-gap: 30px;
+}
+
+.chart-labelbox.rect-marker .legend-item {
+    padding-left: 18px;
+}
+
+.chart-labelbox.rect-marker .legend-marker {
+    width: 10px;height: 10px;
+    top: 4px;left: 0;
+    transform: initial;
+
+    .bar {
+        display: flex;width: 100%;height: 100%;
+    }
+    .circle {display: none;}
+}
+
+.chart-labelbox.rect-marker .legend-item.disable {
+    color: $grey-tertiary;
+    & .bar {
+        background-color: $grey-tertiary !important;
+    }
+    & .legend-value {
+        color: $grey-tertiary;
+    }
+}

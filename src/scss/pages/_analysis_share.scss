@@ -1,0 +1,100 @@
+@charset "utf-8";
+
+/*
++----------------------------------------------------------------------+
+| Copyright (c) VAIV.  co. Ltd
++----------------------------------------------------------------------+
+| 분석 공유하기
++----------------------------------------------------------------------+
+*/
+
+/* 레이아웃 수정 */
+//공유하기의 경우 _layout_dashboard에 영향도 없이  layout-container-share로 조건을 한정하기 위해 중첩 허용
+.layout-container-share{
+	&{padding: 0}
+	
+	//layout-share-head
+	.layout-share-head{margin-bottom: 20px;background-color: $white;}
+	.layout-share-head .layout-share-head-top, .layout-share-head .layout-share-head-bottom{border-bottom: 1px solid $grey-light4;}
+	
+	//layout-share-head-top
+	.layout-share-head .layout-share-head-top{padding: 30px 0 24px}
+	.layout-share-head-lists{@include flex-display-between();}
+	.layout-share-head-lists img{max-width: 130px;}
+	.layout-share-head-lists .layout-share-head-title{margin-top: 15px;font-size: $h6;line-height: 168%;color: $black-light}
+	.layout-share-head-lists .keyword-text{color: $primary;font-weight: $font-bold;}
+	.layout-share-head-lists .keyword-text.comepare-keyword{@include inline-top();max-width: 90px; @include text-cut();}
+	.layout-share-head-lists .keyword-text.comepare-keyword1{color: $primary;}
+	.layout-share-head-lists .keyword-text.comepare-keyword2{color: $pink;}
+	.layout-share-head-lists .keyword-text.comepare-keyword3{color: $orange;}
+	.layout-share-head-lists .versus-text{color: $grey-dark2;font-size: $font-base;}
+	
+	.layout-share-head-lists .layout-share-infomations{display: flex;@include flex-center();justify-content: start;}
+	.layout-share-head-lists .layout-share-infomations + .layout-share-infomations{margin-top: 14px}
+	.layout-share-head-lists .layout-share-infomations dt{margin-right: 26px;color: $black-light;font-size: $font-base;font-weight: $font-bold;}
+	.layout-share-head-lists .layout-share-infomations dd{display: flex;@include flex-center();color: $grey-dark2;font-size: $font-small;}
+
+	.layout-share-head-lists .layout-share-infomations .share-sns{display: inline-block;margin-right: 6px;padding: 6px 10px;border:1px solid $grey-light5;border-radius: 50px;background-color: $white;}
+	.layout-share-head-lists .layout-share-infomations .share-sns *{@include inline-middle();}
+	.layout-share-head-lists .layout-share-infomations .share-sns-icon{display: inline-block; width: 15px;}
+	.layout-share-head-lists .layout-share-infomations .share-sns-icon img{width: 100%;}
+	.layout-share-head-lists .layout-share-infomations .share-sns-text{color: $grey-dark2;font-size: $font-small;}
+	.layout-share-head-lists .check-type input:disabled+label::before {background-color: $white !important;border-color: $sky;}
+	.layout-share-head-lists .check-type input:disabled+label::after {display: inline-block !important;}
+	
+	//layout-share-head-bottom
+	.layout-share-head .layout-share-head-bottom{padding: 14px 0}
+	//layout-share-head-bottom - 동의어, 포함어, 제외어 리스트
+	.layout-share-filter-lists{display: flex;flex-flow: row wrap;}
+	.layout-share-filter-lists li{position: relative;display: flex;@include flex-center();flex-flow: row wrap;justify-content: start;margin-right: 15px;padding-right: 15px;}
+	.layout-share-filter-lists li:after{content:'';position: absolute;top: 50%;right: 0;@include pos-center('y');width: 1px; height: 15px;background-color: $grey-light4}
+	.layout-share-filter-lists li:last-child:after{display: none}
+	.layout-share-filter-lists .filter-text{margin-right: 10px;color: $black-light;font-weight: $font-medium;font-size: $font-base}
+	.layout-share-filter-lists .filter-keyword{margin-left: 5px;padding: 6px 10px;line-height: 144%;border-radius:  50em;font-size: $font-small;}
+	.layout-share-filter-lists .filter-keyword.filter-keyword-synonym{color: $primary;background-color: $primary-alpha5}
+	.layout-share-filter-lists .filter-keyword.filter-keyword-include{color: $orange;background-color: $orange-alpha10}
+	.layout-share-filter-lists .filter-keyword.filter-keyword-exclude{color: $pink;background-color: $pink-alpha10}
+
+
+	//layout-contents
+	.layout-contents{max-width: 1200px;margin: 0 auto;padding: 0}
+
+	.layout-card-title1{font-size: $font-middle;}
+
+	//원문보기
+	.mention-original-list{max-height: 405px;}
+	.original-data-list{max-height: 340px;}
+	.associated-original-list-social-reputation{max-height: 380px;}
+
+	//카테고리 속성 선택
+	.comp-category-select-box .scroll-content-category-select{height: 340px;}
+	.comp-category-select-box .category-item{display: block;}
+	.comp-category-select-box .one-depth-caterory, .comp-category-select-box .sub-category{display: block;width: 100%;}
+	.comp-category-select-box .one-depth-caterory{margin-bottom: 10px;}
+	.comp-category-select-box .check-type input:disabled+label::before {background-color: $white !important;border-color: $grey-dark;}
+	.comp-category-select-box .check-type input:disabled+label::after {display: inline-block !important;}
+
+	.reputation-word-cloud-table-wrap .table-scroll-box.table-scroll-box-compare{height: 347px;}
+
+	//슬라이드
+	.associated-ranking-slider{padding: 0}
+	.associated-ranking-slider .swiper-button-prev,.associated-ranking-slider .swiper-button-next{display: none}
+
+	.table-associated-ranking-header .title .title-text{max-width: 90px;}	//비교분석에서 키워드
+
+
+
+
+
+
+	//footer
+	.layout-footer{padding-left: 0}
+}
+
+
+@include notebook() {
+	.layout-container-share{
+		//원문보기
+		.mention-original-list{max-height: 395px;}
+	}
+}
